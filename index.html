@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>蒼の最果てと水平線</title>
+  <link rel="stylesheet" href="./css/top.css">
+  <link rel="stylesheet" href="./css/message.css">
+  <link rel="stylesheet" href="./css/achievement.css">
+  <link rel="stylesheet" href="./css/fade.css">
+  <link rel="icon" href="./assets/images/favicon.ico">
+  <meta property="og:title" content="蒼の最果てと水平線">
+  <meta property="og:description" content="蒼い世界のノベルゲーム">
+  <meta property="og:image" content="./assets/images/favicon.png">
+  <meta property="og:url" content="https://coiluck.moe/BlueHorizon/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="蒼の最果てと水平線">
+  <meta name="twitter:description" content="蒼い世界のノベルゲーム">
+  <meta name="twitter:image" content="./assets/images/favicon.png">
+</head>
+<body>
+
+  <div id="modal-top" class="modal">
+    <div class="top-background-image">
+      <img src="./assets/images/title.avif" alt="タイトル画像">
+    </div>
+    <div class="top-title">
+      <img src="./assets/images/title-text.avif" alt="タイトルテキスト">
+    </div>
+    <div class="top-button-container">
+      <button id="top-button-start" class="top-button">はじめから</button>
+      <button id="top-button-continue" class="top-button">つづきから</button>
+    </div>
+    <div class="top-icon-container">
+      <button class="top-icon" id="top-icon-achievement">
+        <img src="./assets/images/trophy-solid-full.svg" alt="実績アイコン">
+        <span class="top-icon-text">実績</span>
+      </button>
+      <button class="top-icon" id="top-icon-setting">
+        <img src="./assets/images/gear-solid-full.svg" alt="設定アイコン">
+        <span class="top-icon-text">設定</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="modal-achievement" class="modal">
+    <div class="achievement-background-image">
+      <img src="./assets/images/ink.avif" alt="実績背景画像">
+    </div>
+    <div class="achievement-container">
+      <div class="achievement-list">
+        <p class="achievement-title">実績一覧</p>
+        <div class="achievement-item-container">
+          // ここはjsで生成
+        </div>
+        <p class="achievement-title">エンディング</p>
+        <div class="achievement-item-end-container">
+          // ここはjsで生成
+        </div>
+      </div>
+      <button id="achievement-close-button">閉じる</button>
+    </div>
+  </div>
+
+  <div id="message-box"></div>
+
+  <script src="./js/top.js" type="module"></script>
+  <script src="./js/achievement.js" type="module"></script>
+</body>
+</html>

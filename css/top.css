@@ -1,0 +1,108 @@
+/* 共通 */
+* {
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+button {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* トップページ */
+.top-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 100%;
+  mask-image: radial-gradient(circle at 0% 50%, black 50%, transparent 90%);
+  -webkit-mask-image: radial-gradient(circle at 0% 50%, black 50%, transparent 90%);
+}
+.top-background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.top-title {
+  position: absolute;
+  top: 0;
+  right: 15%;
+  width: 40%;
+}
+.top-title img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.top-button-container {
+  position: absolute;
+  top: 50%;
+  left: 82.5%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.top-button-container .top-button {
+  color: #333;
+  font-size: 1rem;
+  font-family: serif;
+  text-align: right;
+  background: linear-gradient(currentcolor, currentcolor) left bottom / 100% 1px no-repeat,
+  linear-gradient(#f6d893, #f6d893) right 60% / 0 .8em no-repeat;
+  transition: background-size .4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  background-color: transparent;
+  border: none;
+}
+.top-button-container .top-button:hover {
+  background-position: right bottom, left 60%;
+  background-size: 0 1px, 100% .8em;
+}
+
+.top-icon-container {
+  position: absolute;
+  top: 90%;
+  left: 82.5%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  width: 20%;
+  justify-content: space-between;
+}
+.top-icon {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+}
+.top-icon img {
+  width: 40px;
+  height: 40px;
+}
+.top-icon-text {
+  color: #333;
+  font-size: .8rem;
+  font-family: serif;
+  white-space: nowrap;
+}
