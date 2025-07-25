@@ -63,7 +63,7 @@ button {
 }
 .top-button-container .top-button {
   color: #333;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-family: serif;
   text-align: right;
   background: linear-gradient(currentcolor, currentcolor) left bottom / 100% 1px no-repeat,
@@ -95,6 +95,7 @@ button {
   justify-content: center;
   background: transparent;
   border: none;
+  transition: transform .3s ease-in-out;
 }
 .top-icon img {
   width: 40px;
@@ -105,4 +106,10 @@ button {
   font-size: .8rem;
   font-family: serif;
   white-space: nowrap;
+}
+.top-icon:hover {
+  transform: scale(1.1);
+}
+.top-icon:hover img {
+  rotate: 10deg;
 }

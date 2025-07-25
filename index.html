@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./css/top.css">
   <link rel="stylesheet" href="./css/message.css">
   <link rel="stylesheet" href="./css/achievement.css">
+  <link rel="stylesheet" href="./css/setting.css">
   <link rel="stylesheet" href="./css/fade.css">
   <link rel="icon" href="./assets/images/favicon.ico">
   <meta property="og:title" content="蒼の最果てと水平線">
@@ -58,7 +59,46 @@
           // ここはjsで生成
         </div>
       </div>
-      <button id="achievement-close-button">閉じる</button>
+      <button id="achievement-close-button">もどる</button>
+    </div>
+  </div>
+
+  <div id="modal-setting" class="modal">
+    <div class="setting-background-image">
+      <img src="./assets/images/ink.avif" alt="設定背景画像">
+    </div>
+    <div class="setting-container">
+      <p class="setting-title">設定</p>
+
+      <div class="setting-item">
+        <label for="font-size">文字サイズ</label>
+        <div class="slider-wrapper">
+          <div class="slider-container">
+            <input type="range" id="font-size" min="1" max="5" value="3" data-default="3">
+          </div>
+          <output for="font-size">3</output>
+        </div>
+      </div>
+      <div class="setting-item">
+        <label for="bgm-volume">背景音楽の音量</label>
+        <div class="slider-wrapper">
+          <div class="slider-container">
+            <input type="range" id="bgm-volume" min="0" max="10" value="5" data-default="5">
+          </div>
+          <output for="bgm-volume">5</output>
+        </div>
+      </div>
+      <div class="setting-item">
+        <label for="sfx-volume">効果音の音量</label>
+        <div class="slider-wrapper">
+          <div class="slider-container">
+            <input type="range" id="sfx-volume" min="0" max="10" value="6" data-default="6">
+          </div>
+          <output for="sfx-volume">6</output>
+        </div>
+      </div>
+      <button id="setting-reset-button">デフォルトにもどす</button>
+      <button id="setting-close-button">もどる</button>
     </div>
   </div>
 
@@ -66,5 +106,6 @@
 
   <script src="./js/top.js" type="module"></script>
   <script src="./js/achievement.js" type="module"></script>
+  <script src="./js/setting.js" type="module"></script>
 </body>
 </html>

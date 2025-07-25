@@ -134,20 +134,27 @@
 .ending-info .ending-info-description {
   background-color: rgba(0, 0, 0, 0.5);
   margin: 0;
-  padding: 5px 10px;
   color: white;
-  transition: transform 0.3s ease-in-out;
+  opacity: 0;
+  backdrop-filter: blur(0);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
 }
 .ending-info .ending-info-title {
+  padding: 5px 10px;
   transform: translateY(-150%);
+  font-size: .8rem;
 }
 .ending-info .ending-info-description {
+  padding: 3px 5px;
   transform: translateY(150%);
-  font-size: .8rem;
+  font-size: .6rem;
+  font-family: serif;
 }
 .achievement-item-end.achieved-end:hover .ending-info .ending-info-title,
 .achievement-item-end.achieved-end:hover .ending-info .ending-info-description {
   transform: translateY(0);
+  opacity: 1;
+  backdrop-filter: blur(5px);
 }
 
 #achievement-close-button {
@@ -158,6 +165,11 @@
   padding: 10px 40px;
   background-color: #333;
   color: #fff;
-  border: none;
+  border: 1px solid #333;
   border-radius: calc(10px + 10px + 1rem);
+  transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+#achievement-close-button:hover {
+  background-color: white;
+  color: #333;
 }
