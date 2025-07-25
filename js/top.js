@@ -37,3 +37,32 @@ document.getElementById('top-icon-setting').addEventListener('click', () => {
   }
   changeModal('setting', '.setting-container');
 });
+
+document.getElementById('top-button-start').addEventListener('click', () => {
+  if (window.innerWidth < 768) {
+    deleteMessage();
+    message('error', 'このゲームはPCのみでプレイできます', 'infinity');
+    return;
+  }
+  changeModal('opening');
+});
+
+document.getElementById('top-button-continue').addEventListener('click', () => {
+  if (window.innerWidth < 768) {
+    deleteMessage();
+    message('error', 'このゲームはPCのみでプレイできます', 'infinity');
+    return;
+  }
+    // 既存のボタンをスライドアウト
+  document.querySelector('.top-button-container').classList.add('show-save-data');
+});
+
+document.getElementById('top-back').addEventListener('click', () => {
+  if (window.innerWidth < 768) {
+    deleteMessage();
+    message('error', 'このゲームはPCのみでプレイできます', 'infinity');
+    return;
+  }
+    // 既存のボタンをスライドアウト
+  document.querySelector('.top-button-container').classList.remove('show-save-data');
+});

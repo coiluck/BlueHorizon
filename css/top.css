@@ -1,4 +1,4 @@
-/* 共通 */
+/* --- 共通 (変更なし) --- */
 * {
   margin: 0;
   padding: 0;
@@ -24,7 +24,20 @@ button {
   height: 100%;
 }
 
-/* トップページ */
+/* --- トップページ (変更なし) --- */
+#modal-top * img {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
 .top-background-image {
   position: absolute;
   top: 0;
@@ -39,7 +52,6 @@ button {
   height: 100%;
   object-fit: cover;
 }
-
 .top-title {
   position: absolute;
   top: 0;
@@ -54,29 +66,89 @@ button {
 
 .top-button-container {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 82.5%;
   transform: translate(-50%, -50%);
+  overflow: hidden;
+  width: 250px;
+  height: 200px; 
+}
+
+.top-main-button-container,
+.top-save-data-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
   gap: 10px;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
-.top-button-container .top-button {
+
+.top-main-button-container {
+  align-items: center;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.top-save-data-container {
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.top-button-container.show-save-data .top-main-button-container {
+  transform: translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.top-button-container.show-save-data .top-save-data-container {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.top-button, 
+.top-save-data-button {
   color: #333;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-family: serif;
   text-align: right;
   background: linear-gradient(currentcolor, currentcolor) left bottom / 100% 1px no-repeat,
-  linear-gradient(#f6d893, #f6d893) right 60% / 0 .8em no-repeat;
+              linear-gradient(#f6d893, #f6d893) right 60% / 0 .8em no-repeat;
   transition: background-size .4s cubic-bezier(0.215, 0.61, 0.355, 1);
   background-color: transparent;
   border: none;
+  padding: 5px 10px;
 }
-.top-button-container .top-button:hover {
+
+/* ホバーエフェクトも統合 */
+.top-button:hover,
+.top-save-data-button:hover {
   background-position: right bottom, left 60%;
   background-size: 0 1px, 100% .8em;
 }
 
+#top-back {
+  align-self: flex-start;
+  padding: 5px 10px;
+  font-size: 1rem;
+  font-family: serif;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: calc(10px + 1rem);
+  box-sizing: border-box;
+  transition: border .3s ease-in-out;
+}
+#top-back:hover {
+  border: 1px solid #333333;
+} 
+
+
+/* アイコン */
 .top-icon-container {
   position: absolute;
   top: 90%;

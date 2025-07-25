@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./css/message.css">
   <link rel="stylesheet" href="./css/achievement.css">
   <link rel="stylesheet" href="./css/setting.css">
+  <link rel="stylesheet" href="./css/opening.css">
   <link rel="stylesheet" href="./css/fade.css">
   <link rel="icon" href="./assets/images/favicon.ico">
   <meta property="og:title" content="蒼の最果てと水平線">
@@ -29,8 +30,16 @@
       <img src="./assets/images/title-text.avif" alt="タイトルテキスト">
     </div>
     <div class="top-button-container">
-      <button id="top-button-start" class="top-button">はじめから</button>
-      <button id="top-button-continue" class="top-button">つづきから</button>
+      <div class="top-main-button-container">
+        <button id="top-button-start" class="top-button">はじめから</button>
+        <button id="top-button-continue" class="top-button">つづきから</button>
+      </div>
+      <div class="top-save-data-container">
+        <button id="top-back">&lt;&lt; もどる</button>
+        <button class="top-save-data-button">セーブ1: <span id="top-save-data-1-text">データなし</span></button>
+        <button class="top-save-data-button">セーブ2: <span id="top-save-data-2-text">データなし</span></button>
+        <button class="top-save-data-button">セーブ3: <span id="top-save-data-3-text">データなし</span></button>
+      </div>
     </div>
     <div class="top-icon-container">
       <button class="top-icon" id="top-icon-achievement">
@@ -97,9 +106,25 @@
           <output for="sfx-volume">6</output>
         </div>
       </div>
+      <div class="setting-item">
+        <label for="voice-volume">ボイス音量</label>
+        <div class="slider-wrapper">
+          <div class="slider-container">
+            <input type="range" id="voice-volume" min="0" max="10" value="6" data-default="6">
+          </div>
+          <output for="voice-volume">6</output>
+        </div>
+      </div>
       <button id="setting-reset-button">デフォルトにもどす</button>
       <button id="setting-close-button">もどる</button>
     </div>
+  </div>
+
+  <div id="modal-opening" class="modal">
+    <div class="opening-background-image">
+      <img src="./assets/images/ink.avif" alt="開始画面背景画像">
+    </div>
+    <div class="opening-container"></div>
   </div>
 
   <div id="message-box"></div>
