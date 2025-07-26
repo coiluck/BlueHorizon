@@ -124,7 +124,18 @@
     <div class="opening-background-image">
       <img src="./assets/images/ink.avif" alt="開始画面背景画像">
     </div>
-    <div class="opening-container"></div>
+    <div class="text-container">
+      <div id="opening-character-name">test</div>
+      <p id="opening-text">このメッセージは表示されないはずです</p>
+    </div>
+    <div id="opening-choices-container"></div>
+    <div id="opening-skip-window">
+      <p><span>以前に読んだストーリーです。</span><span>スキップしますか？</span></p>
+      <div class="opening-skipbutton-container">
+        <div id="opening-skip-cancel">Cancel</div>
+        <div id="opening-skip-button">Skip</div>
+      </div>
+    </div>
   </div>
 
   <div id="message-box"></div>
@@ -132,5 +143,6 @@
   <script src="./js/top.js" type="module"></script>
   <script src="./js/achievement.js" type="module"></script>
   <script src="./js/setting.js" type="module"></script>
+  <script src="./js/opening.js" type="module"></script>
 </body>
 </html>

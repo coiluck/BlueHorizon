@@ -1,3 +1,4 @@
+// changeModal.js
 export function changeModal(modalName, scrollContainer) {
   // すべてのモーダルを閉じる
   document.querySelectorAll('.modal').forEach(function(modal) {

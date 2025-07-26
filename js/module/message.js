@@ -1,3 +1,4 @@
+// message.js
 let messageCounter = 0;
 
 // 時間経過でメッセージを削除

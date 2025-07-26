@@ -1,3 +1,4 @@
+// setting.js
 import { changeModal } from './module/changeModal.js';
 
 document.getElementById('setting-close-button').addEventListener('click', () => {

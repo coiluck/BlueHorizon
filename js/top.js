@@ -1,3 +1,4 @@
+// top.js
 import { message, deleteMessage } from './module/message.js';
 
 document.addEventListener('DOMContentLoaded', () => {
