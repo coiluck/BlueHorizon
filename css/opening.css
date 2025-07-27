@@ -13,7 +13,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: -1;
 }
 
 .opening-background-image img {
@@ -52,7 +52,7 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-#opening-character-name::after {
+#opening-text::before {
   content: '';
   display: block;
   width: 100%;
@@ -90,25 +90,15 @@
   align-items: center;
   justify-content: center;
   padding: 10px 20px;
-  color: #1e1e1e;
-  background-color: #e0e0e0;
-  border: none;
   font-family: serif;
   font-size: .9rem;
-  background-image: url('../assets/images/paper.jpg');
-  background-size: cover;
-  background-blend-mode: luminosity;
-  cursor: pointer;
-}
-.opening-choice-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  color: #1e1e1e;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  background: rgba(132, 180, 206, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.7); /* 内側の枠線 */
-  pointer-events: none;
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
 }
 .opening-choice-button::after {
   content: '';
@@ -118,7 +108,15 @@
   right: -4px;
   bottom: -4px;
   border: 1px solid rgba(255, 255, 255, 0.7); /* 外側の枠線 */
+  border-radius: 12px;
   pointer-events: none;
+}
+.opening-choice-button:hover {
+  background: rgba(186, 220, 238, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.7);
+}
+.opening-choice-button:hover::after {
+  border: 1px solid rgba(0, 0, 0, 0.7);
 }
 
 /* スキップウィンドウ */
@@ -162,8 +160,7 @@
   animation: float 4s ease-in-out infinite;
 }
 #opening-skip-window p {
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 1rem;
   margin-bottom: 25px;
   position: relative;
   z-index: 2;
@@ -171,6 +168,7 @@
 #opening-skip-window p span {
   font-size: .9rem;
   color: #e6f3ff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
   display: inline-block;
 }
 .opening-skipbutton-container {
@@ -193,23 +191,27 @@
   font-size: .9rem;
   min-width: 80px;
   text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 #opening-skip-cancel {
-  background: rgba(100, 100, 100, 0.2);
-  border-color: rgba(150, 150, 150, 0.5);
+  background: rgba(70, 70, 70, 0.2);
+  border-color: rgba(100, 100, 100, 0.5);
 }
-
 #opening-skip-cancel:hover {
-  background: rgba(100, 100, 100, 0.3);
-  border-color: rgba(150, 150, 150, 0.7);
-  box-shadow: 0 0 15px rgba(150, 150, 150, 0.3);
+  background: rgba(70, 70, 70, 0.3);
+  border-color: rgba(100, 100, 100, 0.7);
+  box-shadow: 0 0 15px rgba(100, 100, 100, 0.3);
   transform: translateY(-2px);
 }
 
+#opening-skip-button {
+  background: rgba(187, 236, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
 #opening-skip-button:hover {
-  background: rgba(135, 206, 235, 0.3);
-  border-color: rgba(135, 206, 235, 0.7);
+  background: rgba(187, 236, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.7);
   box-shadow: 0 0 15px rgba(135, 206, 235, 0.4);
   transform: translateY(-2px);
 }

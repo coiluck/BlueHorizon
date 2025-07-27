@@ -1,4 +1,6 @@
 // scenario.js
+import { changeBackgroundImage } from './scenarioAction.js';
+
 export const openingScenario = [
   { text: 'こんにちは、このゲームはテストです。' },
   { 
@@ -16,6 +18,9 @@ export const openingChoices = {
       buttonText: 'はい',
       branch: [
         { text: 'あなたは首を縦に振った。' },
+        { text: '「だって始まったばっかりだもん！」',
+          speaker: 'ミナ'
+        },
         { text: '「はい」を選んだ後のストーリーです。' }
       ]
     },
@@ -24,9 +29,9 @@ export const openingChoices = {
       branch: [
         { text: 'あなたは断った。' },
         { 
-          text: '何かのアクションが実行される…。',
+          text: '',
           action: () => {
-            alert("アクションが実行されました！");
+            changeBackgroundImage('opening', 'horizon1.webp');
           }
         }
       ]
