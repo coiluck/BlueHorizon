@@ -109,6 +109,12 @@ function displayChoices(choiceId) {
     document.getElementById('opening-choices-container').classList.add('fade-in');
     document.getElementById('opening-choices-container').style.pointerEvents = 'auto';
   }, 500);
+  setTimeout(() => {
+    document.getElementById('opening-choices-container').classList.remove('fade-in');
+    document.querySelectorAll('.opening-choice-button').forEach(btn => {
+      btn.classList.add('blur');
+    });
+  }, 1000);
 }
 
 // 最初に一度だけ実行（HTMLに入れてあるデフォルトテキストを変更するため）
