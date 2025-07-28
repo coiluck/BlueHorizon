@@ -22,7 +22,18 @@
     opacity: 0;
   }
 }
-
+.blur {
+  animation: Blur .5s;
+  animation-fill-mode: both;
+}
+@keyframes Blur {
+  0% {
+    backdrop-filter: blur(0px);
+  }
+  100% {
+    backdrop-filter: blur(10px);
+  }
+}
 .no-display {
   display: none !important;
 }

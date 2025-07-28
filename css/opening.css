@@ -13,7 +13,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  transform: translateZ(0); 
 }
 
 .opening-background-image img {
@@ -80,6 +80,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
+  z-index: 3;
 }
 .opening-choice-button {
   width: 60%;
@@ -94,10 +95,9 @@
   font-size: .9rem;
   color: #1e1e1e;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  background: rgba(132, 180, 206, 0.2);
+  background: rgba(186, 220, 238, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.7); /* 内側の枠線 */
   border-radius: 8px;
-  backdrop-filter: blur(5px);
   transition: all 0.3s ease;
 }
 .opening-choice-button::after {
@@ -112,7 +112,7 @@
   pointer-events: none;
 }
 .opening-choice-button:hover {
-  background: rgba(186, 220, 238, 0.5);
+  background: rgba(186, 220, 238, 0.7);
   border: 1px solid rgba(0, 0, 0, 0.7);
 }
 .opening-choice-button:hover::after {
