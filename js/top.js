@@ -1,5 +1,6 @@
 // top.js
 import { message, deleteMessage } from './module/message.js';
+import { playSoundEffect } from './module/audio.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // PC以外は警告
@@ -45,7 +46,12 @@ document.getElementById('top-button-start').addEventListener('click', () => {
     message('error', 'このゲームはPCのみでプレイできます', 'infinity');
     return;
   }
-  changeModal('opening');
+  document.getElementById('top-button-start').style.pointerEvents = 'none';
+  changeModal('opening', undefined, 2000);
+  playSoundEffect('start');
+  setTimeout(() => {
+    document.getElementById('top-button-start').style.pointerEvents = 'auto';
+  }, 2000);
 });
 
 document.getElementById('top-button-continue').addEventListener('click', () => {

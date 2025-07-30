@@ -1,5 +1,5 @@
 // changeModal.js
-export function changeModal(modalName, scrollContainer) {
+export function changeModal(modalName, scrollContainer, duration = 500) {
   // すべてのモーダルを閉じる
   document.querySelectorAll('.modal').forEach(function(modal) {
     modal.classList.remove('fade-in');
@@ -17,5 +17,5 @@ export function changeModal(modalName, scrollContainer) {
       document.querySelector(`${scrollContainer}`).scrollTop = 0;
     }
     document.getElementById(`modal-${modalName}`).classList.add('fade-in');
-  }, 500);
+  }, duration);
 }
