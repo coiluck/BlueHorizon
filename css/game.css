@@ -1,0 +1,136 @@
+#modal-game {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.game-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.game-background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ゲーム全体コンテナ */
+.game-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+/* パラメーター */
+.game-parameter-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 20px 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+}
+.game-parameter-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(70, 130, 180, 0.9);
+  font-weight: 500;
+  text-align: center;
+}
+.game-parameter-item-title {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  opacity: 0.8;
+  font-weight: 400;
+}
+.game-parameter-item-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgba(30, 100, 150, 1);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* メインコンテナエリア */
+.game-main-container {
+  flex: 1;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px;
+  min-height: 0;
+}
+.game-main-container > div {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* アップグレードエリア */
+.game-main-upgrade-title {
+  color: #555;
+  font-size: 1rem;
+  opacity: 0.8;
+  margin-bottom: 10px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  padding-bottom: 10px;
+}
+.game-main-upgrade-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.game-main-upgrade-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 5px 10px;
+}
+.game-main-upgrade-name {
+  color: rgba(30, 100, 150, 1);
+  font-weight: 500;
+  font-size: .9rem;
+  margin-bottom: 5px;
+}
+.game-main-upgrade-level,
+.game-main-upgrade-level span {
+  color: rgba(70, 130, 180, 0.7);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+  font-size: 0.7rem;
+}
+
+/* マップエリア */
+
+
+/* アイテムエリア */
+.game-main-belongings-title {
+  color: #555;
+  font-size: 1rem;
+  opacity: 0.8;
+  margin-bottom: 10px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  padding-bottom: 10px;
+}

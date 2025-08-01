@@ -120,6 +120,7 @@ function displayChoices(choiceId) {
 // 最初に一度だけ実行（HTMLに入れてあるデフォルトテキストを変更するため）
 updateStory();
 
+import { changeModal } from './module/changeModal.js';
 
 // skip-window全体
 document.getElementById('opening-skip-window').addEventListener('click', (event) => {
@@ -129,6 +130,7 @@ document.getElementById('opening-skip-window').addEventListener('click', (event)
 document.getElementById('opening-skip-button').addEventListener('click', (event) => {
   event.stopPropagation(); 
   // あとでスキップ処理書く
+  changeModal('game');
 });
 // skip-cancel
 document.getElementById('opening-skip-cancel').addEventListener('click', (event) => {

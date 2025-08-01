@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./css/achievement.css">
   <link rel="stylesheet" href="./css/setting.css">
   <link rel="stylesheet" href="./css/opening.css">
+  <link rel="stylesheet" href="./css/game.css">
   <link rel="stylesheet" href="./css/fade.css">
   <link rel="icon" href="./assets/images/favicon.ico">
   <meta property="og:title" content="蒼の最果てと水平線">
@@ -138,11 +139,83 @@
     </div>
   </div>
 
+  <div id="modal-game" class="modal">
+    <div class="game-background-image">
+      <img src="./assets/images/horizon2.webp" alt="ゲーム背景画像">
+    </div>
+    <div class="game-container">
+      <div class="game-parameter-container">
+        <div class="game-parameter-item">
+          <p class="game-parameter-item-title">希望</p>
+          <p id="game-parameter-hope" class="game-parameter-item-value">0</p>
+        </div>
+        <div class="game-parameter-item">
+          <p class="game-parameter-item-title">記憶の欠片</p>
+          <p id="game-parameter-memory" class="game-parameter-item-value">0</p>
+        </div>
+        <div class="game-parameter-item">
+          <p class="game-parameter-item-title">DAY</p>
+          <p id="game-parameter-day" class="game-parameter-item-value">1</p>
+        </div>
+      </div>
+      <div class="game-main-container">
+        <div id="game-main-upgrade">
+          <div class="game-main-upgrade-title">セレスティア号 改造</div>
+          <div class="game-main-upgrade-container">
+            <div class="game-main-upgrade-item">
+              <div class="game-main-upgrade-name">推進エンジン</div>
+              <div class="game-main-upgrade-level">レベル <span id="game-main-upgrade-engine-level">0</span> / 3</div>
+            </div>
+            <div class="game-main-upgrade-item">
+              <div class="game-main-upgrade-name">ソナー性能</div>
+              <div class="game-main-upgrade-level">レベル <span id="game-main-upgrade-sonar-level">0</span> / 3</div>
+            </div>
+            <div class="game-main-upgrade-item">
+              <div class="game-main-upgrade-name">船殻強度</div>
+              <div class="game-main-upgrade-level">レベル <span id="game-main-upgrade-body-level">0</span> / 3</div>
+            </div>
+            <div class="game-main-upgrade-item">
+              <div class="game-main-upgrade-name">操作アーム</div>
+              <div class="game-main-upgrade-level">レベル <span id="game-main-upgrade-arm-level">0</span> / 3</div>
+            </div>
+            <div class="game-main-upgrade-item">
+              <div class="game-main-upgrade-name">燃料タンク</div>
+              <div class="game-main-upgrade-level">レベル <span id="game-main-upgrade-fuel-level">0</span> / 3</div>
+            </div>
+            <div class="game-main-upgrade-item">
+              <div class="game-main-upgrade-name">居住区画</div>
+              <div class="game-main-upgrade-level">レベル <span id="game-main-upgrade-living-level">0</span> / 3</div>
+            </div>
+          </div>
+        </div>
+        <div id="game-main-map"></div>
+        <div id="game-main-belongings">
+          <div class="game-main-belongings-title">所持アイテム</div>
+          <div class="game-main-belongings-container">
+            <div class="game-main-belongings-item">
+              <div class="game-main-belongings-name">アイテム1</div>
+              <div class="game-main-belongings-count">10</div>
+            </div>
+            <div class="game-main-belongings-item">
+              <div class="game-main-belongings-name">アイテム2</div>
+              <div class="game-main-belongings-count">10</div>
+            </div>
+            <div class="game-main-belongings-item">
+              <div class="game-main-belongings-name">アイテム3</div>
+              <div class="game-main-belongings-count">10</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="message-box"></div>
 
   <script src="./js/top.js" type="module"></script>
   <script src="./js/achievement.js" type="module"></script>
   <script src="./js/setting.js" type="module"></script>
   <script src="./js/opening.js" type="module"></script>
+  <script src="./js/game.js" type="module"></script>
 </body>
 </html>
