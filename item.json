@@ -1,0 +1,20 @@
+[
+  {
+    "id": "scrap_iron",
+    "name": "鉄くず",
+    "description": "錆びついているが、精錬すれば様々な用途に使える基本的な金属素材。",
+    "type": "material",
+    "source": "salvage"
+  },
+  {
+    "id": "cutting_torch",
+    "name": "カッティングトーチ",
+    "description": "瓦礫で塞がれた通路などを焼き切ることができる。",
+    "type": "tool",
+    "source": "craft",
+    "recipe": [
+      { "itemId": "scrap_iron", "quantity": 5 },
+      { "itemId": "cable_bundle", "quantity": 2 }
+    ]
+  }
+]
