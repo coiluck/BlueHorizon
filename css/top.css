@@ -115,7 +115,6 @@ button {
 .top-button, 
 .top-save-data-button {
   color: #333;
-  font-size: 1.1rem;
   font-family: serif;
   text-align: right;
   background: linear-gradient(currentcolor, currentcolor) left bottom / 100% 1px no-repeat,
@@ -125,8 +124,19 @@ button {
   border: none;
   padding: 5px 10px;
 }
+.top-button {
+  font-size: 1.1rem;
+}
+.top-save-data-button {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.9rem;
+}
+.top-save-data-button span {
+  font-size: 0.8rem;
+}
 
-/* ホバーエフェクトも統合 */
 .top-button:hover,
 .top-save-data-button:hover {
   background-position: right bottom, left 60%;

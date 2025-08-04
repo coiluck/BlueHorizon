@@ -1,12 +1,27 @@
 // top.js
 import { message, deleteMessage } from './module/message.js';
 import { playSoundEffect } from './module/audio.js';
+import { loadSaveTitle, loadGame } from './module/save.js';
+import { initGame } from './game.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // PC以外は警告
   if (window.innerWidth < 768) {
     message('error', 'このゲームはPCのみでプレイできます', 'infinity');
   }
+  // セーブデータを読み込む
+  loadSaveTitle('.top-save-data-button');
+  // セーブデータをロードするイベント
+  const loadButtons = document.querySelectorAll('.top-save-data-button');
+  loadButtons.forEach((button, index) => {
+    const slotNumber = index + 1; // スロット番号は1から始める
+    button.addEventListener('click', () => {
+      // 対応する番号のデータをロード
+      loadGame(slotNumber);
+      changeModal('game');
+      initGame();
+    });
+  });
 });
 // リサイズ時も警告
 window.addEventListener('resize', () => {
