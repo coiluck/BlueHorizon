@@ -12,14 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // セーブデータを読み込む
   loadSaveTitle('.top-save-data-button');
   // セーブデータをロードするイベント
-  const loadButtons = document.querySelectorAll('.top-save-data-button');
-  loadButtons.forEach((button, index) => {
+  document.querySelectorAll('.top-save-data-button').forEach((button, index) => {
     const slotNumber = index + 1; // スロット番号は1から始める
     button.addEventListener('click', () => {
       // 対応する番号のデータをロード
-      loadGame(slotNumber);
-      changeModal('game');
-      initGame();
+      if (loadGame(slotNumber)) {
+        changeModal('game');
+        initGame();
+      }
     });
   });
 });
@@ -62,7 +62,7 @@ document.getElementById('top-button-start').addEventListener('click', () => {
     return;
   }
   document.getElementById('top-button-start').style.pointerEvents = 'none';
-  changeModal('opening', undefined, 2000);
+  changeModal('opening', undefined, 1500);
   playSoundEffect('start');
   setTimeout(() => {
     document.getElementById('top-button-start').style.pointerEvents = 'auto';

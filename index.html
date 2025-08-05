@@ -154,6 +154,10 @@
           <p id="game-parameter-memory" class="game-parameter-item-value">0</p>
         </div>
         <div class="game-parameter-item">
+          <p class="game-parameter-item-title">満腹度</p>
+          <p id="game-parameter-hunger" class="game-parameter-item-value">100</p>
+        </div>
+        <div class="game-parameter-item">
           <p class="game-parameter-item-title">DAY</p>
           <p id="game-parameter-day" class="game-parameter-item-value">1</p>
         </div>
@@ -191,11 +195,16 @@
               <div class="game-main-upgrade-level">レベル <span id="game-main-upgrade-living-level">0</span> / 3</div>
             </div>
           </div>
+          <div class="game-main-upgrade-overlay">
+            <p>改装へ<img src="./assets/images/yajirusi.avif" alt="矢印"></p>
+          </div>
         </div>
         <div id="game-main-map">
           <div class="game-main-map-title">マップ</div>
           <img src="./assets/images/map.svg" alt="マップ画像">
-          <div class="game-main-map-overlay"></div>
+          <div class="game-main-map-overlay">
+            <button id="game-main-map-button">探索へ</button>
+          </div>
         </div>
         <div id="game-main-belongings">
           <div class="game-main-belongings-title">所持アイテム</div>
@@ -215,6 +224,9 @@
                 <span class="game-main-belongings-count">10</span>
               </div>
             </div>
+          </div>
+          <div class="game-main-belongings-overlay">
+            <p>アイテムへ<img src="./assets/images/yajirusi.avif" alt="矢印"></p>
           </div>
         </div>
       </div>

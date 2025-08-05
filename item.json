@@ -7,14 +7,245 @@
     "source": "salvage"
   },
   {
-    "id": "cutting_torch",
-    "name": "カッティングトーチ",
-    "description": "瓦礫で塞がれた通路などを焼き切ることができる。",
+    "id": "wood",
+    "name": "木材",
+    "description": "加工しやすい基本的な素材。燃料や建築資材になる。",
+    "type": "material",
+    "source": "salvage"
+  },
+  {
+    "id": "fiber_rope",
+    "name": "繊維ロープ",
+    "description": "丈夫な植物繊維で編まれたロープ。様々なものを縛ったり、組み合わせたりするのに使う。",
+    "type": "material",
+    "source": "salvage"
+  },
+  {
+    "id": "copper_wire_cable",
+    "name": "銅線ケーブル",
+    "description": "電気を通しやすい銅線を束ねたもの。電子機器の修理やクラフトに不可欠。",
+    "type": "material",
+    "source": "salvage"
+  },
+  {
+    "id": "titanium_alloy_plate",
+    "name": "チタン合金板",
+    "description": "軽量でありながら非常に頑丈な金属板。高度なツールや装備の素材となる。",
+    "type": "material",
+    "source": "salvage"
+  },
+  {
+    "id": "activated_carbon",
+    "name": "活性炭",
+    "description": "無数の微細な穴を持つ炭。不純物を吸着する性質があり、フィルターなどに利用される。",
+    "type": "material",
+    "source": "salvage"
+  },
+  {
+    "id": "crystal_ore",
+    "name": "水晶原石",
+    "description": "特殊なエネルギーを秘めた鉱石。精製することで高度な技術に応用できる。",
+    "type": "material",
+    "source": "salvage"
+  },
+  {
+    "id": "circuit_board",
+    "name": "電子基板",
+    "description": "複雑な電子回路が組まれた板。電子機器の中核をなす部品。",
+    "type": "material",
+    "source": "salvage"
+  },
+  {
+    "id": "fishing_gear",
+    "name": "釣具",
+    "description": "魚を釣るための簡単な道具。食料を安定して確保するために役立つ。",
     "type": "tool",
     "source": "craft",
     "recipe": [
-      { "itemId": "scrap_iron", "quantity": 5 },
-      { "itemId": "cable_bundle", "quantity": 2 }
+      { "itemId": "wood", "quantity": 1 },
+      { "itemId": "fiber_rope", "quantity": 1 },
+      { "itemId": "scrap_iron", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "fish_1",
+    "name": "ありふれた魚",
+    "description": "近海で獲れた食べられる魚。調理すれば栄養価が高まる。",
+    "type": "consumable",
+    "source": "salvage"
+  },
+  {
+    "id": "fish_2",
+    "name": "珍しい魚",
+    "description": "少し深場で獲れた珍しい魚。貴重な栄養源となる。",
+    "type": "consumable",
+    "source": "salvage"
+  },
+  {
+    "id": "squid",
+    "name": "イカ",
+    "description": "墨を吐く軟体動物。食用になるほか、その墨はインクの代わりにもなる。",
+    "type": "consumable",
+    "source": "salvage"
+  },
+  {
+    "id": "bonfire",
+    "name": "焚き火",
+    "description": "暖を取り、明かりを確保し、簡単な調理ができる。",
+    "type": "tool",
+    "source": "craft",
+    "recipe": [
+      { "itemId": "wood", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "shichirin",
+    "name": "七輪",
+    "description": "持ち運び可能な小型のコンロ。簡単な調理ができる。",
+    "type": "tool",
+    "source": "craft",
+    "recipe": [
+      { "itemId": "activated_carbon", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "cooked_food",
+    "name": "料理",
+    "description": "食材を加熱調理したもの。生で食べるより安全で栄養価が高い。",
+    "type": "consumable",
+    "source": "craft",
+    "recipe": [
+      {
+        "anyOf": [
+          { "itemId": "fish_1", "quantity": 1 },
+          { "itemId": "fish_2", "quantity": 1 },
+          { "itemId": "squid", "quantity": 1 }
+        ]
+      },
+      {
+        "anyOf": [
+          { "itemId": "bonfire", "quantity": 1 },
+          { "itemId": "shichirin", "quantity": 1 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "paper_and_pen",
+    "name": "紙とペン",
+    "description": "情報を記録するための道具。木材パルプから作った紙と、イカ墨のペン。",
+    "type": "tool",
+    "source": "craft",
+    "recipe": [
+      { "itemId": "wood", "quantity": 1 },
+      { "itemId": "squid", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "explosive",
+    "name": "爆薬",
+    "description": "岩盤などを破壊するための強力な爆薬。取り扱いには注意が必要。",
+    "type": "tool",
+    "source": "craft",
+    "recipe": [
+      { "itemId": "crystal_ore", "quantity": 1 },
+      { "itemId": "activated_carbon", "quantity": 1 },
+      { "itemId": "fiber_rope", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "simple_communicator",
+    "name": "簡易通信機",
+    "description": "外部に微弱な信号を発信できる通信装置。救助を呼ぶ最後の望みとなるかもしれない。",
+    "type": "tool",
+    "source": "craft",
+    "recipe": [
+      { "itemId": "circuit_board", "quantity": 1 },
+      { "itemId": "copper_wire_cable", "quantity": 1 },
+      { "itemId": "titanium_alloy_plate", "quantity": 1 },
+      { "itemId": "crystal_ore", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "emergency_repair_kit",
+    "name": "応急修理キット",
+    "description": "破損した船体や設備を一時的に修復するためのキット。",
+    "type": "tool",
+    "source": "craft",
+    "recipe": [
+      { "itemId": "scrap_iron", "quantity": 1 },
+      { "itemId": "titanium_alloy_plate", "quantity": 1 },
+      { "itemId": "fiber_rope", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "decryption_tool",
+    "name": "解読ツール",
+    "description": "暗号化されたデータやロックされたコンテナを開けるための特殊なツール。",
+    "type": "tool",
+    "source": "craft",
+    "recipe": [
+      { "itemId": "crystal_ore", "quantity": 1 },
+      { "itemId": "circuit_board", "quantity": 1 },
+      { "itemId": "copper_wire_cable", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "cutting_tool",
+    "name": "カッティングツール",
+    "description": "頑丈な金属板や瓦礫を切断できる強力なツール。",
+    "type": "tool",
+    "source": "craft",
+    "recipe": [
+      { "itemId": "titanium_alloy_plate", "quantity": 1 },
+      { "itemId": "scrap_iron", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "flashlight",
+    "name": "懐中電灯",
+    "description": "暗闇を照らす携帯用の光源。水晶の微弱な光を増幅している。",
+    "type": "tool",
+    "source": "craft",
+    "recipe": [
+      { "itemId": "crystal_ore", "quantity": 1 },
+      { "itemId": "copper_wire_cable", "quantity": 1 },
+      { "itemId": "scrap_iron", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "pipe_parts",
+    "name": "配管パーツ",
+    "description": "液体や気体を輸送するための基本的な部品。修理や装置の作成に使う。",
+    "type": "material",
+    "source": "craft",
+    "recipe": [
+      { "itemId": "scrap_iron", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "control_board",
+    "name": "制御基盤",
+    "description": "複数の電子部品を組み合わせて作られた高度な基盤。複雑な装置の制御を司る。",
+    "type": "material",
+    "source": "craft",
+    "recipe": [
+      { "itemId": "circuit_board", "quantity": 2 },
+      { "itemId": "copper_wire_cable", "quantity": 1 },
+      { "itemId": "titanium_alloy_plate", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "water_purifier",
+    "name": "浄水装置",
+    "description": "海水を飲み水に変える装置。生存に不可欠。",
+    "type": "tool",
+    "source": "craft",
+    "recipe": [
+      { "itemId": "activated_carbon", "quantity": 1 },
+      { "itemId": "fiber_rope", "quantity": 1 },
+      { "itemId": "pipe_parts", "quantity": 1 },
+      { "itemId": "control_board", "quantity": 1 }
     ]
   }
 ]

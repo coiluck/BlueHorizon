@@ -7,11 +7,11 @@ const initialState = {
     isGoLab: false,
   },
   gameState: {
-    day: 1,
     hasWaterPurifier: false,
-    items: {},
-    memoryPiece: 0,
     hope: 70,
+    memoryPiece: 0,
+    hunger: 100,
+    day: 1,
     CelestiaUpgrade: {
       engine: 0,
       sonar: 0,
@@ -20,6 +20,7 @@ const initialState = {
       fuel: 0,
       living: 0,
     },
+    items: {},
   },
 };
 

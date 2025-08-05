@@ -105,6 +105,8 @@
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 /* アップグレードエリア */
@@ -324,6 +326,124 @@
   transition: all 0.3s ease;
 }
 .close-button:hover {
-  color: #aaa;
+  color: #bbb;
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* ホバー時に表示するオーバーレイ */
+.game-main-upgrade-overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 1;
+}
+.game-main-upgrade-overlay p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+}
+.game-main-upgrade-overlay p img {
+  width: 1.2rem;
+  height: 1.2rem;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,1);
+}
+#game-main-upgrade:hover .game-main-upgrade-overlay {
+  display: block;
+}
+#game-main-upgrade:hover .game-main-upgrade-title,
+#game-main-upgrade:hover .game-main-upgrade-container {
+  filter: blur(3px);
+  transition: filter 0.3s ease-out;
+}
+.game-main-upgrade-title,
+.game-main-upgrade-container {
+  transition: filter 0.3s ease-out;
+}
+
+.game-main-belongings-overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 1;
+}
+.game-main-belongings-overlay p {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  font-size: 1rem;
+}
+.game-main-belongings-overlay p img {
+  width: 1.2rem;
+  height: 1.2rem;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,1);
+}
+#game-main-belongings:hover .game-main-belongings-overlay {
+  display: block;
+}
+#game-main-belongings:hover .game-main-belongings-title,
+#game-main-belongings:hover .game-main-belongings-container {
+  filter: blur(3px);
+  transition: filter 0.3s ease-out;
+}
+.game-main-belongings-title,
+.game-main-belongings-container {
+  transition: filter 0.3s ease-out;
+}
+
+.game-main-map-overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 1;
+}
+.game-main-map-overlay button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0,0,0,0.5);
+  border-radius: calc(20px + 1rem);
+  color: rgba(0,0,0,1);
+  font-size: 1rem;
+  font-weight: 400;
+}
+#game-main-map:hover .game-main-map-overlay {
+  display: block;
+}
+#game-main-map:hover .game-main-map-title,
+#game-main-map:hover img {
+  filter: blur(5px);
+  transition: filter 0.3s ease-out;
+}
+.game-main-map-title,
+img {
+  transition: filter 0.3s ease-out;
 }

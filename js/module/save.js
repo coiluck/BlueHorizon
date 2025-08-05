@@ -80,7 +80,9 @@ export function loadGame(slotNumber) {
     const savedData = JSON.parse(savedDataString);
     setGlobalGameState(savedData.data);
     message('success', `データをロードしました。`, 3000);
+    return true;
   } else {
     message('warning', 'セーブデータがありません。', 3000);
+    return false;
   }
 }
