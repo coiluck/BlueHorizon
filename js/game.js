@@ -71,3 +71,15 @@ export async function initGame() {
     console.error('アイテムの読み込みに失敗しました:', error);
   }
 }
+
+import { changeModal } from './module/changeModal.js';
+
+document.getElementById('game-main-upgrade').addEventListener('click', () => {
+  changeModal('upgrade', 0);
+});
+document.getElementById('game-main-map').addEventListener('click', () => {
+  changeModal('map');
+});
+document.getElementById('game-main-belongings').addEventListener('click', () => {
+  changeModal('belongings');
+});

@@ -1,0 +1,22 @@
+#modal-upgrade {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.game-upgrade-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.game-upgrade-background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
