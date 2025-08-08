@@ -33,7 +33,7 @@ const pathUpgradeRequirements = {
 };
 
 import { globalGameState } from './module/gameState.js';
-import { message } from './module/message.js';
+import { addTooltipEvents } from './module/addToolTip.js';
 
 // <object>要素が読み込まれたら処理を開始
 document.getElementById('map-object').addEventListener('load', () => {
@@ -48,7 +48,8 @@ document.getElementById('map-object').addEventListener('load', () => {
     console.error('No root element in SVG.');
     return;
   }
-  // g要素を取得（g要素内にpathがある場合）
+
+  // g要素を取得
   const gElement = svgDoc.querySelector('#g1');
 
   // 各パスに対して処理を実行
@@ -66,8 +67,8 @@ document.getElementById('map-object').addEventListener('load', () => {
           console.log(`Clicked on path: ${pathId} (${locationNames[pathId]})`);
           // ここに場所移動の処理などを書く
         } else {
-          // ロックされている場合：message関数を呼び出す
-          message(`この場所へ行くには、移動機械のアップグレードが必要です。(要求レベル: ${requiredLevel})`);
+          // ロックされている場合
+          // この場所へ行くには、移動機械のアップグレードが必要です。(要求レベル: ${requiredLevel})`);
         }
       });
 
@@ -85,7 +86,7 @@ document.getElementById('map-object').addEventListener('load', () => {
       text.setAttribute('dominant-baseline', 'central'); // 垂直方向の中央揃え
       text.setAttribute('class', 'location-name'); // CSSでスタイルを適用
       text.textContent = locationNames[pathId] || '不明な場所'; // 配列から名前を取得
-      text.setAttribute('font-size', '35'); // フォントサイズを35に設定
+      text.setAttribute('font-size', '40'); // フォントサイズを35に設定
 
       // テキスト要素をg要素またはSVG要素に追加
       if (gElement) {
@@ -95,16 +96,14 @@ document.getElementById('map-object').addEventListener('load', () => {
       }
     }
   }
-});
-
-document.getElementById('game-main-map').addEventListener('click', () => {
-  updateMapPathsState();
+  updateMapPathsState(); // これは1回目の読み込みで実行
 });
 
 // ゲーム状態を更新した後
-function updateMapPathsState() {
+export function updateMapPathsState() {
   const svgDoc = document.getElementById('map-object').contentDocument;
   if (!svgDoc) {
+    console.error('SVG document not loaded yet.');
     return;
   }
 
@@ -123,6 +122,8 @@ function updateMapPathsState() {
     if (isLocked) {
       path.classList.add('locked-path');
       text.classList.add('locked-text');
+
+      addTooltipEvents(path, document.getElementById('map-object'), `セレスティア号の「推進エンジン」と「燃料タンク」のアップグレード（合計 ${requiredLevel}以上）が必要です`);
       
       // アイコンがなければ作成
       if (!lockIcon) {

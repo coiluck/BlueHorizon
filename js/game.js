@@ -73,12 +73,17 @@ export async function initGame() {
 }
 
 import { changeModal } from './module/changeModal.js';
+import { updateMapPathsState } from './map.js';
 
 document.getElementById('game-main-upgrade').addEventListener('click', () => {
   changeModal('upgrade', 0);
 });
 document.getElementById('game-main-map').addEventListener('click', () => {
   changeModal('map');
+  setTimeout(() => {
+    // これは2回目以降（1回目は読み込みが間に合わないので./map.jsで実行）
+    updateMapPathsState();
+  }, 501);
 });
 document.getElementById('game-main-belongings').addEventListener('click', () => {
   changeModal('belongings');

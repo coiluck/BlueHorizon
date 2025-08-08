@@ -3,6 +3,7 @@ import { message, deleteMessage } from './module/message.js';
 import { playSoundEffect } from './module/audio.js';
 import { loadSaveTitle, loadGame } from './module/save.js';
 import { initGame } from './game.js';
+import { createTooltipElement } from './module/addToolTip.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // PC以外は警告
@@ -22,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+  // ツールチップの作成
+  createTooltipElement();
 });
 // リサイズ時も警告
 window.addEventListener('resize', () => {
