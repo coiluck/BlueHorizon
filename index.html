@@ -273,6 +273,102 @@
     <div class="game-upgrade-background-image">
       <img src="./assets/images/horizon2.webp" alt="ゲーム背景画像">
     </div>
+    <div class="game-upgrade-header">
+      <button id="game-upgrade-close-button">&lt;&lt; もどる</button>
+      <div class="game-upgrade-title">セレスティア号 改造</div>
+    </div>
+    <div class="game-upgrade-container">
+      <div class="game-upgrade-left-panel">
+          <div class="game-upgrade-section-title">アップグレード項目</div>
+          <ul class="game-upgrade-list">
+            <li class="game-upgrade-list-item selected" data-upgrade="engine">
+              <div class="game-upgrade-item-header">
+                <div class="game-upgrade-item-name">推進エンジン</div>
+                <div class="game-upgrade-item-level">Lv 1/2</div>
+              </div>
+            <div class="game-upgrade-item-dots">
+              <div class="game-upgrade-dot active"></div>
+              <div class="game-upgrade-dot"></div>
+            </div>
+          </li>
+          <li class="game-upgrade-list-item" data-upgrade="armor">
+            <div class="game-upgrade-item-header">
+              <div class="game-upgrade-item-name">ソナー性能</div>
+              <div class="game-upgrade-item-level">Lv 2/2</div>
+            </div>
+            <div class="game-upgrade-item-dots">
+              <div class="game-upgrade-dot max"></div>
+              <div class="game-upgrade-dot max"></div>
+            </div>
+          </li>
+          <li class="game-upgrade-list-item" data-upgrade="oxygen">
+            <div class="game-upgrade-item-header">
+              <div class="game-upgrade-item-name">船殻強度</div>
+              <div class="game-upgrade-item-level">Lv 0/2</div>
+            </div>
+            <div class="game-upgrade-item-dots">
+              <div class="game-upgrade-dot"></div>
+              <div class="game-upgrade-dot"></div>
+            </div>
+          </li>
+          <li class="game-upgrade-list-item" data-upgrade="sonar">
+            <div class="game-upgrade-item-header">
+              <div class="game-upgrade-item-name">操作アーム</div>
+              <div class="game-upgrade-item-level">Lv 1/2</div>
+            </div>
+            <div class="game-upgrade-item-dots">
+              <div class="game-upgrade-dot active"></div>
+              <div class="game-upgrade-dot"></div>
+            </div>
+          </li>
+          <li class="game-upgrade-list-item" data-upgrade="sonar">
+            <div class="game-upgrade-item-header">
+              <div class="game-upgrade-item-name">燃料タンク</div>
+              <div class="game-upgrade-item-level">Lv 1/2</div>
+            </div>
+            <div class="game-upgrade-item-dots">
+              <div class="game-upgrade-dot active"></div>
+              <div class="game-upgrade-dot"></div>
+            </div>
+          </li>
+          <li class="game-upgrade-list-item" data-upgrade="sonar">
+            <div class="game-upgrade-item-header">
+              <div class="game-upgrade-item-name">居住区画</div>
+              <div class="game-upgrade-item-level">Lv 1/2</div>
+            </div>
+            <div class="game-upgrade-item-dots">
+              <div class="game-upgrade-dot active"></div>
+              <div class="game-upgrade-dot"></div>
+            </div>
+          </li>
+        </ul>
+        <div class="game-upgrade-resources-section">
+          <div class="game-upgrade-section-title">所持アイテム</div>
+          <div class="game-upgrade-resource-item">
+            <div class="game-upgrade-resource-icon"></div>
+            <span>aaa: 15</span>
+          </div>
+          <div class="game-upgrade-resource-item">
+            <div class="game-upgrade-resource-icon"></div>
+            <span>bbb: 8</span>
+          </div>
+          <div class="game-upgrade-resource-item">
+            <div class="game-upgrade-resource-icon"></div>
+            <span>ccc: 4</span>
+          </div>
+          <!-- こんな感じのをjsで作成（上のはサンプル用） -->
+        </div>
+      </div>
+
+      <div class="center-panel">
+        <div class="submarine-model">
+          3D潜水艇モデル<br>配置エリア
+        </div>
+      </div>
+
+      <div class="game-upgrade-right-panel"></div>
+
+    </div>
   </div>
 
   <div id="modal-map" class="modal">

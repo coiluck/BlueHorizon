@@ -1,5 +1,6 @@
 #modal-upgrade {
   display: none;
+  flex-direction: column;
   position: absolute;
   top: 0;
   left: 0;
@@ -19,4 +20,146 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.game-upgrade-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 10px;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.game-upgrade-header #game-upgrade-close-button {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 5px 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #333;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+}
+.game-upgrade-header .game-upgrade-title {
+  color: #ccc;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+}
+
+.game-upgrade-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  flex-grow: 1;
+  overflow: hidden;
+}
+.game-upgrade-left-panel {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid #dee2e6;
+  padding: 20px;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.game-upgrade-left-panel::-webkit-scrollbar {
+  display: none;
+}
+
+.game-upgrade-resources-section {
+  margin: 30px 0 60px;
+
+}
+.game-upgrade-section-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #dee2e6;
+}
+.game-upgrade-resource-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  font-size: .9rem;
+  font-family: serif;
+  border-bottom: 1px solid #e9ecef;
+}
+.game-upgrade-resource-icon {
+  width: 16px;
+  height: 16px;
+  background: #95a5a6;
+  border-radius: 2px;
+}
+
+.game-upgrade-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.game-upgrade-list-item {
+  margin-bottom: 8px;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #e1e8ed;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: rgba(245, 254, 255, 0.5);
+}
+.game-upgrade-list-item:hover {
+  border-color: #667eea;
+  box-shadow: 0 1px 4px rgba(102, 126, 234, 0.15);
+}
+.game-upgrade-list-item.selected {
+  border-color: #667eea;
+  background: #f8f9ff;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+}
+
+.game-upgrade-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.game-upgrade-item-name {
+  font-size: .9rem;
+  font-weight: 600;
+  font-family: serif;
+  color: #2c3e50;
+}
+.game-upgrade-item-level {
+  font-size: .7rem;
+  font-family: serif;
+  background: #ecf0f1;
+  color: #34495e;
+  padding: 2px 8px;
+  margin-left: 10px;
+  border-radius: 10px;
+}
+
+.game-upgrade-item-dots {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+}
+.game-upgrade-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #bdc3c7;
+}
+.game-upgrade-dot.active {
+  background: #3498db;
+}
+.game-upgrade-dot.max {
+  background: #27ae60;
 }

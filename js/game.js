@@ -76,7 +76,7 @@ import { changeModal } from './module/changeModal.js';
 import { updateMapPathsState } from './map.js';
 
 document.getElementById('game-main-upgrade').addEventListener('click', () => {
-  changeModal('upgrade', 0);
+  changeModal('upgrade', '.game-upgrade-left-panel', 500, true);
 });
 document.getElementById('game-main-map').addEventListener('click', () => {
   changeModal('map');
@@ -88,3 +88,14 @@ document.getElementById('game-main-map').addEventListener('click', () => {
 document.getElementById('game-main-belongings').addEventListener('click', () => {
   changeModal('belongings');
 });
+
+// 各modalからのcloseボタン
+document.getElementById('game-upgrade-close-button').addEventListener('click', () => {
+  changeModal('game');
+});
+document.getElementById('game-map-close-button').addEventListener('click', () => {
+  changeModal('game');
+});
+ /* document.getElementById('game-belongings-close-button').addEventListener('click', () => {
+  changeModal('belongings');
+}); */
