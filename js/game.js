@@ -56,7 +56,7 @@ export async function initGame() {
   
     salvageItems.forEach(item => {
       const itemId = item.id;
-      const quantity = globalGameState.gameState.items[itemId] ? globalGameState.gameState.items[itemId].quantity : 0;
+      const quantity = globalGameState.gameState.items[itemId] || 0;
   
       const itemElement = document.createElement('div');
       itemElement.classList.add('game-main-belongings-item');
@@ -74,9 +74,11 @@ export async function initGame() {
 
 import { changeModal } from './module/changeModal.js';
 import { updateMapPathsState } from './map.js';
+import { initUpgrade } from './upgrade.js';
 
 document.getElementById('game-main-upgrade').addEventListener('click', () => {
   changeModal('upgrade', '.game-upgrade-left-panel', 500, true);
+  initUpgrade();
 });
 document.getElementById('game-main-map').addEventListener('click', () => {
   changeModal('map');
