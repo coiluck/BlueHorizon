@@ -220,7 +220,7 @@
     "type": "material",
     "source": "craft",
     "recipe": [
-      { "itemId": "scrap_iron", "quantity": 1 }
+      { "itemId": "scrap_iron", "quantity": 2 }
     ]
   },
   {
