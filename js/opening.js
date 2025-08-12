@@ -121,6 +121,7 @@ function displayChoices(choiceId) {
 updateStory();
 
 import { changeModal } from './module/changeModal.js';
+import { initGame } from './game.js';
 
 // skip-window全体
 document.getElementById('opening-skip-window').addEventListener('click', (event) => {
@@ -130,6 +131,7 @@ document.getElementById('opening-skip-window').addEventListener('click', (event)
 document.getElementById('opening-skip-button').addEventListener('click', (event) => {
   event.stopPropagation(); 
   // あとでスキップ処理書く
+  initGame();
   changeModal('game');
 });
 // skip-cancel

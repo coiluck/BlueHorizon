@@ -412,7 +412,51 @@
     </div>
   </div>
 
-  <div id="modal-item" class="modal"></div>
+  <div id="modal-item" class="modal">
+    <div class="game-item-background-image">
+      <img src="./assets/images/horizon2.webp" alt="ゲーム背景画像">
+    </div>
+    <div class="game-item-header">
+      <button id="game-item-close-button">&lt;&lt; もどる</button>
+      <div class="game-item-title">アイテム</div>
+    </div>
+    <div class="game-item-container">
+      <div class="game-item-list-container">
+        <div class="game-item-list-title">所持アイテム</div>
+        <div class="game-item-list-card">
+          <div class="game-item-list-item-icon"></div>
+          <div class="game-item-list-item-texts">
+            <div class="game-item-list-item-name">アイテム1</div>
+            <div class="game-item-list-item-description">説明テキストがここに入ります</div>
+          </div>
+          <div class="game-item-list-item-count">所持 5</div>
+        </div>
+        <div class="game-item-list-card">
+          <div class="game-item-list-item-icon"></div>
+          <div class="game-item-list-item-texts">
+            <div class="game-item-list-item-name">アイテム2</div>
+            <div class="game-item-list-item-description">説明テキストがここに入ります</div>
+          </div>
+          <div class="game-item-list-item-count">所持 10</div>
+        </div>
+        <div class="game-item-list-card">
+          <div class="game-item-list-item-icon"></div>
+          <div class="game-item-list-item-texts">
+            <div class="game-item-list-item-name">アイテム3</div>
+            <div class="game-item-list-item-description">説明テキストがここに入ります説明テキストがここに入ります説明テキストがここに入ります</div>
+          </div>
+          <div class="game-item-list-item-count">所持 15</div>
+        </div>
+      </div>
+      <div class="game-item-craft-container">
+        <div class="game-item-craft-title">アイテムを作成</div>
+        <div class="game-item-craft-item">
+          <div class="game-item-craft-item-name">アイテム1</div>
+          <div class="game-item-craft-item-count">10</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div id="message-box"></div>
 
@@ -422,5 +466,6 @@
   <script src="./js/opening.js" type="module"></script>
   <script src="./js/game.js" type="module"></script>
   <script src="./js/map.js" type="module"></script>
+  <script src="./js/item.js" type="module"></script>
 </body>
 </html>

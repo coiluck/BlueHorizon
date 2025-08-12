@@ -76,6 +76,15 @@ const upgradeCost = {
   }
 }
 
+let itemsDataCache = null;
+async function getItemsData() {
+  if (!itemsDataCache) {
+    const response = await fetch('item.json');
+    itemsDataCache = await response.json();
+  }
+  return itemsDataCache;
+}
+
 export async function initUpgrade() {
   const upgradeItems = document.querySelectorAll('.game-upgrade-list-item');
   upgradeItems.forEach(item => {
@@ -112,8 +121,7 @@ export async function initUpgrade() {
   setUpUpgradeDetail('engine');
 
   // 所持アイテムを取得
-  const response = await fetch('item.json');
-  const itemsData = await response.json();
+  const itemsData = await getItemsData();
   const salvageItems = itemsData.filter(item => item.source === 'salvage');
   document.querySelector('.game-upgrade-resources-section').innerHTML = '<div class="game-upgrade-section-title">所持アイテム</div>';
   for (const item of salvageItems) {
@@ -172,8 +180,7 @@ async function setUpUpgradeDetail(upgradeType) {
   } else {
     let canUpgrade = true;
 
-    const response = await fetch('item.json');
-    const itemsData = await response.json();
+    const itemsData = await getItemsData();
 
     const requiredItems = upgradeCost[upgradeType][currentLevel + 1];
 

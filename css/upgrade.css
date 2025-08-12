@@ -54,8 +54,7 @@
 .game-upgrade-container {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  gap: 10px;
-  flex-grow: 1;
+  gap: 20px;
   overflow: hidden;
 }
 .game-upgrade-left-panel {

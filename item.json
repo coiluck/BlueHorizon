@@ -142,18 +142,6 @@
     ]
   },
   {
-    "id": "explosive",
-    "name": "爆薬",
-    "description": "岩盤などを破壊するための強力な爆薬。取り扱いには注意が必要。",
-    "type": "tool",
-    "source": "craft",
-    "recipe": [
-      { "itemId": "crystal_ore", "quantity": 1 },
-      { "itemId": "activated_carbon", "quantity": 1 },
-      { "itemId": "fiber_rope", "quantity": 1 }
-    ]
-  },
-  {
     "id": "simple_communicator",
     "name": "簡易通信機",
     "description": "外部に微弱な信号を発信できる通信装置。救助を呼ぶ最後の望みとなるかもしれない。",
