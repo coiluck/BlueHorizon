@@ -33,3 +33,21 @@ export async function initItem() {
     itemListContainer.appendChild(itemElement);
   });
 }
+
+
+window.changeValue = function changeValue(button, change) {
+  const parent = button.parentElement;
+  const input = parent.querySelector('.game-item-craft-quantity-input');
+  const currentValue = Number(input.textContent);
+  const min = 1
+  const max = 5
+  const newValue = currentValue + change;
+  if (newValue >= min && newValue <= max) {
+    input.textContent = newValue;
+    // ボタンにアニメーション
+    button.style.transform = 'scale(0.9)';
+    setTimeout(() => {
+      button.style.transform = '';
+    }, 100);
+  }
+}

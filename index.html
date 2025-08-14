@@ -450,9 +450,70 @@
       </div>
       <div class="game-item-craft-container">
         <div class="game-item-craft-title">アイテムを作成</div>
-        <div class="game-item-craft-item">
-          <div class="game-item-craft-item-name">アイテム1</div>
-          <div class="game-item-craft-item-count">10</div>
+        <div class="game-item-craft-recipe-container">
+          <div class="game-item-craft-recipe">
+            <div class="game-item-craft-recipe-header">
+              <div class="game-item-craft-recipe-name">紙とペン</div>
+              <div class="game-item-craft-recipe-result">
+                <span>+1個</span>
+              </div>
+            </div>
+            <div class="game-item-craft-materials">
+              <div class="game-item-craft-material">
+                <div class="game-item-craft-material-icon"></div>
+                <div class="game-item-craft-material-name">木材</div>
+                <div class="game-item-craft-material-count">×1</div>
+              </div>
+              <div class="game-item-craft-material">
+                <div class="game-item-craft-material-icon"></div>
+                <div class="game-item-craft-material-name">イカ</div>
+                <div class="game-item-craft-material-count">×1</div>
+              </div>
+            </div>
+            <div class="game-item-craft-actions">
+              <div class="game-item-craft-quantity">
+                <span class="game-item-craft-quantity-label">個数:</span>
+                <div class="game-item-craft-quantity-wrapper">
+                  <button class="game-item-craft-quantity-btn decrease" onclick="changeValue(this, -1)">-</button>
+                  <div class="game-item-craft-quantity-input">1</div>
+                  <button class="game-item-craft-quantity-btn increase" onclick="changeValue(this, 1)">+</button>
+                </div>
+              </div>
+              <button class="game-item-craft-button insufficient">アイテム不足</button>
+            </div>
+          </div>
+          
+          <div class="game-item-craft-recipe">
+            <div class="game-item-craft-recipe-header">
+              <div class="game-item-craft-recipe-name">簡易通信機</div>
+              <div class="game-item-craft-recipe-result">
+                <span>+1個</span>
+              </div>
+            </div>
+            <div class="game-item-craft-materials">
+              <div class="game-item-craft-material">
+                <div class="game-item-craft-material-icon"></div>
+                <div class="game-item-craft-material-name">回路基板</div>
+                <div class="game-item-craft-material-count">×1</div>
+              </div>
+              <div class="game-item-craft-material">
+                <div class="game-item-craft-material-icon"></div>
+                <div class="game-item-craft-material-name">銅線</div>
+                <div class="game-item-craft-material-count">×1</div>
+              </div>
+            </div>
+            <div class="game-item-craft-actions">
+              <div class="game-item-craft-quantity">
+                <span class="game-item-craft-quantity-label">個数:</span>
+                <div class="game-item-craft-quantity-wrapper">
+                  <button class="game-item-craft-quantity-btn decrease" onclick="changeValue(this, -1)">-</button>
+                  <div class="game-item-craft-quantity-input">1</div>
+                  <button class="game-item-craft-quantity-btn increase" onclick="changeValue(this, 1)">+</button>
+                </div>
+              </div>
+              <button class="game-item-craft-button available">クラフト</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
