@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="./css/upgrade.css">
   <link rel="stylesheet" href="./css/map.css">
   <link rel="stylesheet" href="./css/item.css">
+  <link rel="stylesheet" href="./css/explore.css">
   <link rel="stylesheet" href="./css/fade.css">
   <link rel="icon" href="./assets/images/favicon.ico">
   <meta property="og:title" content="蒼の最果てと水平線">
@@ -519,6 +520,17 @@
     </div>
   </div>
 
+  <div id="modal-explore" class="modal">
+    <div class="explore-background-image">
+      <img src="./assets/images/ink.avif" alt="探索画面背景画像">
+    </div>
+    <div class="text-container">
+      <div id="explore-character-name"></div>
+      <p id="explore-text">このメッセージは表示されないはずです</p>
+    </div>
+    <div id="explore-choices-container"></div>
+  </div>
+
   <div id="message-box"></div>
 
   <script src="./js/top.js" type="module"></script>
@@ -528,5 +540,6 @@
   <script src="./js/game.js" type="module"></script>
   <script src="./js/map.js" type="module"></script>
   <script src="./js/item.js" type="module"></script>
+  <script src="./js/explore.js" type="module"></script>
 </body>
 </html>

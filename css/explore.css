@@ -1,0 +1,120 @@
+#modal-explore {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.explore-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(0); 
+}
+
+.explore-background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1)   0%,
+    rgba(0, 0, 0, 0.8)  40%,
+    rgba(0, 0, 0, 0.6) 70%,
+    rgba(0, 0, 0, 0.5) 80%,
+    rgba(0, 0, 0, 0.3) 90%,
+    rgba(0, 0, 0, 0)  100%
+  );
+  display: flex;
+  flex-direction: column;
+  padding: 40px 5%;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+#explore-character-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#explore-text::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin: 10px 0;
+}
+
+#explore-text {
+  font-family: serif;
+  font-size: .9rem;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* 選択肢 */
+#explore-choices-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 3;
+}
+.explore-choice-button {
+  width: 60%;
+  max-width: 300px;
+  min-height: 1.5rem;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-family: serif;
+  font-size: .9rem;
+  color: #1e1e1e;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  background: rgba(186, 220, 238, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.7); /* 内側の枠線 */
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.explore-choice-button::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 1px solid rgba(255, 255, 255, 0.7); /* 外側の枠線 */
+  border-radius: 12px;
+  pointer-events: none;
+}
+.explore-choice-button:hover {
+  background: rgba(186, 220, 238, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.7);
+}
+.explore-choice-button:hover::after {
+  border: 1px solid rgba(0, 0, 0, 0.7);
+}

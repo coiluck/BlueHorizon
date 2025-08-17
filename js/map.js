@@ -34,6 +34,7 @@ const pathUpgradeRequirements = {
 
 import { globalGameState } from './module/gameState.js';
 import { addTooltipEvents } from './module/addToolTip.js';
+import { explore } from './explore.js';
 
 // <object>要素が読み込まれたら処理を開始
 document.getElementById('map-object').addEventListener('load', () => {
@@ -65,7 +66,8 @@ document.getElementById('map-object').addEventListener('load', () => {
         if (playerLevel >= requiredLevel) {
           // 解禁されている場合：コンソールにログを出す
           console.log(`Clicked on path: ${pathId} (${locationNames[pathId]})`);
-          // ここに場所移動の処理などを書く
+          // 背景を設定してmodalを表示
+          explore(pathId);
         } else {
           // ロックされている場合
           // この場所へ行くには、移動機械のアップグレードが必要です。(要求レベル: ${requiredLevel})`);

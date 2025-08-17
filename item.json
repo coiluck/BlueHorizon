@@ -70,21 +70,21 @@
   {
     "id": "fish_1",
     "name": "ありふれた魚",
-    "description": "近海で獲れた食べられる魚。調理すれば栄養価が高まる。",
+    "description": "近海で獲れた食べられる魚。満腹度を7回復する。",
     "type": "consumable",
     "source": "salvage"
   },
   {
     "id": "fish_2",
     "name": "珍しい魚",
-    "description": "少し深場で獲れた珍しい魚。貴重な栄養源となる。",
+    "description": "少し深場で獲れた珍しい魚。満腹度を10回復する。",
     "type": "consumable",
     "source": "salvage"
   },
   {
     "id": "squid",
     "name": "イカ",
-    "description": "墨を吐く軟体動物。食用になるほか、その墨はインクの代わりにもなる。",
+    "description": "墨を吐く軟体動物。満腹度を7回復するほか、その墨はインクの代わりにもなる。",
     "type": "consumable",
     "source": "salvage"
   },
@@ -111,7 +111,7 @@
   {
     "id": "cooked_food",
     "name": "料理",
-    "description": "食材を加熱調理したもの。生で食べるより安全で栄養価が高い。",
+    "description": "食材を加熱調理したもの。生で食べるより栄養価が高い。満腹度を15回復する。",
     "type": "consumable",
     "source": "craft",
     "recipe": [
@@ -230,10 +230,10 @@
     "type": "tool",
     "source": "craft",
     "recipe": [
-      { "itemId": "activated_carbon", "quantity": 1 },
+      { "itemId": "activated_carbon", "quantity": 4 },
       { "itemId": "fiber_rope", "quantity": 1 },
-      { "itemId": "pipe_parts", "quantity": 1 },
-      { "itemId": "control_board", "quantity": 1 }
+      { "itemId": "pipe_parts", "quantity": 2 },
+      { "itemId": "control_board", "quantity": 2 }
     ]
   }
 ]
