@@ -16,7 +16,6 @@ const initialState = {
     CelestiaUpgrade: {
       engine: 0,
       sonar: 0,
-      body: 0,
       arm: 0,
       fuel: 0,
       living: 0,

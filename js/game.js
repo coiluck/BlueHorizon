@@ -41,7 +41,7 @@ export async function initGame() {
   // セレスティア号の改装の更新
   document.getElementById('game-main-upgrade-engine-level').textContent = globalGameState.gameState.CelestiaUpgrade.engine;
   document.getElementById('game-main-upgrade-sonar-level').textContent = globalGameState.gameState.CelestiaUpgrade.sonar;
-  document.getElementById('game-main-upgrade-body-level').textContent = globalGameState.gameState.CelestiaUpgrade.body;
+  // document.getElementById('game-main-upgrade-body-level').textContent = globalGameState.gameState.CelestiaUpgrade.body;
   document.getElementById('game-main-upgrade-arm-level').textContent = globalGameState.gameState.CelestiaUpgrade.arm;
   document.getElementById('game-main-upgrade-fuel-level').textContent = globalGameState.gameState.CelestiaUpgrade.fuel;
   document.getElementById('game-main-upgrade-living-level').textContent = globalGameState.gameState.CelestiaUpgrade.living;
@@ -89,7 +89,7 @@ document.getElementById('game-main-map').addEventListener('click', () => {
   }, 501);
 });
 document.getElementById('game-main-belongings').addEventListener('click', () => {
-  changeModal('item');
+  changeModal('item', '.game-item-list-container');
   initItem();
 });
 

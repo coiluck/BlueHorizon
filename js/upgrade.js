@@ -3,7 +3,7 @@ import { globalGameState } from './module/gameState.js';
 const upgradeText = {
   engine: "推進システムの効率を改善し、より長距離の移動が可能になります。マップから選択できる探索先が広がります。",
   sonar: "パッシブソナーを強化し、より遠くの信号を探知できるようになります。探索中の選択肢が増加します。",
-  body: "潜水艇の外殻を強化し、水圧や障害物からの保護性能を最大限まで向上させています。",
+  // body: "潜水艇の外殻を強化し、水圧や障害物からの保護性能を最大限まで向上させています。", <- なくした（移動モジュール以外の判定が面倒なので）
   arm: "操作アームを強化し、より大きな荷物を運ぶことができます。探索中の選択肢が増加します。",
   fuel: "燃料タンクを強化し、より多くの燃料の搭載が可能になります。マップから選択できる探索先が広がります。",
   living: "居住区画を強化し、より快適な生活環境を提供します。「希望」のパラメータの低下を抑えることができます。",
@@ -33,7 +33,7 @@ const upgradeCost = {
       { "itemId": "control_board", "quantity": 2 }
     ]
   },
-  body: {
+  /*body: {
     1: [
       { "itemId": "scrap_iron", "quantity": 8 },
       { "itemId": "fiber_rope", "quantity": 4 }
@@ -42,7 +42,7 @@ const upgradeCost = {
       { "itemId": "titanium_alloy_plate", "quantity": 5 },
       { "itemId": "emergency_repair_kit", "quantity": 1 }
     ]
-  },
+  },*/
   arm: {
     1: [
       { "itemId": "scrap_iron", "quantity": 4 },
@@ -122,13 +122,13 @@ export async function initUpgrade() {
 
   // 所持アイテムを取得
   const itemsData = await getItemsData();
-  const salvageItems = itemsData.filter(item => item.source === 'salvage');
+  const displayItems = itemsData.filter(item => {
+    // 食べ物と火は除外
+    return item.type !== 'consumable' && item.id !== 'shichirin' && item.id !== 'bonfire';
+  });
   document.querySelector('.game-upgrade-resources-section').innerHTML = '<div class="game-upgrade-section-title">所持アイテム</div>';
-  for (const item of salvageItems) {
+  for (const item of displayItems) {
     const itemId = item.id;
-    if (item.type === 'consumable') {
-      continue; // 食材はskip
-    }
     const quantity = globalGameState.gameState.items[itemId] || 0;
     document.querySelector('.game-upgrade-resources-section').innerHTML += `
       <div class="game-upgrade-resource-item">

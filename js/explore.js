@@ -29,6 +29,19 @@ const explorePlacesData = {
   },
   path9: {
     name: '遥かなる大洋',
+    fishable: true,
+    images: 'horizon1.webp',
+    story: [
+      { text: 'この海は、深くて暗い。' },
+      { text: '海の向こうには、何かがあるようだ。' },
+    ],
+    itemsWeight: {
+      scrap_iron: 10,
+    },
+    itemsRoll: {
+      base: 1,
+      rate: 5,
+    }
   },
   path10: {
     name: '「汐凪の街」周辺',
