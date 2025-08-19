@@ -2,6 +2,7 @@
   {
     "id": "scrap_iron",
     "name": "鉄くず",
+    "image": "assets/images/itemIcons/iron.png",
     "description": "錆びついているが、精錬すれば様々な用途に使える基本的な金属素材。",
     "type": "material",
     "source": "salvage"
@@ -9,6 +10,7 @@
   {
     "id": "wood",
     "name": "木材",
+    "image": "assets/images/itemIcons/wood.png",
     "description": "加工しやすい基本的な素材。燃料や建築資材になる。",
     "type": "material",
     "source": "salvage"
@@ -16,6 +18,7 @@
   {
     "id": "fiber_rope",
     "name": "繊維ロープ",
+    "image": "assets/images/itemIcons/rope.png",
     "description": "丈夫な植物繊維で編まれたロープ。様々なものを縛ったり、組み合わせたりするのに使う。",
     "type": "material",
     "source": "salvage"
@@ -23,6 +26,7 @@
   {
     "id": "copper_wire_cable",
     "name": "銅線ケーブル",
+    "image": "assets/images/itemIcons/wire.png",
     "description": "電気を通しやすい銅線を束ねたもの。電子機器の修理やクラフトに不可欠。",
     "type": "material",
     "source": "salvage"
@@ -30,6 +34,7 @@
   {
     "id": "titanium_alloy_plate",
     "name": "チタン合金板",
+    "image": "assets/images/itemIcons/titanium.png",
     "description": "軽量でありながら非常に頑丈な金属板。高度なツールや装備の素材となる。",
     "type": "material",
     "source": "salvage"
@@ -37,6 +42,7 @@
   {
     "id": "activated_carbon",
     "name": "活性炭",
+    "image": "assets/images/itemIcons/carbon.png",
     "description": "無数の微細な穴を持つ炭。不純物を吸着する性質があり、フィルターなどに利用される。",
     "type": "material",
     "source": "salvage"
@@ -44,6 +50,7 @@
   {
     "id": "crystal_ore",
     "name": "水晶原石",
+    "image": "assets/images/itemIcons/crystal.png",
     "description": "特殊なエネルギーを秘めた鉱石。精製することで高度な技術に応用できる。",
     "type": "material",
     "source": "salvage"
@@ -51,6 +58,7 @@
   {
     "id": "circuit_board",
     "name": "電子基板",
+    "image": "assets/images/itemIcons/circuit_board.png",
     "description": "複雑な電子回路が組まれた板。電子機器の中核をなす部品。",
     "type": "material",
     "source": "salvage"
@@ -58,6 +66,7 @@
   {
     "id": "fishing_gear",
     "name": "釣具",
+    "image": "assets/images/itemIcons/fishing_gear.png",
     "description": "魚を釣るための簡単な道具。食料を安定して確保するために役立つ。",
     "type": "tool",
     "source": "craft",
@@ -70,6 +79,7 @@
   {
     "id": "fish_1",
     "name": "ありふれた魚",
+    "image": "assets/images/itemIcons/fish1.png",
     "description": "近海で獲れた食べられる魚。満腹度を7回復する。",
     "type": "consumable",
     "source": "salvage"
@@ -77,6 +87,7 @@
   {
     "id": "fish_2",
     "name": "珍しい魚",
+    "image": "assets/images/itemIcons/fish2.png",
     "description": "少し深場で獲れた珍しい魚。満腹度を10回復する。",
     "type": "consumable",
     "source": "salvage"
@@ -84,6 +95,7 @@
   {
     "id": "squid",
     "name": "イカ",
+    "image": "assets/images/itemIcons/squid.png",
     "description": "墨を吐く軟体動物。満腹度を7回復するほか、その墨はインクの代わりにもなる。",
     "type": "consumable",
     "source": "salvage"
@@ -91,6 +103,7 @@
   {
     "id": "bonfire",
     "name": "焚き火",
+    "image": "assets/images/itemIcons/bonfire.png",
     "description": "暖を取り、明かりを確保し、簡単な調理ができる。",
     "type": "tool",
     "source": "craft",
@@ -101,6 +114,7 @@
   {
     "id": "shichirin",
     "name": "七輪",
+    "image": "assets/images/itemIcons/shichirin.png",
     "description": "持ち運び可能な小型のコンロ。簡単な調理ができる。",
     "type": "tool",
     "source": "craft",
@@ -111,6 +125,7 @@
   {
     "id": "cooked_food",
     "name": "料理",
+    "image": "assets/images/itemIcons/dish.png",
     "description": "食材を加熱調理したもの。生で食べるより栄養価が高い。満腹度を15回復する。",
     "type": "consumable",
     "source": "craft",
@@ -133,6 +148,7 @@
   {
     "id": "paper_and_pen",
     "name": "紙とペン",
+    "image": "assets/images/itemIcons/paper_and_pen.png",
     "description": "情報を記録するための道具。木材パルプから作った紙と、イカ墨のペン。",
     "type": "tool",
     "source": "craft",
@@ -144,6 +160,7 @@
   {
     "id": "simple_communicator",
     "name": "簡易通信機",
+    "image": "assets/images/itemIcons/communicator.png",
     "description": "外部に微弱な信号を発信できる通信装置。救助を呼ぶ最後の望みとなるかもしれない。",
     "type": "tool",
     "source": "craft",
@@ -157,6 +174,7 @@
   {
     "id": "emergency_repair_kit",
     "name": "応急修理キット",
+    "image": "assets/images/itemIcons/repair_kit.png",
     "description": "破損した船体や設備を一時的に修復するためのキット。",
     "type": "tool",
     "source": "craft",
@@ -169,6 +187,7 @@
   {
     "id": "decryption_tool",
     "name": "解読ツール",
+    "image": "assets/images/itemIcons/kaidoku.png",
     "description": "暗号化されたデータやロックされたコンテナを開けるための特殊なツール。",
     "type": "tool",
     "source": "craft",
@@ -181,29 +200,32 @@
   {
     "id": "cutting_tool",
     "name": "カッティングツール",
+    "image": "assets/images/itemIcons/cutting.png",
     "description": "頑丈な金属板や瓦礫を切断できる強力なツール。",
     "type": "tool",
     "source": "craft",
     "recipe": [
-      { "itemId": "titanium_alloy_plate", "quantity": 1 },
-      { "itemId": "scrap_iron", "quantity": 1 }
+      { "itemId": "titanium_alloy_plate", "quantity": 2 },
+      { "itemId": "scrap_iron", "quantity": 3 }
     ]
   },
   {
     "id": "flashlight",
     "name": "懐中電灯",
+    "image": "assets/images/itemIcons/flashlight.png",
     "description": "暗闇を照らす携帯用の光源。水晶の微弱な光を増幅している。",
     "type": "tool",
     "source": "craft",
     "recipe": [
       { "itemId": "crystal_ore", "quantity": 1 },
       { "itemId": "copper_wire_cable", "quantity": 1 },
-      { "itemId": "scrap_iron", "quantity": 1 }
+      { "itemId": "scrap_iron", "quantity": 2 }
     ]
   },
   {
     "id": "pipe_parts",
     "name": "配管パーツ",
+    "image": "assets/images/itemIcons/pipe.png",
     "description": "液体や気体を輸送するための基本的な部品。修理や装置の作成に使う。",
     "type": "material",
     "source": "craft",
@@ -214,6 +236,7 @@
   {
     "id": "control_board",
     "name": "制御基盤",
+    "image": "assets/images/itemIcons/control_board.png",
     "description": "複数の電子部品を組み合わせて作られた高度な基盤。複雑な装置の制御を司る。",
     "type": "material",
     "source": "craft",
@@ -226,6 +249,7 @@
   {
     "id": "water_purifier",
     "name": "浄水装置",
+    "image": "assets/images/itemIcons/water_purifier.png",
     "description": "海水を飲み水に変える装置。生存に不可欠。",
     "type": "tool",
     "source": "craft",

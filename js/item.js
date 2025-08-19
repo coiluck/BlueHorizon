@@ -28,7 +28,7 @@ async function setUpItemList() {
     itemElement.classList.add('game-item-list-card');
     itemElement.dataset.itemId = item.id;
     itemElement.innerHTML = `
-      <div class="game-item-list-item-icon"></div>
+      <div class="game-item-list-item-icon"><img src="${item.image}"></div>
       <div class="game-item-list-item-texts">
         <div class="game-item-list-item-name">${item.name}</div>
         <div class="game-item-list-item-description">${item.description}</div>

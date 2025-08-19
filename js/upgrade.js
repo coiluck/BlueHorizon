@@ -132,7 +132,7 @@ export async function initUpgrade() {
     const quantity = globalGameState.gameState.items[itemId] || 0;
     document.querySelector('.game-upgrade-resources-section').innerHTML += `
       <div class="game-upgrade-resource-item">
-        <div class="game-upgrade-resource-icon"></div>
+        <div class="game-upgrade-resource-icon"><img src="${item.image}"></div>
         <span>${item.name}: ${quantity}</span>
       </div>
     `;
