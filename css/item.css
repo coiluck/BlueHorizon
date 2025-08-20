@@ -182,6 +182,28 @@
   font-size: 0.8rem;
   color: #27ae60;
 }
+.game-item-craft-recipe-result.active {
+  animation: craftAnimation 1.5s;
+}
+@keyframes craftAnimation {
+  0% {
+    transform: translateY(+10px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
 .game-item-craft-recipe-name {
   font-size: 1rem;
   font-weight: bold;

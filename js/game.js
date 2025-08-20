@@ -96,10 +96,12 @@ document.getElementById('game-main-belongings').addEventListener('click', () => 
 // 各modalからのcloseボタン
 document.getElementById('game-upgrade-close-button').addEventListener('click', () => {
   changeModal('game');
+  initGame();
 });
 document.getElementById('game-map-close-button').addEventListener('click', () => {
   changeModal('game');
 });
 document.getElementById('game-item-close-button').addEventListener('click', () => {
   changeModal('game');
+  initGame();
 });

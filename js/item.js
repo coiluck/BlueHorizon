@@ -112,7 +112,7 @@ async function setUpItemCraft() {
     recipeElement.innerHTML = `
       <div class="game-item-craft-recipe-header">
         <div class="game-item-craft-recipe-name">${item.name}</div>
-        <div class="game-item-craft-recipe-result">
+        <div class="game-item-craft-recipe-result no-display">
           <span>+1個</span>
         </div>
       </div>
@@ -141,6 +141,7 @@ import { message } from "./module/message.js";
 
 // クラフトの量を変更するやつ
 window.changeValue = async function changeValue(button, change) {
+  if (isProcessing) return;
   const recipeElement = button.closest('.game-item-craft-recipe');
   const input = recipeElement.querySelector('.game-item-craft-quantity-input');
   const currentValue = Number(input.textContent);
@@ -200,8 +201,12 @@ window.changeValue = async function changeValue(button, change) {
   }
 }
 
+let isProcessing = false;
+
 // クラフトボタンを押したら
 async function craftExecute(event) {
+  if (isProcessing) return;
+  isProcessing = true;
   const button = event.currentTarget;
   // クラフト不可の場合は処理を中断
   if (!button.classList.contains('available') || button.classList.contains('insufficient')) {
@@ -242,7 +247,15 @@ async function craftExecute(event) {
   }
   globalGameState.gameState.items[itemId] += quantity;
   
-  // アイテムリストとクラフト画面を更新
-  initItem();
+  // 表示
+  recipeElement.querySelector('.game-item-craft-recipe-result').classList.remove('no-display');
+  recipeElement.querySelector('.game-item-craft-recipe-result span').textContent = `+${quantity}個`;
+  recipeElement.querySelector('.game-item-craft-recipe-result').classList.add('active');
   message('success', `${item.name}を${quantity}個クラフトしました！`, 3000);
+  setTimeout(() => {
+    recipeElement.querySelector('.game-item-craft-recipe-result').classList.remove('active');
+    // アイテムリスト更新
+    initItem();
+    isProcessing = false;
+  }, 1500);
 }
