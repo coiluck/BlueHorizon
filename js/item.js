@@ -43,12 +43,15 @@ function getItemNameById(itemId, allItems) {
   const item = allItems.find(i => i.id === itemId);
   return item ? item.name : '不明なアイテム';
 }
+
 function checkAvailability(recipe, playerItems) {
   for (const requirement of recipe) {
     if (requirement.anyOf) {
-      const hasAny = requirement.anyOf.some(option => playerItems[option.itemId] >= option.quantity);
-      if (!hasAny) {
-        return false; // 所持数が足りなければ作成不可
+      // 食材の場合
+      const requiredQuantity = requirement.anyOf[0].quantity;
+      const totalAvailable = requirement.anyOf.reduce((sum, option) => sum + (playerItems[option.itemId] || 0), 0);
+      if (totalAvailable < requiredQuantity) {
+        return false; // 合計所持数が足りなければ作成不可
       }
     } else {
       // 通常の条件
@@ -59,6 +62,7 @@ function checkAvailability(recipe, playerItems) {
   }
   return true; // 全ての条件を満たせば作成可能
 }
+
 async function setUpItemCraft() {
   const craftContainer = document.querySelector('.game-item-craft-recipe-container');
   craftContainer.innerHTML = '';
@@ -67,6 +71,7 @@ async function setUpItemCraft() {
   for (const item of craftItems) {
     const recipeElement = document.createElement('div');
     recipeElement.classList.add('game-item-craft-recipe');
+    recipeElement.dataset.itemId = item.id;
 
     let materialsHTML = '';
     for (const requirement of item.recipe) {
@@ -77,11 +82,11 @@ async function setUpItemCraft() {
       if (requirement.anyOf) {
         const names = requirement.anyOf.map(option => getItemNameById(option.itemId, itemData)).join('・');
         if (requirement.anyOf.some(o => o.itemId.includes('fish') || o.itemId.includes('squid'))) {
-            materialName = `食材（${names}）`;
+          materialName = `食材（${names}）`;
         } else if (requirement.anyOf.some(o => o.itemId.includes('bonfire') || o.itemId.includes('shichirin'))) {
-            materialName = `火（${names}）`;
+          materialName = `火（${names}）`;
         } else {
-            materialName = `いずれか（${names}）`;
+          materialName = `いずれか（${names}）`;
         }
         materialCount = requirement.anyOf[0].quantity; // anyOf内の必要数は同じと仮定
       } else {
@@ -102,6 +107,7 @@ async function setUpItemCraft() {
     // クラフト可能か判定
     const isAvailable = checkAvailability(item.recipe, globalGameState.gameState.items);
     const buttonClass = isAvailable ? 'available' : 'insufficient';
+    const buttonText = isAvailable ? 'クラフト' : 'アイテム不足';
 
     recipeElement.innerHTML = `
       <div class="game-item-craft-recipe-header">
@@ -122,26 +128,66 @@ async function setUpItemCraft() {
             <button class="game-item-craft-quantity-btn increase" onclick="changeValue(this, 1)">+</button>
           </div>
         </div>
-        <button class="game-item-craft-button ${buttonClass}">クラフト</button>
+        <button class="game-item-craft-button ${buttonClass}">${buttonText}</button>
       </div>
     `;
 
     craftContainer.appendChild(recipeElement);
+    recipeElement.querySelector('.game-item-craft-button').addEventListener('click', craftExecute);
   }
 }
 
 import { message } from "./module/message.js";
 
 // クラフトの量を変更するやつ
-window.changeValue = function changeValue(button, change) {
-  const parent = button.parentElement;
-  const input = parent.querySelector('.game-item-craft-quantity-input');
+window.changeValue = async function changeValue(button, change) {
+  const recipeElement = button.closest('.game-item-craft-recipe');
+  const input = recipeElement.querySelector('.game-item-craft-quantity-input');
   const currentValue = Number(input.textContent);
-  const min = 1
-  const max = 5
+  const min = 1;
+  const max = 5;
   const newValue = currentValue + change;
+
   if (newValue >= min && newValue <= max) {
     input.textContent = newValue;
+
+    const itemId = recipeElement.dataset.itemId;
+    const itemData = await getItemsData();
+    const item = itemData.find(i => i.id === itemId);
+
+    // クラフト個数に応じた一時的なレシピ(tempRecipe)を作成
+    const tempRecipe = JSON.parse(JSON.stringify(item.recipe)); // 元のレシピをコピー
+    tempRecipe.forEach(requirement => {
+      if (requirement.anyOf) {
+        requirement.anyOf.forEach(option => {
+          option.quantity *= newValue;
+        });
+      } else {
+        requirement.quantity *= newValue;
+      }
+    });
+
+    // 必要なアイテムを計算&表示
+    const materialCountElements = recipeElement.querySelectorAll('.game-item-craft-material-count');
+    item.recipe.forEach((requirement, index) => {
+      let requiredQuantity;
+      if (requirement.anyOf) {
+        requiredQuantity = requirement.anyOf[0].quantity * newValue;
+      } else {
+        requiredQuantity = requirement.quantity * newValue;
+      }
+      // 表示を更新
+      if (materialCountElements[index]) {
+        materialCountElements[index].textContent = `×${requiredQuantity}`;
+      }
+    });
+
+    // クラフト可能かチェック
+    const isAvailable = checkAvailability(tempRecipe, globalGameState.gameState.items);
+    const craftButton = recipeElement.querySelector('.game-item-craft-button');
+    craftButton.className = `game-item-craft-button ${isAvailable ? 'available' : 'insufficient'}`;
+    craftButton.textContent = isAvailable ? 'クラフト' : '材料不足';
+
     // ボタンにアニメーション
     button.style.transform = 'scale(0.9)';
     setTimeout(() => {
@@ -152,4 +198,51 @@ window.changeValue = function changeValue(button, change) {
   } else if (newValue > max) {
     message('caution', '5以下の個数を入力してください', 3000);
   }
+}
+
+// クラフトボタンを押したら
+async function craftExecute(event) {
+  const button = event.currentTarget;
+  // クラフト不可の場合は処理を中断
+  if (!button.classList.contains('available') || button.classList.contains('insufficient')) {
+    message('caution', 'アイテムが不足しています。', 3000);
+    return;
+  }
+
+  const recipeElement = button.closest('.game-item-craft-recipe');
+  const quantity = Number(recipeElement.querySelector('.game-item-craft-quantity-input').textContent);
+  const itemId = recipeElement.dataset.itemId;
+  const itemData = await getItemsData();
+  const item = itemData.find(i => i.id === itemId);
+
+  // アイテム減算処理
+  for (const requirement of item.recipe) {
+    if (requirement.anyOf) {
+      let needed = requirement.anyOf[0].quantity * quantity;
+      for (const option of requirement.anyOf) {
+        if (needed <= 0) break; // 必要な数を満たしたらループを抜ける
+        
+        const playerHas = globalGameState.gameState.items[option.itemId] || 0;
+        const toConsume = Math.min(needed, playerHas); // 必要数と所持数のうち少ない方を消費
+        
+        if (toConsume > 0) {
+          globalGameState.gameState.items[option.itemId] -= toConsume;
+          needed -= toConsume;
+        }
+      }
+    } else {
+      // 通常の素材消費
+      globalGameState.gameState.items[requirement.itemId] -= requirement.quantity * quantity;
+    }
+  }
+
+  // アイテム加算処理
+  if (!globalGameState.gameState.items[itemId]) {
+    globalGameState.gameState.items[itemId] = 0;
+  }
+  globalGameState.gameState.items[itemId] += quantity;
+  
+  // アイテムリストとクラフト画面を更新
+  initItem();
+  message('success', `${item.name}を${quantity}個クラフトしました！`, 3000);
 }

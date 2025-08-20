@@ -38,7 +38,8 @@ function updateStory() {
       updateStory();
     } else {
       // 共通ルート -> ストーリー終了
-      alert('ストーリー終了');
+      initGame();
+      changeModal('game');
     }
     return;
   }
@@ -106,14 +107,13 @@ function displayChoices(choiceId) {
 
   setTimeout(() => {
     document.getElementById('opening-choices-container').style.display = 'flex';
-    document.getElementById('opening-choices-container').classList.add('fade-in');
     document.getElementById('opening-choices-container').style.pointerEvents = 'auto';
-  }, 500);
-  setTimeout(() => {
-    document.getElementById('opening-choices-container').classList.remove('fade-in');
     document.querySelectorAll('.opening-choice-button').forEach(btn => {
       btn.classList.add('blur');
     });
+  }, 500);
+  setTimeout(() => {
+    document.getElementById('opening-choices-container').classList.remove('fade-in');
   }, 1000);
 }
 
@@ -129,8 +129,7 @@ document.getElementById('opening-skip-window').addEventListener('click', (event)
 });
 // skip-button
 document.getElementById('opening-skip-button').addEventListener('click', (event) => {
-  event.stopPropagation(); 
-  // あとでスキップ処理書く
+  event.stopPropagation();
   initGame();
   changeModal('game');
 });
