@@ -3,8 +3,32 @@ const explorePlacesData = {
   path1: {
     name: '最果ての島',
     fishable: true,
-    items: {
-      scrap_iron: 10,
+    itemsWeight: {
+      scrap_iron: 1,
+      wood: 1,
+      fiber_rope: 1,
+      copper_wire_cable: 1,
+      titanium_alloy_plate: 1,
+      activated_carbon: 1,
+      crystal_ore: 1,
+      circuit_board: 1,
+    },
+    itemsWeightInFishing: {
+      scrap_iron: 1,
+      wood: 1,
+      fiber_rope: 1,
+      copper_wire_cable: 1,
+      titanium_alloy_plate: 1,
+      activated_carbon: 1,
+      crystal_ore: 1,
+      circuit_board: 1,
+      fish_1: 2,
+      fish_2: 3,
+      squid: 3,
+    },
+    itemsRoll: {
+      base: 4,
+      rate: 4,
     }
   },
   path2: {
@@ -13,26 +37,145 @@ const explorePlacesData = {
   path3: {
     name: '海底渓谷',
     fishable: true,
+    images: 'seabed.avif',
+    itemsWeight: { // 20
+      scrap_iron: 5,
+      copper_wire_cable: 5,
+      titanium_alloy_plate: 5,
+      circuit_board: 5,
+    },
+    itemsWeightInFishing: {
+      scrap_iron: 5,
+      copper_wire_cable: 5,
+      titanium_alloy_plate: 5,
+      circuit_board: 5,
+      fish_2: 10,
+      squid: 10,
+    },
+    itemsRoll: {
+      base: 3,
+      rate: 2,
+    }
   },
   path4: {
     name: '静寂の浅瀬',
+    images: 'undersea.avif',
+    story: [
+      { text: 'セレスティア号の窓から、穏やかな海底に光のカーテンが揺れているのが見える。' },
+      { text: 'ここは「静寂の浅瀬」。かつては海岸沿いの小さな町だった場所だ。' },
+      { text: '砂に埋もれたアスファルトの道に沿って進むと、錆びついたバス停がぽつんと佇んでいた。' },
+      {
+        text: '屋根には藻が付着し、静かな海の住処となっている。',
+        choice: [
+          { text: 'バス停を調べる', action: 'nomal' },
+          { text: '釣りをする', action: 'fishing' },
+        ]
+      },
+      { text: 'セレスティア号をゆっくりと近づける。' },
+      { text: 'ベンチの下のあたり、砂に半分埋もれるようにして、小さな収納ボックスのようなものが見えた。' },
+      { text: 'アームで慎重にボックスを引き寄せる。' },
+      { text: '固く閉ざされた蓋をこじ開けると、中から小さな包みが出てきた。' },
+      ],
     fishable: true,
+    itemsRoll: {
+      base: 2,
+      rate: 2,
+    }
   },
   path5: {
     name: '霧の湿地帯',
     fishable: true,
+    itemsWeight: { // 25
+      scrap_iron: 1,
+      wood: 7,
+      fiber_rope: 7,
+      copper_wire_cable: 1,
+      activated_carbon: 7,
+      titanium_alloy_plate: 1,
+      circuit_board: 1,
+    },
+    itemsWeightInFishing: {
+      scrap_iron: 1,
+      wood: 7,
+      fiber_rope: 7,
+      copper_wire_cable: 1,
+      activated_carbon: 7,
+      titanium_alloy_plate: 1,
+      circuit_board: 1,
+      fish_1: 10,
+      fish_2: 8,
+      squid: 7,
+    },
+    itemsRoll: {
+      base: 2,
+      rate: 3,
+    }
   },
   path6: {
     name: '忘れられた遺跡',
     fishable: true,
+    itemsWeight: { // 40
+      scrap_iron: 10,
+      wood: 6,
+      fiber_rope: 5,
+      copper_wire_cable: 3,
+      titanium_alloy_plate: 6,
+      circuit_board: 10,
+    },
+    itemsWeightInFishing: {
+      scrap_iron: 10,
+      wood: 6,
+      fiber_rope: 5,
+      copper_wire_cable: 3,
+      titanium_alloy_plate: 6,
+      circuit_board: 10,
+      fish_2: 20,
+      squid: 20,
+    },
+    itemsRoll: {
+      base: 3,
+      rate: 4,
+    }
   },
   path7: {
     name: '大陸周辺部',
     fishable: false,
+    itemsWeight: { // 32
+      scrap_iron: 7,
+      wood: 5,
+      fiber_rope: 3,
+      copper_wire_cable: 7,
+      titanium_alloy_plate: 7,
+      activated_carbon: 2,
+      circuit_board: 1,
+    },
+    itemsRoll: {
+      base: 3,
+      rate: 2,
+    }
   },
   path8: {
     name: '海の孤島',
     fishable: true,
+    itemsWeight: { // 17
+      scrap_iron: 5,
+      wood: 5,
+      titanium_alloy_plate: 2,
+      activated_carbon: 5,
+    },
+    itemsWeightInFishing: {
+      scrap_iron: 5,
+      wood: 5,
+      titanium_alloy_plate: 2,
+      activated_carbon: 5,
+      fish_1: 10,
+      fish_2: 5,
+      squid: 2,
+    },
+    itemsRoll: {
+      base: 2,
+      rate: 2,
+    }
   },
   path9: {
     name: '遥かなる大洋',
@@ -42,12 +185,24 @@ const explorePlacesData = {
       { text: 'この海は、深くて暗い。' },
       { text: '海の向こうには、何かがあるようだ。' },
     ],
-    itemsWeight: {
-      scrap_iron: 10,
+    itemsWeight: { // 20
+      scrap_iron: 5,
+      copper_wire_cable: 5,
+      titanium_alloy_plate: 5,
+      circuit_board: 5,
+    },
+    itemsWeightInFishing: {
+      scrap_iron: 5,
+      copper_wire_cable: 5,
+      titanium_alloy_plate: 5,
+      circuit_board: 5,
+      fish_1: 5,
+      fish_2: 7,
+      squid: 8,
     },
     itemsRoll: {
-      base: 1,
-      rate: 5,
+      base: 3,
+      rate: 2,
     }
   },
   path10: {
@@ -55,44 +210,129 @@ const explorePlacesData = {
     fishable: true, // 釣りが可能か
     images: 'undersea.avif',
     story: [
-      { text: '「汐凪の街」周辺の、崩れかけたビルについた。' },
-      { text: '「汐凪の街」周辺の、崩れかけたビルについた。',
+      { text: 'セレスティア号の窓から、見慣れた街の残骸が流れていく。' },
+      { text: '街の周辺は、もう何度も潜った場所だ。' },
+      { text: '機体をゆっくりと進めていると、いつも目にする半壊したオフィスビルの前にたどり着いた。' },
+      {
+        text: 'ぽっかりと口を開けたエントランスが、静かにこちらを窺っている。',
         choice: [
-          { text: 'ビルの中に入ってみる', action: 'nomal' },
+          { text: '辺りを探索する', action: 'nomal' },
           { text: '釣りをする', action: 'fishing' },
         ]
-       },
-      { text: '崩れかけているビルの上部から、中に入ってみた。' },
-      { text: 'ビルの中は静かだった。' },
-      { text: 'そのまま、ビルの中を歩いていくと、ある部屋にたどり着いた。' },
+      },
+      { text: '慎重にビルの中へ入る。' },
+      { text: '海水に満たされたフロアは、奇妙なほど静まり返っていた。' },
+      { text: 'ひっくり返った事務机、錆びついたキャビネット……。' },
+      { text: '壁際にあったロッカーに目が留まる。扉が少しだけ開いているようだ。' },
+      { text: 'セレスティア号のアームでこじ開けると、中から何かが出てきた。' },
     ],
     itemsWeight: {
-      scrap_iron: 10,
-      wood: 6,
+      scrap_iron: 18,
+      wood: 12,
+      fiber_rope: 8,
+      copper_wire_cable: 3,
+      titanium_alloy_plate: 2,
+      activated_carbon: 4,
+      crystal_ore: 1,
+      circuit_board: 2, // 6%の確率で30回試行時に4つ以上手に入る <- 40の時、今は50
     },
     itemsWeightInFishing: {
-      scrap_iron: 10,
-      wood: 6,
-      fish_1: 10,
-      fish_2: 3,
-      squid: 3,
+      scrap_iron: 18,
+      wood: 12,
+      fiber_rope: 8,
+      copper_wire_cable: 3,
+      titanium_alloy_plate: 2,
+      activated_carbon: 4,
+      crystal_ore: 1,
+      circuit_board: 2,
+      fish_1: 30,
+      fish_2: 12,
+      squid: 8,
     },
     itemsRoll: {
       base: 1, // 最低保証
-      rate: 5, // n%の確率（一括で設定、10か20を想定）で増加するのをこの回数分繰り返す
+      rate: 3, // n%の確率（一括で設定、10か20を想定）で増加するのをこの回数分繰り返す
     }
   },
   path11: {
     name: '青の諸島',
     fishable: true,
+    itemsWeight: { // 17
+      scrap_iron: 5,
+      wood: 5,
+      titanium_alloy_plate: 2,
+      activated_carbon: 5,
+    },
+    itemsWeightInFishing: {
+      scrap_iron: 5,
+      wood: 5,
+      titanium_alloy_plate: 2,
+      activated_carbon: 5,
+      fish_2: 12,
+      squid: 5,
+    },
+    itemsRoll: {
+      base: 3,
+      rate: 4,
+    }
   },
   path12: {
     name: '「天を突く山」周辺',
     fishable: false,
+    itemsWeight: { // 32
+      scrap_iron: 7,
+      wood: 5,
+      fiber_rope: 3,
+      copper_wire_cable: 7,
+      titanium_alloy_plate: 7,
+      activated_carbon: 2,
+      circuit_board: 1,
+    },
+    itemsRoll: {
+      base: 2,
+      rate: 3,
+    }
   },
   path13: {
     name: '水晶の洞窟',
-    fishable: false,
+    fishable: true,
+    images: 'cave.avif',
+    story: [
+      { text: 'セレスティア号のライトが、暗い洞窟の壁を照らし出す。' },
+      { text: '壁一面にびっしりと生えた水晶が光を乱反射させ、辺りは幻想的な蒼い光に包まれていた。',
+        choice: [
+          { text: '根本を調べる', action: 'nomal' },
+          { text: '釣りをする', action: 'fishing' },
+        ]
+      },
+      { text: 'しばらく進むと、ひときわ大きく輝く水晶のクラスターが目に留まった。' },
+      { text: 'その根本に、何か人工物のようなものが埋まっているのが見える。' },
+      { text: '慎重にセレスティア号を寄せ、アームを伸ばす。' },
+      { text: '水晶を傷つけないようにゆっくりと掘り返していくと、中から何かが姿を現した。' },
+    ],
+    itemsWeight: { // 25
+      scrap_iron: 4,
+      fiber_rope: 3,
+      copper_wire_cable: 2,
+      titanium_alloy_plate: 3,
+      crystal_ore: 12,
+      circuit_board: 1,
+    },
+    itemsWeightInFishing: {
+      scrap_iron: 4,
+      fiber_rope: 3,
+      copper_wire_cable: 2,
+      titanium_alloy_plate: 3,
+      crystal_ore: 12,
+      circuit_board: 1,
+      fish_1: 10,
+      fish_2: 8,
+      squid: 7,
+    },
+    itemsRoll: {
+      base: 2,
+      rate: 3,
+    }
   }
 }
 

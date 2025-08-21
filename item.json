@@ -179,7 +179,7 @@
     "type": "tool",
     "source": "craft",
     "recipe": [
-      { "itemId": "scrap_iron", "quantity": 1 },
+      { "itemId": "scrap_iron", "quantity": 2 },
       { "itemId": "titanium_alloy_plate", "quantity": 1 },
       { "itemId": "fiber_rope", "quantity": 1 }
     ]
@@ -192,7 +192,7 @@
     "type": "tool",
     "source": "craft",
     "recipe": [
-      { "itemId": "crystal_ore", "quantity": 1 },
+      { "itemId": "crystal_ore", "quantity": 2 },
       { "itemId": "circuit_board", "quantity": 1 },
       { "itemId": "copper_wire_cable", "quantity": 1 }
     ]
@@ -217,7 +217,7 @@
     "type": "tool",
     "source": "craft",
     "recipe": [
-      { "itemId": "crystal_ore", "quantity": 1 },
+      { "itemId": "crystal_ore", "quantity": 2 },
       { "itemId": "copper_wire_cable", "quantity": 1 },
       { "itemId": "scrap_iron", "quantity": 2 }
     ]
@@ -255,8 +255,9 @@
     "source": "craft",
     "recipe": [
       { "itemId": "activated_carbon", "quantity": 4 },
-      { "itemId": "fiber_rope", "quantity": 1 },
-      { "itemId": "pipe_parts", "quantity": 2 },
+      { "itemId": "fiber_rope", "quantity": 2 },
+      { "itemId": "crystal_ore", "quantity": 1 },
+      { "itemId": "pipe_parts", "quantity": 3 },
       { "itemId": "control_board", "quantity": 2 }
     ]
   }
