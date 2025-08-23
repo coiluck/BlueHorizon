@@ -3,6 +3,19 @@ const explorePlacesData = {
   path1: {
     name: '最果ての島',
     fishable: true,
+    images: 'island.avif',
+    story: [
+      { text: "激しい嵐を抜け、セレスティア号はついに最果ての島へとたどり着いた。" },
+      { text: "ごつごつとした岩肌が海面から突き出し、荒波が絶えず打ちつけている。" },
+      { text: "島の浜辺に、何か金属製のコンテナのようなものが打ち上げられているのが見えた。",
+        choice: [
+          { text: "コンテナを調べる", action: "nomal" },
+          { text: "釣りをする", action: "fishing" }
+        ]
+      },
+      { text: "セレスティア号を慎重に浜辺へと近づけ、アームを伸ばす。" },
+      { text: "分厚い扉は固く閉ざされていたが、力を込めると、鈍い音を立てて開いた。" }
+    ],
     itemsWeight: {
       scrap_iron: 1,
       wood: 1,
@@ -38,6 +51,23 @@ const explorePlacesData = {
     name: '海底渓谷',
     fishable: true,
     images: 'seabed.avif',
+    story: [
+      { text: 'セレスティア号は、深く切り立った崖の間をゆっくりと進んでいく。' },
+      { text: 'ソナーが示す地形は複雑で、両側に迫る巨大な岩壁が圧迫感を与える。' },
+      { text: 'かつては川だったのだろうか。想像もつかないほどの時間が、この景色を創り上げたのかもしれない。' },
+      {
+        text: 'ふと、崖の途中に不自然な影が見えた。',
+        choice: [
+          { text: '崖を調べる', action: 'nomal' },
+          { text: '釣りをする', action: 'fishing' },
+        ]
+      },
+      { text: '慎重に機体を寄せ、ライトで影の正体を照らし出す。' },
+      { text: 'それは岩の裂け目に挟まった、人工物の残骸だった。' },
+      { text: 'かつてこの渓谷に架かっていた橋の一部だろうか。' },
+      { text: 'セレスティア号のアームを慎重に伸ばし、掴み取る。' },
+      { text: 'ごとり、と鈍い音を立てて、錆びついた塊がアームに収まった。' },
+    ],
     itemsWeight: { // 20
       scrap_iron: 5,
       copper_wire_cable: 5,
@@ -85,6 +115,19 @@ const explorePlacesData = {
   path5: {
     name: '霧の湿地帯',
     fishable: true,
+    images: 'shicchi.webp',
+    story: [
+      { text: "ここは「霧の湿地帯」。かつて生い茂っていた木々が、今は不気味な墓標のように立ち並んでいる。" },
+      { text: "立ち枯れた木々の間を縫うように進んでいると、ひときわ大きな木の根元に何かが引っかかっているのが見えた。",
+        choice: [
+          { text: "根元を調べる", action: "nomal" },
+          { text: "釣りをする", action: "fishing" }
+        ]
+      },
+      { text: "セレスティア号を慎重に近づけ、絡みついた水草をアームで取り払う。" },
+      { text: "泥の中から姿を現したのは、古びた防水コンテナだった。" },
+      { text: "アームでこじ開けると、中から何かが出てきた。" }
+    ],
     itemsWeight: { // 25
       scrap_iron: 1,
       wood: 7,
@@ -157,6 +200,7 @@ const explorePlacesData = {
   path8: {
     name: '海の孤島',
     fishable: true,
+    images: 'island2.avif',
     itemsWeight: { // 17
       scrap_iron: 5,
       wood: 5,
@@ -182,8 +226,18 @@ const explorePlacesData = {
     fishable: true,
     images: 'horizon1.webp',
     story: [
-      { text: 'この海は、深くて暗い。' },
-      { text: '海の向こうには、何かがあるようだ。' },
+      { text: 'セレスティア号は、どこまでも続く蒼い世界を静かに進んでいく。' },
+      { text: '窓の外には、ただただ広大な海が広がっている。' },
+      { text: 'ふと、ソナーが微かな反応を捉えた。こんな宙域に何があるというのだろう。',
+        choice: [
+          { text: '調査する', action: 'nomal' },
+          { text: '釣りをする', action: 'fishing' },
+        ]
+      },
+      { text: 'そこにあったのは、巨大な輸送船の残骸だった。' },
+      { text: '船体は半ばで折れ、見るも無惨な姿を晒している。' },
+      { text: '船倉だったと思われる場所に、ぽっかりと空いた穴がある。' },
+      { text: 'セレスティア号のアームを慎重に伸ばして穴の奥を探ると、指先に硬い感触があった。' },
     ],
     itemsWeight: { // 20
       scrap_iron: 5,
@@ -257,6 +311,7 @@ const explorePlacesData = {
   path11: {
     name: '青の諸島',
     fishable: true,
+    images: 'island2.avif',
     itemsWeight: { // 17
       scrap_iron: 5,
       wood: 5,
@@ -279,6 +334,14 @@ const explorePlacesData = {
   path12: {
     name: '「天を突く山」周辺',
     fishable: false,
+    images: 'mountain.webp',
+    story: [
+      { text: 'セレスティア号を降りて、内陸で探索を続ける' },
+      { text: '今でさえこの山は高く、その頂上は雲の上にある。' },
+      { text: 'きっと「蒼い沈黙」前はもっと、人のいる土地から遠く、離れ、高かった場所なのだろう。' },
+      { text: '何の痕跡もない中、私は歩き続けた。' },
+      { text: 'しばらく歩くと、横の山肌から何かが見えた。' },
+    ],
     itemsWeight: { // 32
       scrap_iron: 7,
       wood: 5,
