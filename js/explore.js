@@ -107,6 +107,27 @@ const explorePlacesData = {
       { text: '固く閉ざされた蓋をこじ開けると、中から小さな包みが出てきた。' },
       ],
     fishable: true,
+    itemsWeight: { // 25
+      scrap_iron: 5,
+      wood: 5,
+      fiber_rope: 5,
+      copper_wire_cable: 2,
+      activated_carbon: 5,
+      titanium_alloy_plate: 2,
+      circuit_board: 1,
+    },
+    itemsWeightInFishing: {
+      scrap_iron: 5,
+      wood: 5,
+      fiber_rope: 5,
+      copper_wire_cable: 2,
+      activated_carbon: 5,
+      titanium_alloy_plate: 2,
+      circuit_board: 1,
+      fish_1: 15,
+      fish_2: 5,
+      squid: 5,
+    },
     itemsRoll: {
       base: 2,
       rate: 2,
@@ -306,7 +327,9 @@ const explorePlacesData = {
     itemsRoll: {
       base: 1, // 最低保証
       rate: 3, // n%の確率（一括で設定、10か20を想定）で増加するのをこの回数分繰り返す
-    }
+    },
+    memoryPiece: [5], // 記憶の欠片のID
+    memoryPieceRate: 0.5, // 記憶の欠片の出現確率
   },
   path11: {
     name: '青の諸島',
@@ -409,6 +432,7 @@ import { changeBackgroundImage } from './module/scenarioAction.js';
 import { changeModal } from './module/changeModal.js';
 import { globalGameState } from './module/gameState.js';
 import { initGame } from './game.js';
+import { getMemoryPieces, setUpMemoryPiece } from './module/memoryPieces.js';
 
 let itemsDataCache = null;
 async function getItemsData() {
@@ -448,6 +472,8 @@ export async function explore(path) {
   let isFishing = false;
   let getItemMessages = [];
   let messageIndex = 0;
+  let isGetMemoryPiece = false;
+  let memoryPieceId = null;
 
   // 現在のストーリーと選択肢を表示する関数
   const displayStep = () => {
@@ -519,6 +545,15 @@ export async function explore(path) {
           getItemMessages.push(`${itemName}を${number}個、獲得した！`);
         }
   
+        // 記憶の欠片の獲得
+        const memoryPiece = getMemoryPieces(placeData.memoryPiece, placeData.memoryPieceRate);
+        if (memoryPiece) {
+          // 獲得した場合は、メッセージ配列の末尾に追加
+          getItemMessages.push(`記憶の欠片${memoryPiece.id} - 「${memoryPiece.name}」を獲得した！`);
+          isGetMemoryPiece = true;
+          memoryPieceId = memoryPiece.id;
+        }
+
         if (getItemMessages.length > 0) {
           storyContainer.textContent = getItemMessages[0];
         } else {
@@ -536,6 +571,14 @@ export async function explore(path) {
       if (messageIndex < getItemMessages.length) {
         storyContainer.textContent = getItemMessages[messageIndex];
       } else {
+        // 記憶の欠片の獲得
+        if (isGetMemoryPiece) {
+          changeModal('memoryPiece');
+          setUpMemoryPiece(memoryPieceId);
+          initGame();
+          return;
+        }
+        // 記憶の欠片がない場合
         initGame();
         changeModal('game');
       }
@@ -572,6 +615,15 @@ export async function explore(path) {
         const number = itemsCount[item];
         const itemName = itemData.find(i => i.id === item).name;
         getItemMessages.push(`${itemName}を${number}個、獲得した！`);
+      }
+
+      // 記憶の欠片の獲得
+      const memoryPiece = getMemoryPieces(placeData.memoryPiece, placeData.memoryPieceRate);
+      if (memoryPiece) {
+        // 獲得した場合は、メッセージ配列の末尾に追加
+        getItemMessages.push(`記憶の欠片${memoryPiece.id} - 「${memoryPiece.name}」を獲得した！`);
+        isGetMemoryPiece = true;
+        memoryPieceId = memoryPiece.id;
       }
 
       if (getItemMessages.length > 0) {

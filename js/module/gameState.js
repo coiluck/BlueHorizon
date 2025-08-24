@@ -11,10 +11,11 @@ const initialState = {
     hasUnlockedWaterPurifier: false,
     hope: 70,
     memoryPiece: 0,
+    memoryPieceArray: [],
     hunger: 100,
     day: 1,
     CelestiaUpgrade: {
-      engine: 0,
+      engine: 2,
       sonar: 0,
       arm: 0,
       fuel: 0,
