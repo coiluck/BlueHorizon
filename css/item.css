@@ -330,3 +330,19 @@
   color: #333;
   outline: none;
 }
+
+/* 食べるボタン */
+.game-item-list-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.game-item-list-button-container button {
+  font-size: 0.7rem;
+  color: #f0f0f0;
+  border: 1px solid #666;
+  background-color: #666;
+  border-radius: 10px;
+  padding: 2px 5px;
+}

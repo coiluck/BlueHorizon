@@ -27,14 +27,32 @@ async function setUpItemList() {
     const itemElement = document.createElement('div');
     itemElement.classList.add('game-item-list-card');
     itemElement.dataset.itemId = item.id;
-    itemElement.innerHTML = `
-      <div class="game-item-list-item-icon"><img src="${item.image}"></div>
-      <div class="game-item-list-item-texts">
-        <div class="game-item-list-item-name">${item.name}</div>
-        <div class="game-item-list-item-description">${item.description}</div>
-      </div>
-      <div class="game-item-list-item-count">所持 ${globalGameState.gameState.items[item.id] || 0}</div>
-    `;
+    if (item.type === 'consumable') {
+      itemElement.innerHTML = `
+        <div class="game-item-list-item-icon"><img src="${item.image}"></div>
+        <div class="game-item-list-item-texts">
+          <div class="game-item-list-item-name">${item.name}</div>
+          <div class="game-item-list-item-description">${item.description}</div>
+        </div>
+        <div class="game-item-list-button-container">
+          <div class="game-item-list-item-count">所持 ${globalGameState.gameState.items[item.id] || 0}</div>
+          <button class="game-item-list-button">食べる</button>
+        </div>
+      `;
+      const eatButton = itemElement.querySelector('.game-item-list-button');
+      if (eatButton) {
+        eatButton.addEventListener('click', () => eatItem(item));
+      }
+    } else {
+      itemElement.innerHTML = `
+        <div class="game-item-list-item-icon"><img src="${item.image}"></div>
+        <div class="game-item-list-item-texts">
+          <div class="game-item-list-item-name">${item.name}</div>
+          <div class="game-item-list-item-description">${item.description}</div>
+        </div>
+        <div class="game-item-list-item-count">所持 ${globalGameState.gameState.items[item.id] || 0}</div>
+      `;
+    }
     itemListContainer.appendChild(itemElement);
   });
 }
@@ -258,4 +276,34 @@ async function craftExecute(event) {
     initItem();
     isProcessing = false;
   }, 1500);
+}
+
+// 食べるボタンを押したら
+async function eatItem(item) {
+  // アイテムの所持数をチェック
+  if ((globalGameState.gameState.items[item.id] || 0) <= 0) {
+    message('caution', `${item.name}を持っていません。`, 3000);
+    return;
+  }
+
+  // アイテムを1つ減らす
+  globalGameState.gameState.items[item.id]--;
+
+  // hungerを回復（最大値は100と仮定）
+  const hungerAmount = {
+    fish_1: 7,
+    fish_2: 10,
+    squid: 7,
+    cooked_food: 15,
+  }
+  const recoveryAmount = hungerAmount[item.id] || 0;
+  globalGameState.gameState.hunger += recoveryAmount;
+  if (globalGameState.gameState.hunger > 100) {
+    globalGameState.gameState.hunger = 100;
+  }
+  
+  message('success', `${item.name}を食べた。満腹度が${recoveryAmount}回復した。`, 3000);
+
+  // アイテムリストの表示を更新
+  setUpItemList();
 }
