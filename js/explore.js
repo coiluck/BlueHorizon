@@ -89,7 +89,7 @@ const explorePlacesData = {
   },
   path4: {
     name: '静寂の浅瀬',
-    images: 'undersea.avif',
+    images: 'asase.avif',
     story: [
       { text: 'セレスティア号の窓から、穏やかな海底に光のカーテンが揺れているのが見える。' },
       { text: 'ここは「静寂の浅瀬」。かつては海岸沿いの小さな町だった場所だ。' },
@@ -203,6 +203,7 @@ const explorePlacesData = {
   },
   path7: {
     name: '大陸周辺部',
+    images: 'mountain.webp',
     fishable: false,
     itemsWeight: { // 32
       scrap_iron: 7,
@@ -326,7 +327,7 @@ const explorePlacesData = {
     },
     itemsRoll: {
       base: 1, // 最低保証
-      rate: 3, // n%の確率（一括で設定、10か20を想定）で増加するのをこの回数分繰り返す
+      rate: 3, // 20%の確率で増加するのをこの回数分繰り返す
     },
     memoryPiece: [5], // 記憶の欠片のID
     memoryPieceRate: 0.5, // 記憶の欠片の出現確率
@@ -385,14 +386,14 @@ const explorePlacesData = {
     images: 'cave.avif',
     story: [
       { text: 'セレスティア号のライトが、暗い洞窟の壁を照らし出す。' },
-      { text: '壁一面にびっしりと生えた水晶が光を乱反射させ、辺りは幻想的な蒼い光に包まれていた。',
+      { text: '壁一面にびっしりと生えた水晶が光を乱反射させ、辺りは幻想的な蒼い光に包まれていた。', },
+      { text: 'しばらく進むと、ひときわ大きく輝く水晶のクラスターが目に留まった。' },
+      { text: 'その根本に、何か人工物のようなものが埋まっているのが見える。',
         choice: [
           { text: '根本を調べる', action: 'nomal' },
           { text: '釣りをする', action: 'fishing' },
         ]
       },
-      { text: 'しばらく進むと、ひときわ大きく輝く水晶のクラスターが目に留まった。' },
-      { text: 'その根本に、何か人工物のようなものが埋まっているのが見える。' },
       { text: '慎重にセレスティア号を寄せ、アームを伸ばす。' },
       { text: '水晶を傷つけないようにゆっくりと掘り返していくと、中から何かが姿を現した。' },
     ],
@@ -474,6 +475,7 @@ export async function explore(path) {
   let messageIndex = 0;
   let isGetMemoryPiece = false;
   let memoryPieceId = null;
+  let isExiting = false;
 
   // 現在のストーリーと選択肢を表示する関数
   const displayStep = () => {
@@ -514,6 +516,9 @@ export async function explore(path) {
 
   // モーダルがクリックされたときのメインの処理
   currentExploreListener = async () => {
+    if (isExiting) {
+      return;
+    }
     // 釣り中の処理
     if (isFishing) {
       fishingIndex++;
@@ -571,15 +576,16 @@ export async function explore(path) {
       if (messageIndex < getItemMessages.length) {
         storyContainer.textContent = getItemMessages[messageIndex];
       } else {
+        isExiting = true;
         // 記憶の欠片の獲得
         if (isGetMemoryPiece) {
-          changeModal('memoryPiece');
+          changeModal('memory-piece');
           setUpMemoryPiece(memoryPieceId);
-          initGame();
           return;
         }
         // 記憶の欠片がない場合
         initGame();
+        updateDay();
         changeModal('game');
       }
       return;
@@ -723,4 +729,32 @@ async function getItemsInFishing(placeData) {
     }
   }
   return itemsList;
+}
+
+// day更新処理
+export function updateDay(path = null) {
+  globalGameState.gameState.day++;
+  if (globalGameState.gameState.day > 30) {
+    console.log('dayが30を超えたため、ゲームを終了します');
+    return;
+  }
+  if (path !== 'path10') {
+    // 汐凪の街以外なら減る
+    globalGameState.gameState.hunger -= 10;
+    globalGameState.gameState.hope -= 10;
+    if (globalGameState.gameState.hunger <= 0) {
+      console.log('hungerが0を下回ったため、ゲームを終了します');
+      return;
+    }
+    if (globalGameState.gameState.hope <= 0) {
+      console.log('hopeが0を下回ったため、ゲームを終了します');
+      return;
+    }
+  }
+  // DOM更新
+  document.getElementById('game-parameter-hope').textContent = globalGameState.gameState.hope;
+  document.getElementById('game-parameter-memory').textContent = globalGameState.gameState.memoryPiece;
+  document.getElementById('game-parameter-hunger').textContent = globalGameState.gameState.hunger;
+  document.getElementById('game-parameter-day').textContent = globalGameState.gameState.day;
+  return false;
 }

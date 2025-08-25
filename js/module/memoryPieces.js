@@ -56,7 +56,8 @@ const memoryPiecesData = {
   },
   piece_5: {
     id: 5,
-    name: '「汐凪の街」創設期',
+    name: '『汐凪の街』創設期',
+    image: 'city.avif',
     story: [
       { text: '数百メートルにも及ぶ海面上昇は、突如として人々の日常を奪い去った。だが、やがてその動きは静まり、残された世界は新しい秩序を模索し始める。' },
       { text: '人々は研究所から届けられた浄水装置を頼りに、荒れ果てた海辺に集い、新たな生活の拠点を築こうと決意した。' },
@@ -158,5 +159,40 @@ export function getMemoryPieces(array, rate) {
 
 export function setUpMemoryPiece(id) {
   const pieceData = memoryPiecesData[`piece_${id}`];
-  console.log(pieceData);
+  // 背景画像の設定
+  document.querySelector('.memory-piece-background-image img').src = `./assets/images/${pieceData.image}`;
+  // イベントリスナの設定
+  currentMemoryPieceListener = () => updateText(id);
+  document.getElementById('modal-memory-piece').addEventListener('click', currentMemoryPieceListener);
+  // 初回のテキストの設定
+  memoryPieceIndex = 0;
+  updateText(id);
+}
+
+import { changeModal } from './changeModal.js';
+import { updateDay } from '../explore.js';
+import { initGame } from '../game.js';
+
+let memoryPieceIndex = 0;
+
+let currentMemoryPieceListener = null; // イベントリスナの消去用
+
+function updateText(id) {
+  const pieceData = memoryPiecesData[`piece_${id}`];
+  if (memoryPieceIndex < pieceData.story.length) {
+    document.getElementById('memory-piece-text').textContent = pieceData.story[memoryPieceIndex].text;
+    memoryPieceIndex++;
+  } else {
+    if (currentMemoryPieceListener) {
+      document.getElementById('modal-memory-piece').removeEventListener('click', currentMemoryPieceListener);
+      currentMemoryPieceListener = null; // 後処理として変数をクリア
+    }
+    initGame();
+    if (id === 5) {
+      updateDay('path10');
+    } else {
+      updateDay();
+    }
+    changeModal('game');
+  }
 }

@@ -204,17 +204,59 @@ async function setUpUpgradeDetail(upgradeType) {
     }
 
     if (canUpgrade) {
-      document.querySelector('.upgrade-detail-button').disabled = true;
+      document.querySelector('.upgrade-detail-button').disabled = false;
       document.querySelector('.upgrade-detail-button').classList.add('available');
       document.querySelector('.upgrade-detail-button').classList.remove('insufficient');
       document.querySelector('.upgrade-detail-button').classList.remove('max-level');
       document.querySelector('.upgrade-detail-button').textContent = 'アップグレード';
+      document.querySelector('.upgrade-detail-button').addEventListener('click', upgradeExecute);
     } else {
-      document.querySelector('.upgrade-detail-button').disabled = false;
+      document.querySelector('.upgrade-detail-button').disabled = true;
       document.querySelector('.upgrade-detail-button').classList.add('insufficient');
       document.querySelector('.upgrade-detail-button').classList.remove('available');
       document.querySelector('.upgrade-detail-button').classList.remove('max-level');
       document.querySelector('.upgrade-detail-button').textContent = 'アイテム不足';
+      document.querySelector('.upgrade-detail-button').removeEventListener('click', upgradeExecute);
+    }
+  }
+}
+
+import { message } from './module/message.js';
+
+// アップグレード処理
+async function upgradeExecute() {
+  const selectedItem = document.querySelector('.game-upgrade-list-item.selected');
+  if (!selectedItem) return;
+
+  message('success', 'アップグレード完了！');
+
+  const upgradeType = selectedItem.dataset.upgrade;
+  const currentLevel = globalGameState.gameState.CelestiaUpgrade[upgradeType];
+  const maxLevel = 2;
+
+  if (currentLevel >= maxLevel) return;
+
+  const requiredItems = upgradeCost[upgradeType][currentLevel + 1];
+  const canUpgrade = requiredItems.every(req => (globalGameState.gameState.items[req.itemId] || 0) >= req.quantity);
+
+  if (canUpgrade) {
+    // 素材を消費
+    requiredItems.forEach(req => {
+      globalGameState.gameState.items[req.itemId] -= req.quantity;
+    });
+
+    // レベルを上昇
+    globalGameState.gameState.CelestiaUpgrade[upgradeType]++;
+
+    // DOM更新
+    await initUpgrade();
+
+    // 選択状態を更新
+    document.querySelectorAll('.game-upgrade-list-item').forEach(i => i.classList.remove('selected'));
+    const itemToSelect = document.querySelector(`.game-upgrade-list-item[data-upgrade="${upgradeType}"]`);
+    if (itemToSelect) {
+      itemToSelect.classList.add('selected');
+      await setUpUpgradeDetail(upgradeType);
     }
   }
 }

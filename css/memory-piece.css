@@ -1,0 +1,70 @@
+#modal-memory-piece {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.memory-piece-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(0); 
+}
+
+.memory-piece-background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(90%);
+}
+
+.text-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1)   0%,
+    rgba(0, 0, 0, 0.8)  40%,
+    rgba(0, 0, 0, 0.6) 70%,
+    rgba(0, 0, 0, 0.5) 80%,
+    rgba(0, 0, 0, 0.3) 90%,
+    rgba(0, 0, 0, 0)  100%
+  );
+  display: flex;
+  flex-direction: column;
+  padding: 40px 5%;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+#memory-piece-character-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#memory-piece-text::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin: 10px 0;
+}
+
+#memory-piece-text {
+  font-family: serif;
+  font-size: .9rem;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
