@@ -25,6 +25,7 @@ const explorePlacesData = {
       activated_carbon: 1,
       crystal_ore: 1,
       circuit_board: 1,
+      water_purifier: 4,
     },
     itemsWeightInFishing: {
       scrap_iron: 1,
@@ -35,9 +36,9 @@ const explorePlacesData = {
       activated_carbon: 1,
       crystal_ore: 1,
       circuit_board: 1,
-      fish_1: 2,
-      fish_2: 3,
-      squid: 3,
+      fish_1: 4,
+      fish_2: 4,
+      squid: 4,
     },
     itemsRoll: {
       base: 4,
@@ -178,6 +179,22 @@ const explorePlacesData = {
   path6: {
     name: '忘れられた遺跡',
     fishable: true,
+    images: 'ruins.avif',
+    story: [
+      { text: '巨大な石造りの遺跡が静かにたたずんでいる。' },
+      { text: 'かつては壮麗な都市だったのだろうか。風化した柱や壁が、静かにその場所を守っている。' },
+      { text: '瓦礫が散乱する道を進んでいくと、広場のような場所に出た。' },
+      {
+        text: '中央には、ひときわ大きな石碑が倒れ、半分ほど泥に埋もれている。',
+        choice: [
+          { text: '石碑を調べる', action: 'nomal' },
+          { text: '釣りをする', action: 'fishing' },
+        ]
+      },
+      { text: '表面には風化した文字が刻まれているが、ほとんど読み取ることはできない。' },
+      { text: '倒れた石碑の根本、瓦礫が積み重なった影に、何かが鈍く光っているのが見えた。' },
+      { text: 'アームを慎重に伸ばし、瓦礫をどかすと、中から何かが出てきた。' },
+    ],
     itemsWeight: { // 40
       scrap_iron: 10,
       wood: 6,
@@ -205,6 +222,11 @@ const explorePlacesData = {
     name: '大陸周辺部',
     images: 'mountain.webp',
     fishable: false,
+    story: [
+      { text: '大陸周辺部。乾いた風が草を揺らし、広い平原が淡く揺れている。' },
+      { text: '人の痕跡はまるでない。' },
+      { text: '道端に積もった土砂の隙間に、何かが見える。' },
+    ],      
     itemsWeight: { // 32
       scrap_iron: 7,
       wood: 5,
@@ -223,6 +245,21 @@ const explorePlacesData = {
     name: '海の孤島',
     fishable: true,
     images: 'island2.avif',
+    story: [
+      { text: "海図が示す座標には、ぽつんと小さな陸地が浮かんでいた。" },
+      { text: "かつては山の頂だったのかもしれないが、今はただ、波に洗われるだけの岩があるだけだ。" },
+      { text: "かろうじて形を保っている建造物の残骸に、セレスティア号を寄せる。" },
+      {
+        text: "波打ち際に、何かが打ち上げられているのが見えた。",
+        choice: [
+          { text: "何かを調べる", action: "nomal" },
+          { text: "釣りをする", action: "fishing" }
+        ]
+      },
+      { text: "セレスティア号を浅瀬に固定し、アームを伸ばす。" },
+      { text: "潮風に晒され、赤く錆びた鉄骨の山。その隙間に、何か光るものが見える。" },
+      { text: "慎重に瓦礫をどけていくと、中から使えそうな部品が姿を現した。" }
+    ],
     itemsWeight: { // 17
       scrap_iron: 5,
       wood: 5,
@@ -336,6 +373,19 @@ const explorePlacesData = {
     name: '青の諸島',
     fishable: true,
     images: 'island2.avif',
+    story: [
+      { text: 'セレスティア号が青の諸島のそよ風を受けてゆっくりと旋回する。' },
+      { text: '点在する小さな岩礁と浅瀬が、海面に砕ける白い縁取りをつくっている。' },
+      { text: '島々の間からは、深い藍色と蒼色が層になって波打って見える。' },
+      {
+        text: '小さな入り江の海底で、何かが光ったような気がした。',
+        choice: [
+          { text: '何かを調べる', action: 'nomal' },
+          { text: '釣りをする', action: 'fishing' },
+        ]
+      },
+      { text: 'セレスティア号を慎重に寄せ、浅い水底を探る。' },
+    ],
     itemsWeight: { // 17
       scrap_iron: 5,
       wood: 5,
