@@ -53,8 +53,10 @@
 
 .game-upgrade-container {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   gap: 20px;
+  height: calc(100% - 60px);
+  box-sizing: border-box;
   overflow: hidden;
 }
 .game-upgrade-left-panel {
@@ -175,15 +177,22 @@
 
 /* 右側のパネル */
 .game-upgrade-detail {
-  background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
-  border-left: 1px solid #dee2e6;
-  padding: 20px;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  height: calc(100% - 60px);
+  box-sizing: border-box;
+  margin: 30px auto;
+  padding: 20px 50px;
   overflow: hidden;
-}
-.upgrade-detail-header {
-  margin-bottom: 20px;
+  overflow-y: auto;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .upgrade-detail-name {
   font-size: 1.3rem;
@@ -222,12 +231,11 @@
   background: #27ae60;
 }
 .upgrade-detail-description {
-  max-width: 200px;
+  max-width: 400px;
   background: white;
   border: 1px solid #dee2e6;
   border-radius: 8px;
   padding: 15px;
-  margin-bottom: 20px;
   font-size: .85rem;
   color: #666;
   line-height: 1.5;
