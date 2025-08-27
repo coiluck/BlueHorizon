@@ -74,6 +74,10 @@
   padding: 0 10px;
   cursor: pointer;
   box-sizing: content-box;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   transition: all 0.3s ease;
 }
 #game-parameter-save:hover {
@@ -87,6 +91,52 @@
           drop-shadow(0px 1px 0px rgba(30, 100, 150, 1))
           drop-shadow(0px 0px 0px rgba(30, 100, 150, 1));
 }
+#game-parameter-end {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 0 10px;
+  cursor: pointer;
+  box-sizing: content-box;
+  transition: all 0.3s ease;
+}
+#game-parameter-end p {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+  margin: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+#game-parameter-end p::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.28s cubic-bezier(.2,.9,.2,1), background 0.28s;
+  will-change: transform;
+  pointer-events: none;
+}
+#game-parameter-end:hover p::after {
+  transform: scaleX(1);
+  background: linear-gradient(90deg, rgba(0,255,157,0.9), rgba(0,251,255,0.9));
+}
+#game-parameter-end:hover {
+  background: linear-gradient(135deg, rgba(0, 255, 157, 0.2), rgba(205, 255, 233, 0.3));
+  border: 1px solid rgba(0, 251, 255, 0.3);
+}
+
 
 /* メインコンテナエリア */
 .game-main-container {

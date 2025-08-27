@@ -128,3 +128,9 @@
     border-color: #333 transparent transparent transparent;
   }
 }
+.tooltip.below {
+  &::after {
+    top: -10px;
+    border-color: transparent transparent #333 transparent;
+  }
+}

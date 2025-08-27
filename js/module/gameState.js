@@ -7,8 +7,6 @@ const initialState = {
     isGoLab: false,
   },
   gameState: {
-    hasWaterPurifier: false,
-    hasUnlockedWaterPurifier: false,
     hope: 70,
     memoryPiece: 0,
     memoryPieceArray: [],
@@ -46,7 +44,7 @@ const initialState = {
       "flashlight": 0,
       "pipe_parts": 0,
       "control_board": 0,
-      "water_purifier": 0,
+      "water_purifier": 1,
     },
   },
 };

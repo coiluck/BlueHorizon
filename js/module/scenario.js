@@ -270,3 +270,66 @@ export const openingChoices = {
     }
   ]
 };
+
+
+
+
+
+
+
+
+
+// エンディング用
+export const endingScenarioTYPE1 = [
+  { text: 'aa1' }
+];
+export const endingChoicesTYPE1 = {
+  isContinueSalvage: [
+    { buttonText: 'aa1' }
+  ]
+};
+
+export const endingScenarioTYPE2 = [
+  { text: 'aa1' }
+];
+export const endingChoicesTYPE2 = {
+  isContinueSalvage: [
+    { buttonText: 'aa1' }
+  ]
+};
+
+export const endingScenarioTYPE3 = [
+  { text: 'aa1' }
+];
+export const endingChoicesTYPE3 = {
+  isContinueSalvage: [
+    { buttonText: 'aa1' }
+  ]
+};
+
+export const endingScenarioTYPE4 = [
+  { text: 'aa1' }
+];
+export const endingChoicesTYPE4 = {
+  isContinueSalvage: [
+    { buttonText: 'aa1' }
+  ]
+};
+
+export const endingScenarioTYPE5 = [
+  { text: 'aa1' }
+];
+export const endingChoicesTYPE5 = {
+  isContinueSalvage: [
+    { buttonText: 'aa1' }
+  ]
+};
+
+export const endingScenarioTYPE6 = [
+  { text: 'aa1' }
+];
+export const endingChoicesTYPE6 = {
+  isContinueSalvage: [
+    { buttonText: 'aa1' }
+  ]
+};

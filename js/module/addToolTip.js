@@ -7,13 +7,19 @@ export function createTooltipElement() {
   el.className = 'tooltip';
   document.body.appendChild(el);
 }
-export function addTooltipEvents(triggerElement, mapObjectElement, text) {
+export function addTooltipEvents(triggerElement, mapObjectElement, text, isBelow = false) {
   const tooltipElement = document.getElementById('game-tooltip');
 
   const showTooltip = () => {
     // テキストを設定
     tooltipElement.textContent = text;
     tooltipElement.style.display = 'block';
+    // CSSクラスを設定（しっぽの向きを制御）
+    if (isBelow) {
+      tooltipElement.className = 'tooltip below';
+    } else {
+      tooltipElement.className = 'tooltip';
+    }
     // 位置を計算
     if (mapObjectElement) {
       const mapRect = mapObjectElement.getBoundingClientRect();
@@ -24,7 +30,12 @@ export function addTooltipEvents(triggerElement, mapObjectElement, text) {
       tooltipElement.style.left = `${leftPos}px`;
     } else {
       const triggerRect = triggerElement.getBoundingClientRect();
-      const topPos = triggerRect.top - tooltipElement.offsetHeight - 5; // 5pxのマージン
+      let topPos;
+      if (isBelow) {
+        topPos = triggerRect.bottom + 5; // 要素の下に配置、5pxのマージン
+      } else {
+        topPos = triggerRect.top - tooltipElement.offsetHeight - 5; // 要素の上に配置、5pxのマージン
+      }
       const leftPos = triggerRect.left + (triggerRect.width / 2) - (tooltipElement.offsetWidth / 2);
       tooltipElement.style.top = `${topPos}px`;
       tooltipElement.style.left = `${leftPos}px`;

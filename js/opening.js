@@ -15,15 +15,6 @@ document.getElementById('modal-opening').addEventListener('click', () => {
   }
   updateStory();
 });
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
-    // enterキーでも進行可能に
-    if (isDisplayingSelection) {
-      return;
-    }
-    updateStory();
-  }
-});
 
 function updateStory() {
   const isBranch = !!branchScenario;
