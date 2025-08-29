@@ -1,5 +1,5 @@
 // scenario.js
-import { changeBackgroundImage } from './scenarioAction.js';
+import { changeBackgroundImage, changeCharacterImage } from './scenarioAction.js';
 
 export const openingScenario = [
   { text: 'どこまでも続く海の中を、微かな駆動音と共に泳いでいく。' },
@@ -7,7 +7,10 @@ export const openingScenario = [
   { text: '小型潜水艇「セレスティア号」――' },
   { text: 'その暗い操縦席でほのかに光る計器の数字が、私の顔をほのかに照らし出していた。' },
   { text: '（……水深、180。海流、0.2ノット東向き。ソナー反応、なし）',
-    speaker: 'ミナ'
+    speaker: 'ミナ',
+    action: () => {
+      changeCharacterImage('opening', 'mina', 'nomal', false);
+    }
   },
   { text: '数値を一つずつ確認しながら、セレスティア号の姿勢制御スラスターを微調整する。' },
   { text: 'バラストタンクの水量も適正。酸素残量は残り50%。' },
@@ -184,7 +187,7 @@ export const openingChoices = {
         },
         { text: '通信が切れると、船内は再び深海の静寂に包まれた。' },
         { text: '私はセレスティア号の向きを変え、ゆっくりと崩れたビルの開口部から離脱する。' },
-        { text: '今日の仕事は終わり。あとは無事に、私の帰りを待つ人がいるあの街へ戻るだけだ。' }
+        { text: '今日の仕事は終わり。あとは無事に、あの街へ戻るだけだ。' }
       ]
     },
     {

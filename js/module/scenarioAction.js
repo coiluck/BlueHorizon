@@ -24,3 +24,37 @@ export function changeBackgroundImage(object, imagePath) {
     };
   }, 500);
 }
+
+export function changeCharacterImage(object, character, imagePath, isActive = false) {
+  const modal = document.getElementById(`modal-${object}`);
+  let characterImageContainer = modal.querySelector(`.character-image-container`);
+  
+  // 存在しない場合は新しく作成
+  if (!characterImageContainer) {
+    const newCharacterImageContainer = document.createElement("div");
+    newCharacterImageContainer.classList.add("character-image-container");
+    modal.appendChild(newCharacterImageContainer);
+    characterImageContainer = newCharacterImageContainer;
+  }
+  let newImageSrc;
+  if (character === "mina") {
+    newImageSrc = `./assets/images/characters/${imagePath}.avif`;
+  } else {
+    newImageSrc = `./assets/images/characters/${character}/${imagePath}.avif`;
+  }
+  let characterImg = characterImageContainer.querySelector(`img[data-character="${character}"]`);
+
+  if (!characterImg) {
+    // 存在しない場合は新しく作成
+    characterImg = document.createElement("img");
+    characterImg.dataset.character = character;
+    characterImageContainer.appendChild(characterImg);
+  }
+  characterImg.src = newImageSrc;
+  if (isActive) {
+    characterImg.classList.remove("active");
+    characterImg.classList.add("active");
+  } else {
+    characterImg.classList.remove("active");
+  }
+}

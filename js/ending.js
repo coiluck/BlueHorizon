@@ -50,7 +50,15 @@ import { globalGameState } from './module/gameState.js';
 export function checkEndingType() {
   let EndingType = null;
 
-  if (globalGameState.gameState.memoryPieceArray.length >= 10 &&
+  // バットエンドは最初にチェックしないとうまくいかない
+  if (globalGameState.gameState.hope <= 0 ||
+    globalGameState.gameState.hunger <= 0) {
+    // 青い絶望
+    EndingType = 'blueDespair';
+  } else if (globalGameState.gameState.day >= 30) {
+    // 時は止まらず
+    EndingType = 'outOfTime';
+  } else if (globalGameState.gameState.memoryPieceArray.length >= 10 &&
     globalGameState.gameState.hope >= 70 &&
     globalGameState.gameState.CelestiaUpgrade.engine >= 2 &&
     globalGameState.gameState.CelestiaUpgrade.sonar >= 2 &&
@@ -71,14 +79,7 @@ export function checkEndingType() {
     globalGameState.gameState.memoryPieceArray.length >= 7) {
     // 飽くなき探求心
     EndingType = 'seek';
-  } else if (globalGameState.gameState.hope <= 0 ||
-    globalGameState.gameState.hunger <= 0) {
-    // 青い絶望
-    EndingType = 'blueDespair';
-  } else if (globalGameState.gameState.day >= 30) {
-    // 時は止まらず
-    EndingType = 'outOfTime';
-  } else {
+  }  else {
     console.error('ending type is not set');
   }
   console.log(`EndingType: ${EndingType}`);
@@ -194,8 +195,11 @@ function updateStory() {
     } else {
       // 共通ルート -> ストーリー終了
       // ゲーム終了処理
-      document.getElementById('modal-ending').removeEventListener('click', EndingClick);
-      changeModal('top');
+      document.getElementById('modal-ending').classList.remove('fade-in');
+      document.getElementById('modal-ending').classList.add('fade-out');
+      setTimeout(() => {
+        location.reload();
+      }, 500);
     }
     return;
   }

@@ -36,6 +36,7 @@ const explorePlacesData = {
       activated_carbon: 1,
       crystal_ore: 1,
       circuit_board: 1,
+      water_purifier: 4,
       fish_1: 4,
       fish_2: 4,
       squid: 4,
@@ -781,25 +782,33 @@ async function getItemsInFishing(placeData) {
   return itemsList;
 }
 
+import { checkEndingType } from './ending.js';
+
 // day更新処理
 export function updateDay(path = null) {
   globalGameState.gameState.day++;
   if (globalGameState.gameState.day > 30) {
     console.log('dayが30を超えたため、ゲームを終了します');
+    checkEndingType();
     return;
   }
   if (path !== 'path10') {
     // 汐凪の街以外なら減る
     globalGameState.gameState.hunger -= 10;
-    globalGameState.gameState.hope -= 10;
+    globalGameState.gameState.hope -= (100 - globalGameState.gameState.hunger) / (2 + globalGameState.gameState.CelestiaUpgrade.living);
     if (globalGameState.gameState.hunger <= 0) {
       console.log('hungerが0を下回ったため、ゲームを終了します');
+      checkEndingType();
       return;
     }
     if (globalGameState.gameState.hope <= 0) {
       console.log('hopeが0を下回ったため、ゲームを終了します');
+      checkEndingType();
       return;
     }
+  } else {
+    // 汐凪の街の場合は空腹が回復
+    globalGameState.gameState.hunger = 100;
   }
   // DOM更新
   document.getElementById('game-parameter-hope').textContent = globalGameState.gameState.hope;
