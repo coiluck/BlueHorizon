@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蒼の最果てと水平線 Wiki</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+            line-height: 1.8;
+            color: #334;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1, h2, h3, h4 {
+            color: #005f73;
+            border-bottom: 2px solid #94d2bd;
+            padding-bottom: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            border-bottom: 3px double #0a9396;
+        }
+
+        h2 {
+          padding: 0 0 0 12px;
+          border-bottom: none;
+          border-left: 3px solid #ff7f7e;
+          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        h4 {
+            border-bottom: none;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        a {
+            color: #0077b6;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+
+        details {
+            border: 1px solid #ade8f4;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #023e8a;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        details p {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        code {
+            background-color: #ccc;
+            padding: 1px 3px;
+            border-radius: 2px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
+        
+        th, td {
+            border: 1px solid #caf0f8;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: rgba(173, 232, 244, 0.5);
+            color: #023e8a;
+            font-weight: bold;
+        }
+        
+        td:nth-child(2),
+        td:nth-child(3),
+        th:nth-child(2),
+        th:nth-child(3) {
+            text-align: right;
+        }
+        
+        .location-section {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #00b4d8;
+        }
+
+        .location-section:last-child {
+            border-bottom: none;
+        }
+        
+        ul {
+            list-style-type: '💧 ';
+            padding-left: 20px;
+        }
+        
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 119, 182, 0.75), rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>蒼の最果てと水平線 Wiki</h1>
+    <p style="text-align: center;">
+        <strong>ゲームURL:</strong> <a href="./" target="_blank" rel="noopener noreferrer">https://coiluck.moe/BlueHorizon</a>
+    </p>
+
+    <details>
+        <summary>あらすじ</summary>
+        <p>
+            かつて栄華を誇った文明は、原因不明の大海面上昇「蒼い沈黙」によってそのほとんどが海の底へと沈んだ。<br>
+            そんな世界で「汐凪（しおなぎ）の街」で暮らしていた少女ミナだったが、 ある時、街の生命線である浄水装置が故障し、修理に必要な特殊部品が遠方の水没都市でしか手に入らないことが判明する。<br>
+            街の人々を救うため、ミナは危険を承知で未踏の海域へ向かう決意を固める。<br>
+            ミナは小型潜水艇「セレスティア号」に乗り込みんだ。海の中に眠る過去の記録を拾い集め、かすかな希望を頼りに、ミナの静かな旅が始まる。
+        </p>
+    </details>
+
+    <hr>
+
+    <h2>ゲームシステム</h2>
+
+    <h3>パラメータ</h3>
+    <ul>
+        <li><strong>空腹:</strong> 汐凪の街以外を探索するごとに10減少する。汐凪の街を探索すると100にリセットされる。食べ物でも回復可能。0になると終了。</li>
+        <li><strong>希望:</strong> 汐凪の街以外を探索するごとに <code>(100 - 更新後の空腹度) / (2 + セレスティア号の居住区画のレベル)</code> 減少する。探索時に空腹度が100（MAX）の場合は10回復する。0になると終了。</li>
+        <li><strong>DAY:</strong> 探索するごとに1増加する。30になると終了。</li>
+    </ul>
+
+    <h3>探索場所によるドロップ</h3>
+    <ul>
+        <li>探索場所により各アイテムのドロップ率が異なる。</li>
+        <li>「汐凪の街」から離れるほど、アイテムの獲得個数は増加する。</li>
+        <li>アイテムの獲得個数は、場所ごとに設定された最低保証数に、20%の確率で個数が増加する判定を規定回数分、繰り返した合計となる。</li>
+        <li>「釣り」は「大陸周辺部」と「「天を突く山」周辺」以外の全ての場所で行うことが出来る。</li>
+        <li>「釣り」を行った際のドロップは、魚・イカが全体の半分を占める。残りの半分は、通常ドロップの比率を維持したまま排出される。</li>
+        <li>「釣り」は釣具を獲得しなければ行うことができない。</li>
+    </ul>
+    
+    <h3>記憶の欠片</h3>
+    <ul>
+        <li>全部で10種類あり、手に入れると専用のストーリーが解放される。</li>
+        <li>既に手に入れた記憶の欠片は再び手に入れることが出来ない。</li>
+        <li>探索場所ごとにドロップする記憶の欠片の種類と獲得率が設定されている。</li>
+    </ul>
+
+    <hr>
+
+    <h2>探索場所とドロップ率</h2>
+    <div id="explore-data-container"></div>
+
+</div>
+
+<script>
+// explore.js
+const explorePlacesData = {
+  path1: {
+    name: '最果ての島',
+    fishable: true,
+    itemsWeight: {
+      scrap_iron: 1,
+      wood: 1,
+      fiber_rope: 1,
+      copper_wire_cable: 1,
+      titanium_alloy_plate: 1,
+      activated_carbon: 1,
+      crystal_ore: 1,
+      circuit_board: 1,
+      water_purifier: 4,
+    },
+    itemsWeightInFishing: {
+      scrap_iron: 1,
+      wood: 1,
+      fiber_rope: 1,
+      copper_wire_cable: 1,
+      titanium_alloy_plate: 1,
+      activated_carbon: 1,
+      crystal_ore: 1,
+      circuit_board: 1,
+      water_purifier: 4,
+      fish_1: 4,
+      fish_2: 4,
+      squid: 4,
+    },
+    itemsRoll: {
+      base: 4,
+      rate: 4,
+    }
+  },
+  path2: {
+    name: 'これは見えないはず', // これはデータこれ以上書かない
+  },
+  path3: {
+    name: '海底渓谷',
+    fishable: true,
+    itemsWeight: { // 20
+      scrap_iron: 5,
+      copper_wire_cable: 5,
+      titanium_alloy_plate: 5,
+      circuit_board: 5,
+    },
+    itemsWeightInFishing: {
+      scrap_iron: 5,
+      copper_wire_cable: 5,
+      titanium_alloy_plate: 5,
+      circuit_board: 5,
+      fish_2: 10,
+      squid: 10,
+    },
+    itemsRoll: {
+      base: 3,
+      rate: 2,
+    }
+  },
+  path4: {
+    name: '静寂の浅瀬',
+    fishable: true,
+    itemsWeight: { // 25
+      scrap_iron: 5,
+      wood: 5,
+      fiber_rope: 5,
+      copper_wire_cable: 2,
+      activated_carbon: 5,
+      titanium_alloy_plate: 2,
+      circuit_board: 1,
+    },
+    itemsWeightInFishing: {
+      scrap_iron: 5,
+      wood: 5,
+      fiber_rope: 5,
+      copper_wire_cable: 2,
+      activated_carbon: 5,
+      titanium_alloy_plate: 2,
+      circuit_board: 1,
+      fish_1: 15,
+      fish_2: 5,
+      squid: 5,
+    },
+    itemsRoll: {
+      base: 2,
+      rate: 2,
+    }
+  },
+  path5: {
+    name: '霧の湿地帯',
+    fishable: true,
+    itemsWeight: { // 25
+      scrap_iron: 1,
+      wood: 7,
+      fiber_rope: 7,
+      copper_wire_cable: 1,
+      activated_carbon: 7,
+      titanium_alloy_plate: 1,
+      circuit_board: 1,
+    },
+    itemsWeightInFishing: {
+      scrap_iron: 1,
+      wood: 7,
+      fiber_rope: 7,
+      copper_wire_cable: 1,
+      activated_carbon: 7,
+      titanium_alloy_plate: 1,
+      circuit_board: 1,
+      fish_1: 10,
+      fish_2: 8,
+      squid: 7,
+    },
+    itemsRoll: {
+      base: 2,
+      rate: 3,
+    }
+  },
+  path6: {
+    name: '忘れられた遺跡',
+    fishable: true,
+    images: 'ruins.avif',
+    itemsWeight: { // 40
+      scrap_iron: 10,
+      wood: 6,
+      fiber_rope: 5,
+      copper_wire_cable: 3,
+      titanium_alloy_plate: 6,
+      circuit_board: 10,
+    },
+    itemsWeightInFishing: {
+      scrap_iron: 10,
+      wood: 6,
+      fiber_rope: 5,
+      copper_wire_cable: 3,
+      titanium_alloy_plate: 6,
+      circuit_board: 10,
+      fish_2: 20,
+      squid: 20,
+    },
+    itemsRoll: {
+      base: 3,
+      rate: 4,
+    }
+  },
+  path7: {
+    name: '大陸周辺部',
+    fishable: false,
+    itemsWeight: { // 32
+      scrap_iron: 7,
+      wood: 5,
+      fiber_rope: 3,
+      copper_wire_cable: 7,
+      titanium_alloy_plate: 7,
+      activated_carbon: 2,
+      circuit_board: 1,
+    },
+    itemsRoll: {
+      base: 3,
+      rate: 2,
+    }
+  },
+  path8: {
+    name: '海の孤島',
+    fishable: true,
+    itemsWeight: { // 17
+      scrap_iron: 5,
+      wood: 5,
+      titanium_alloy_plate: 2,
+      activated_carbon: 5,
+    },
+    itemsWeightInFishing: {
+      scrap_iron: 5,
+      wood: 5,
+      titanium_alloy_plate: 2,
+      activated_carbon: 5,
+      fish_1: 10,
+      fish_2: 5,
+      squid: 2,
+    },
+    itemsRoll: {
+      base: 2,
+      rate: 2,
+    }
+  },
+  path9: {
+    name: '遥かなる大洋',
+    fishable: true,
+    itemsWeight: { // 20
+      scrap_iron: 5,
+      copper_wire_cable: 5,
+      titanium_alloy_plate: 5,
+      circuit_board: 5,
+    },
+    itemsWeightInFishing: {
+      scrap_iron: 5,
+      copper_wire_cable: 5,
+      titanium_alloy_plate: 5,
+      circuit_board: 5,
+      fish_1: 5,
+      fish_2: 7,
+      squid: 8,
+    },
+    itemsRoll: {
+      base: 3,
+      rate: 2,
+    }
+  },
+  path10: {
+    name: '「汐凪の街」周辺',
+    fishable: true, // 釣りが可能か
+    itemsWeight: {
+      scrap_iron: 18,
+      wood: 12,
+      fiber_rope: 8,
+      copper_wire_cable: 3,
+      titanium_alloy_plate: 2,
+      activated_carbon: 4,
+      crystal_ore: 1,
+      circuit_board: 2, // 6%の確率で30回試行時に4つ以上手に入る <- 40の時、今は50
+    },
+    itemsWeightInFishing: {
+      scrap_iron: 18,
+      wood: 12,
+      fiber_rope: 8,
+      copper_wire_cable: 3,
+      titanium_alloy_plate: 2,
+      activated_carbon: 4,
+      crystal_ore: 1,
+      circuit_board: 2,
+      fish_1: 30,
+      fish_2: 12,
+      squid: 8,
+    },
+    itemsRoll: {
+      base: 1, // 最低保証
+      rate: 3, // 20%の確率で増加するのをこの回数分繰り返す
+    },
+    memoryPiece: [5], // 記憶の欠片のID
+    memoryPieceRate: 0.5, // 記憶の欠片の出現確率
+  },
+  path11: {
+    name: '青の諸島',
+    fishable: true,
+    images: 'island2.avif',
+    itemsWeight: { // 17
+      scrap_iron: 5,
+      wood: 5,
+      titanium_alloy_plate: 2,
+      activated_carbon: 5,
+    },
+    itemsWeightInFishing: {
+      scrap_iron: 5,
+      wood: 5,
+      titanium_alloy_plate: 2,
+      activated_carbon: 5,
+      fish_2: 12,
+      squid: 5,
+    },
+    itemsRoll: {
+      base: 3,
+      rate: 4,
+    }
+  },
+  path12: {
+    name: '「天を突く山」周辺',
+    fishable: false,
+    itemsWeight: { // 32
+      scrap_iron: 7,
+      wood: 5,
+      fiber_rope: 3,
+      copper_wire_cable: 7,
+      titanium_alloy_plate: 7,
+      activated_carbon: 2,
+      circuit_board: 1,
+    },
+    itemsRoll: {
+      base: 2,
+      rate: 3,
+    }
+  },
+  path13: {
+    name: '水晶の洞窟',
+    fishable: true,
+    images: 'cave.avif',
+    itemsWeight: { // 25
+      scrap_iron: 4,
+      fiber_rope: 3,
+      copper_wire_cable: 2,
+      titanium_alloy_plate: 3,
+      crystal_ore: 12,
+      circuit_board: 1,
+    },
+    itemsWeightInFishing: {
+      scrap_iron: 4,
+      fiber_rope: 3,
+      copper_wire_cable: 2,
+      titanium_alloy_plate: 3,
+      crystal_ore: 12,
+      circuit_board: 1,
+      fish_1: 10,
+      fish_2: 8,
+      squid: 7,
+    },
+    itemsRoll: {
+      base: 2,
+      rate: 3,
+    }
+  }
+};
+const itemData = [
+  { id: "scrap_iron", name: "鉄くず" },
+  { id: "wood", name: "木材" },
+  { id: "fiber_rope", name: "繊維ロープ" },
+  { id: "copper_wire_cable", name: "銅線ケーブル" },
+  { id: "titanium_alloy_plate", name: "チタン合金板" },
+  { id: "activated_carbon", name: "活性炭" },
+  { id: "crystal_ore", name: "水晶原石" },
+  { id: "circuit_board", name: "電子基板" },
+  { id: "fishing_gear", name: "釣具" },
+  { id: "fish_1", name: "ありふれた魚" },
+  { id: "fish_2", name: "珍しい魚" },
+  { id: "squid", name: "イカ" },
+  { id: "bonfire", name: "焚き火" },
+  { id: "shichirin", name: "七輪" },
+  { id: "cooked_food", name: "料理" },
+  { id: "paper_and_pen", name: "紙とペン" },
+  { id: "simple_communicator", name: "簡易通信機" },
+  { id: "emergency_repair_kit", name: "応急修理キット" },
+  { id: "decryption_tool", name: "解読ツール" },
+  { id: "cutting_tool", name: "カッティングツール" },
+  { id: "flashlight", name: "懐中電灯" },
+  { id: "pipe_parts", name: "配管パーツ" },
+  { id: "control_board", name: "制御基盤" },
+  { id: "water_purifier", name: "浄水装置" }
+];
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('explore-data-container');
+    const itemNameMap = itemData.reduce((map, item) => {
+        map[item.id] = item.name;
+        return map;
+    }, {});
+    
+    for (const key in explorePlacesData) {
+        if (key === 'path2') continue; // Skip the invisible path
+        
+        const place = explorePlacesData[key];
+        const section = document.createElement('div');
+        section.className = 'location-section';
+        
+        // --- Basic Info ---
+        let contentHTML = `<h3>${place.name}</h3>`;
+        contentHTML += `<p><strong>アイテム獲得数:</strong> 最低保証 ${place.itemsRoll.base}回 / 増加判定 ${place.itemsRoll.rate}回</p>`;
+        if (place.memoryPieceRate) {
+            contentHTML += `<p><strong>記憶の欠片:</strong> ID ${place.memoryPiece.join(', ')} が ${place.memoryPieceRate * 100}% の確率で出現</p>`;
+        }
+        
+        // --- Table Generation ---
+        const totalWeightNormal = Object.values(place.itemsWeight).reduce((sum, weight) => sum + weight, 0);
+        const totalWeightFishing = place.fishable ? Object.values(place.itemsWeightInFishing).reduce((sum, weight) => sum + weight, 0) : 0;
+        
+        const allItemIds = new Set([
+            ...Object.keys(place.itemsWeight),
+            ...(place.fishable ? Object.keys(place.itemsWeightInFishing) : [])
+        ]);
+
+        // Separate regular items and fishing-specific items to sort them correctly
+        const regularItems = [];
+        const fishItems = [];
+        const fishItemIds = ['fish_1', 'fish_2', 'squid'];
+        
+        // Use the original explorePlacesData order for regular items
+        for(const itemId of Object.keys(place.itemsWeight)) {
+            if (allItemIds.has(itemId)) {
+                regularItems.push(itemId);
+                allItemIds.delete(itemId); // Remove to avoid duplicates
+            }
+        }
+        // Add any remaining non-fish items from fishing list
+        for (const itemId of allItemIds) {
+            if(!fishItemIds.includes(itemId)) {
+                regularItems.push(itemId);
+            }
+        }
+
+        // Add fish items in their specific order
+        for (const fishId of fishItemIds) {
+            if (allItemIds.has(fishId)) {
+                fishItems.push(fishId);
+            }
+        }
+        
+        const orderedItemIds = [...regularItems, ...fishItems];
+
+        contentHTML += `<h4>アイテムドロップ率</h4>`;
+        contentHTML += `<table><thead><tr><th>アイテム名</th><th>通常ドロップ率</th><th>釣りドロップ率</th></tr></thead><tbody>`;
+
+        for (const itemId of orderedItemIds) {
+            const name = itemNameMap[itemId] || itemId;
+            
+            const normalWeight = place.itemsWeight[itemId] || 0;
+            const normalRate = totalWeightNormal > 0 && normalWeight > 0 ? ((normalWeight / totalWeightNormal) * 100).toFixed(2) + '%' : '—';
+            
+            let fishingRate = '—';
+            if (place.fishable && totalWeightFishing > 0) {
+                const fishingWeight = place.itemsWeightInFishing[itemId] || 0;
+                if (fishingWeight > 0) {
+                    fishingRate = ((fishingWeight / totalWeightFishing) * 100).toFixed(2) + '%';
+                }
+            }
+            
+            contentHTML += `<tr><td>${name}</td><td>${normalRate}</td><td>${fishingRate}</td></tr>`;
+        }
+
+        contentHTML += `</tbody></table>`;
+        section.innerHTML = contentHTML;
+        container.appendChild(section);
+    }
+});
+</script>
+
+</body>
+</html>
