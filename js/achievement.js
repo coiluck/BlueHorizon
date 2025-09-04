@@ -9,7 +9,7 @@ document.getElementById('top-icon-achievement').addEventListener('click', () => 
   setUpEnding();
 });
 
-const achievementList = [
+export const achievementList = [
   {
     id: 1,
     title: "記憶の欠片",
@@ -125,7 +125,7 @@ function setUpAchievement() {
   });
 }
 
-const endingList = [
+export const endingList = [
   {
     id: 1,
     title: "浮島へ",

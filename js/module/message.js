@@ -33,6 +33,7 @@ export function message(type, text, duration = 3000) {
     case 'info':    emoji = 'ℹ️'; break;
     case 'warning': emoji = '⚠️'; break;
     case 'caution': emoji = '⚠️'; break;
+    case 'achievement': emoji = '🏆'; break;
     default: emoji = '❗';
   }
     
