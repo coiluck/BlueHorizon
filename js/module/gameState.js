@@ -1,10 +1,9 @@
 // gameState.js
 const initialState = {
-  storyFlag: {
-    ignoreReturnCount: 0,
-    isContinueSalvation: false,
-    isGoMayor: false,
-    isGoLab: false,
+  forAchievement: {
+    isUnder80: false,
+    isUnder10: false,
+    salvageCount: 0,
   },
   gameState: {
     hope: 70,

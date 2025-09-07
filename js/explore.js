@@ -810,6 +810,13 @@ export function updateDay(path = null) {
     // 汐凪の街の場合は空腹が回復
     globalGameState.gameState.hunger = 100;
   }
+  // 実績用のフラグを更新
+  if (globalGameState.gameState.hope <= 80) {
+    globalGameState.forAchievement.isUnder80 = true;
+  }
+  if (globalGameState.gameState.hope <= 10) {
+    globalGameState.forAchievement.isUnder10 = true;
+  }
   // DOM更新
   document.getElementById('game-parameter-hope').textContent = globalGameState.gameState.hope;
   document.getElementById('game-parameter-memory').textContent = globalGameState.gameState.memoryPiece;

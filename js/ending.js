@@ -84,6 +84,14 @@ export function checkEndingType() {
   }
   console.log(`EndingType: ${EndingType}`);
   goToEnding(EndingType);
+  // ローカルストレージに保存
+  const currentEndings = JSON.parse(localStorage.getItem('ending')) || [];
+  const scenarioId = EndingData[EndingType].scenario;
+  if (!currentEndings.includes(scenarioId)) {
+    currentEndings.push(scenarioId);
+    localStorage.setItem('ending', JSON.stringify(currentEndings));
+    console.log(`新しいエンディング ${scenarioId} を保存しました`);
+  }
 }
 
 import { changeModal } from './module/changeModal.js';
