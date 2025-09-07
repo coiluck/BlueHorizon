@@ -136,7 +136,7 @@ input[type="range"]::-moz-range-thumb:hover {
   font-size: .8rem;
   border: 1px solid rgba(255, 255, 255, 0);
   border-radius: 10px;
-  transition: transform .3s ease-in-out, color .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 #setting-reset-button:hover {
   background-color: rgba(145, 145, 145, 0.5);
@@ -161,4 +161,50 @@ input[type="range"]::-moz-range-thumb:hover {
 #setting-close-button:hover {
   background-color: white;
   color: #333;
+}
+
+.setting-export-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.setting-export-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+  width: fit-content;
+}
+.setting-export-item p {
+  display: block;
+  color: #555;
+  font-size: 0.9rem;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+.setting-datafile-button {
+  position: relative;
+  width: fit-content;
+  padding: 3px 10px;
+  background-color: transparent;
+  background: linear-gradient(currentcolor, currentcolor) left 0 / 0 1px no-repeat,
+              linear-gradient(#f6d893, #f6d893) right bottom / 100% .8em no-repeat;
+  color: #222;
+  font-size: .9rem;
+  font-family: serif;
+  border: none;
+  transition: all .3s ease-in-out;
+}
+.setting-datafile-button::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border: 1px solid rgba(0, 0, 0, 0.0);
+  transition: all .3s ease-in-out;
+}
+.setting-datafile-button:hover::before {
+  border: 1px solid rgba(0, 0, 0, 0.7);
 }

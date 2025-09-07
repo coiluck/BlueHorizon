@@ -36,15 +36,6 @@ document.getElementById('sfx-volume').addEventListener('input', function() {
   document.getElementById('setting-close-button').textContent = '設定する';
 });
 
-document.getElementById('voice-volume').addEventListener('input', function() {
-  // output要素の更新
-  document.querySelector('output[for="voice-volume"]').textContent = this.value;
-  // voiceの音量の変更
-  setVolume('voice', this.value);
-  // ボタンのテキストを変更
-  document.getElementById('setting-close-button').textContent = '設定する';
-});
-
 // デフォルトにもどす
 document.getElementById('setting-reset-button').addEventListener('click', () => {
   document.getElementById('font-size').value = 3;
@@ -59,4 +50,15 @@ document.getElementById('setting-reset-button').addEventListener('click', () => 
   setVolume('music', 5);
   setVolume('sound', 6);
   setVolume('voice', 6);
+});
+
+import { downloadGameData, uploadGameData } from './module/save.js';
+
+// ダウンロード
+document.getElementById('export-button').addEventListener('click', () => {
+  downloadGameData();
+});
+// アップロード
+document.getElementById('import-input').addEventListener('change', (event) => {
+  uploadGameData(event);
 });
