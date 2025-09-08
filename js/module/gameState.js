@@ -4,6 +4,8 @@ const initialState = {
     isUnder80: false,
     isUnder10: false,
     salvageCount: 0,
+    items: [],
+    explorePoints: [],
   },
   gameState: {
     hope: 70,

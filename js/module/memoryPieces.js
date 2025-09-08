@@ -129,6 +129,7 @@ const memoryPiecesData = {
 };
 
 import { globalGameState } from './gameState.js';
+import { checkMemoryPieceAchievement } from './Addachieve.js';
 
 export function getMemoryPieces(array, rate) {
   if (Math.random() < rate) {
@@ -142,6 +143,8 @@ export function getMemoryPieces(array, rate) {
       const selectedItem = unacquiredItems[randomIndex];
       globalGameState.gameState.memoryPieceArray.push(selectedItem);
       globalGameState.gameState.memoryPiece += 1;
+      // 実績用のチェック
+      checkMemoryPieceAchievement();
       // dataを渡す
       const pieceData = memoryPiecesData[`piece_${selectedItem}`];
       console.log(`${pieceData.name}を獲得した！`);

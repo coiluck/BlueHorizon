@@ -46,6 +46,7 @@ const EndingData = {
 };
 
 import { globalGameState } from './module/gameState.js';
+import { checkEndingAchievement } from './module/Addachieve.js';
 
 export function checkEndingType() {
   let EndingType = null;
@@ -55,9 +56,6 @@ export function checkEndingType() {
     globalGameState.gameState.hunger <= 0) {
     // 青い絶望
     EndingType = 'blueDespair';
-  } else if (globalGameState.gameState.day >= 30) {
-    // 時は止まらず
-    EndingType = 'outOfTime';
   } else if (globalGameState.gameState.memoryPieceArray.length >= 10 &&
     globalGameState.gameState.hope >= 70 &&
     globalGameState.gameState.CelestiaUpgrade.engine >= 2 &&
@@ -79,11 +77,16 @@ export function checkEndingType() {
     globalGameState.gameState.memoryPieceArray.length >= 7) {
     // 飽くなき探求心
     EndingType = 'seek';
-  }  else {
+  } else if (globalGameState.gameState.day >= 30) {
+    // 時は止まらず
+    EndingType = 'outOfTime';
+  } else {
     console.error('ending type is not set');
   }
   console.log(`EndingType: ${EndingType}`);
   goToEnding(EndingType);
+  // 実績
+  checkEndingAchievement(EndingType);
   // ローカルストレージに保存
   const currentEndings = JSON.parse(localStorage.getItem('ending')) || [];
   const scenarioId = EndingData[EndingType].scenario;

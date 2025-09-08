@@ -498,7 +498,22 @@ async function getItemsData() {
 // イベントリスナーを管理するための変数
 let currentExploreListener = null;
 
+import { addAchievement } from './module/Addachieve.js';
+
 export async function explore(path) {
+  // 実績用の探索場所カウント
+  if (!globalGameState.forAchievement.explorePoints.includes(path)) {
+    // 新規探索時のみ達成判定
+    globalGameState.forAchievement.explorePoints.push(path);
+    if (globalGameState.forAchievement.explorePoints.length >= 12) {
+      addAchievement(13);
+    }
+    if (path === 'path3') {
+      // 海底渓谷
+      addAchievement(12);
+    }
+  }
+
   // DOM要素を取得
   const modal = document.getElementById('modal-explore');
   const storyContainer = document.getElementById('explore-text');
@@ -579,12 +594,35 @@ export async function explore(path) {
         // 釣りストーリーが終了 -> アイテム獲得処理（特殊な重みを生成して使用）へ
         isShowingItems = true;
         isFishing = false;
-        const getItemsList = await getItemsInFishing(placeData);
+        const { getItemsList, isBonusActivated } = await getItemsInFishing(placeData);
+
+        // 実績「最果ての島で浄水装置を発見する」の判定
+        if (path === 'path1' && getItemsList.includes('water_purifier')) {
+          addAchievement(6);
+        }
+
+        // 実績用獲得アイテム数・種類のカウント
+        globalGameState.forAchievement.salvageCount += getItemsList.length;
+        getItemsList.forEach(item => {
+          if (!globalGameState.forAchievement.items.includes(item)) {
+            globalGameState.forAchievement.items.push(item);
+          }
+        });
+        if (globalGameState.forAchievement.items.length >= 11) {
+          addAchievement(10);
+        }
+        if (globalGameState.forAchievement.salvageCount >= 100) {
+          addAchievement(9);
+        }
+        
         const itemsCount = getItemsList.reduce((count, item) => {
           count[item] = (count[item] || 0) + 1;
           return count;
         }, {});
 
+        if (isBonusActivated) {
+          getItemMessages.push("セレスティア号のアップグレードボーナスが発動！");
+        }
         // gameStateに反映
         for (const item in itemsCount) {
           if (globalGameState.gameState.items.hasOwnProperty(item)) {
@@ -635,8 +673,11 @@ export async function explore(path) {
           return;
         }
         // 記憶の欠片がない場合
+        const isGameOver = updateDay();
+        if (isGameOver) {
+          return; // ゲームオーバー
+        }
         initGame();
-        updateDay();
         changeModal('game');
       }
       return;
@@ -654,12 +695,35 @@ export async function explore(path) {
     } else {
       // ストーリーが終了 -> アイテム獲得処理へ
       isShowingItems = true;
-      const getItemsList = getItems(placeData);
+      const { getItemsList, isBonusActivated } = getItems(placeData);
+
+      // 実績「最果ての島で浄水装置を発見する」の判定
+      if (path === 'path1' && getItemsList.includes('water_purifier')) {
+        addAchievement(6);
+      }
+
+      // 実績用獲得アイテム数・種類のカウント
+      globalGameState.forAchievement.salvageCount += getItemsList.length;
+      getItemsList.forEach(item => {
+        if (!globalGameState.forAchievement.items.includes(item)) {
+          globalGameState.forAchievement.items.push(item);
+        }
+      });
+      if (globalGameState.forAchievement.items.length >= 11) {
+        addAchievement(10);
+      }
+      if (globalGameState.forAchievement.salvageCount >= 100) {
+        addAchievement(9);
+      }
+
       const itemsCount = getItemsList.reduce((count, item) => {
         count[item] = (count[item] || 0) + 1;
         return count;
       }, {});
 
+      if (isBonusActivated) {
+        getItemMessages.push("セレスティア号のアップグレードボーナスが発動！");
+      }
       // gameStateに反映
       for (const item in itemsCount) {
         if (globalGameState.gameState.items.hasOwnProperty(item)) {
@@ -702,6 +766,7 @@ export async function explore(path) {
 
 function getItems(placeData) {
   const itemsList = [];
+  let isBonusActivated = false;
   // アイテム獲得回数を計算
   let itemsRollCount = 0;
   itemsRollCount += placeData.itemsRoll.base;
@@ -729,11 +794,25 @@ function getItems(placeData) {
       }
     }
   }
-  return itemsList;
+  // armのアップグレードボーナス
+  if (globalGameState.gameState.CelestiaUpgrade.arm > 0) {
+    const BonusProbability = 15 + (globalGameState.gameState.CelestiaUpgrade.arm - 1) * 15; // 15%か30%
+    if (Math.random() * 100 < BonusProbability) {
+      isBonusActivated = true;
+      const originalItems = [...itemsList];
+      itemsList.push(...originalItems); 
+    }
+  }
+  // 一度に10以上の実績
+  if (itemsList.length >= 10) {
+    addAchievement(11);
+  }
+  return { getItemsList: itemsList, isBonusActivated };
 }
 
 async function getItemsInFishing(placeData) {
   const itemsList = [];
+  let isBonusActivated = false;
   // アイテム獲得回数を計算
   let itemsRollCount = 0;
   itemsRollCount += placeData.itemsRoll.base;
@@ -763,23 +842,18 @@ async function getItemsInFishing(placeData) {
   }
   // sonarのアップグレードボーナス
   if (globalGameState.gameState.CelestiaUpgrade.sonar > 0) {
-    const BonusProbability = 20 + (globalGameState.gameState.CelestiaUpgrade.sonar - 1) * 30; // 20%か30%
+    const BonusProbability = 20 + (globalGameState.gameState.CelestiaUpgrade.sonar - 1) * 30; // 20%か50%
     if (Math.random() * 100 < BonusProbability) {
-      const allItemData = await getItemsData();
-      const bonusItems = []; // itemsListの食べ物のみここに保管
-      for (let i = 0; i < itemsList.length; i++) {
-        const currentItemId = itemsList[i];
-        const foundItem = allItemData.find(itemDetail => itemDetail.id === currentItemId);
-        if (foundItem && foundItem.type === 'consumable') {
-          bonusItems.push(currentItemId);
-        }
-      }
-      for (let i = 0; i < bonusItems.length; i++) {
-        itemsList.push(bonusItems[i]);
-      }
+      isBonusActivated = true;
+      const originalItems = [...itemsList];
+      itemsList.push(...originalItems); 
     }
   }
-  return itemsList;
+  // 一度に10以上の実績
+  if (itemsList.length >= 10) {
+    addAchievement(11);
+  }
+  return { getItemsList: itemsList, isBonusActivated };
 }
 
 import { checkEndingType } from './ending.js';
@@ -790,7 +864,7 @@ export function updateDay(path = null) {
   if (globalGameState.gameState.day > 30) {
     console.log('dayが30を超えたため、ゲームを終了します');
     checkEndingType();
-    return;
+    return true;
   }
   if (path !== 'path10') {
     // 汐凪の街以外なら減る
@@ -799,12 +873,12 @@ export function updateDay(path = null) {
     if (globalGameState.gameState.hunger <= 0) {
       console.log('hungerが0を下回ったため、ゲームを終了します');
       checkEndingType();
-      return;
+      return true;
     }
     if (globalGameState.gameState.hope <= 0) {
       console.log('hopeが0を下回ったため、ゲームを終了します');
       checkEndingType();
-      return;
+      return true;
     }
   } else {
     // 汐凪の街の場合は空腹が回復

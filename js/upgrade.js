@@ -222,6 +222,7 @@ async function setUpUpgradeDetail(upgradeType) {
 }
 
 import { message } from './module/message.js';
+import { checkUpgradeAchievement } from './module/Addachieve.js';
 
 // アップグレード処理
 async function upgradeExecute() {
@@ -247,6 +248,9 @@ async function upgradeExecute() {
 
     // レベルを上昇
     globalGameState.gameState.CelestiaUpgrade[upgradeType]++;
+
+    // 実績用のチェック
+    checkUpgradeAchievement();
 
     // DOM更新
     await initUpgrade();

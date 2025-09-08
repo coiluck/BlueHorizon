@@ -63,7 +63,7 @@ export const achievementList = [
   {
     id: 11,
     title: "神がかった大漁",
-    description: "一度のサルベージで10個以上のアイテムを獲得する",
+    description: "一度のサルベージで10個以上のサルベージ品を獲得する",
   },
   {
     id: 12,
@@ -83,7 +83,7 @@ export const achievementList = [
   {
     id: 15,
     title: "揺るぎない希望",
-    description: "パラメータ「希望」を一度も80以下に下げずにクリアする",
+    description: "パラメータ「希望」を一度も80以下に下げずにグッドエンディングに到達する",
   },
   {
     id: 16,

@@ -220,6 +220,7 @@ window.changeValue = async function changeValue(button, change) {
 }
 
 let isProcessing = false;
+import { checkCraftAchievement } from './module/Addachieve.js';
 
 // クラフトボタンを押したら
 async function craftExecute(event) {
@@ -237,6 +238,9 @@ async function craftExecute(event) {
   const itemId = recipeElement.dataset.itemId;
   const itemData = await getItemsData();
   const item = itemData.find(i => i.id === itemId);
+
+  // 実績用のチェック
+  checkCraftAchievement(itemId);
 
   // アイテム減算処理
   for (const requirement of item.recipe) {
