@@ -47,7 +47,7 @@ export function checkEndingAchievement(EndingType) {
   }
 }
 
-// 6、9、10、12、13はexplore.jsでチェック
+// 6、9、10、11、12、13はexplore.jsでチェック
 
 export function checkMemoryPieceAchievement() {
   // 探索時にチェック

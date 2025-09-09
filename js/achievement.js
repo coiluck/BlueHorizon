@@ -106,7 +106,7 @@ function setUpAchievement() {
   const achievementItemContainer = document.querySelector('.achievement-item-container');
   achievementItemContainer.innerHTML = '';
   // ローカルストレージから取得
-  const userAchievement = JSON.parse(localStorage.getItem('achievement')) || [1, 2, 6]; // 例だから後で消す
+  const userAchievement = JSON.parse(localStorage.getItem('achievement')) || [];
   achievementList.forEach(achievement => {
     const achievementItem = document.createElement('div');
     achievementItem.classList.add('achievement-item');
@@ -167,7 +167,7 @@ function setUpEnding() {
   const achievementItemEndContainer = document.querySelector('.achievement-item-end-container');
   achievementItemEndContainer.innerHTML = '';
   // ローカルストレージから取得
-  const userEnding = JSON.parse(localStorage.getItem('ending')) || [1, 2, 6]; // 例だから後で消す
+  const userEnding = JSON.parse(localStorage.getItem('ending')) || [];
   // 生成
   endingList.forEach(ending => {
     const achievementItemEnd = document.createElement('div');
