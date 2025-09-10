@@ -32,11 +32,12 @@ const EndingData = {
     scenario: 4
   },
   blueDespair: {
-    name: '青い絶望',
+    name: '蒼い絶望',
     requirements: [
       '希望か満腹度が0以下'
     ],
-    scenario: 5
+    scenario: 5,
+    firstImage: './assets/images/ending/sea1.webp'
   },
   outOfTime: {
     name: '時は止まらず',
@@ -149,11 +150,11 @@ function goToEnding(EndingType) {
       return;
   }
   document.getElementById('modal-ending').addEventListener('click', () => {
-    setUpEnding();
+    setUpEnding(EndingType);
   }, { once: true }); // これすごい、便利すぎる
 }
 
-function setUpEnding() {
+function setUpEnding(EndingType) {
   changeModal('ending'); // フェードアウトしてから再度同じものを表示
   setTimeout(() => {
     document.getElementById('ending-requirements-container').innerHTML = '';
@@ -164,6 +165,7 @@ function setUpEnding() {
       </div>
       <div id="ending-choices-container"></div>
     `;
+    document.querySelector('.ending-background-image img').src = EndingData[EndingType].firstImage;
     document.getElementById('modal-ending').addEventListener('click', EndingClick);
     updateStory();
   }, 500);

@@ -152,15 +152,15 @@ export const endingList = [
   },
   {
     id: 5,
-    title: "浮島へ",
-    description: "説明です",
-    image: "./assets/images/ending/5.png",
+    title: "蒼い絶望",
+    description: "希望か食糧が尽き、探索をあきらめた",
+    image: "./assets/images/ending/sea1.webp",
   },
   {
     id: 6,
-    title: "浮島へ",
-    description: "説明です",
-    image: "./assets/images/title_watercolor.avif",
+    title: "時は止まらず",
+    description: "30日が経過し、街の浄水装置が壊れた",
+    image: "./assets/images/laying.avif",
   }
 ];
 function setUpEnding() {
