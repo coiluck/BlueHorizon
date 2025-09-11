@@ -16,14 +16,20 @@ export const openingScenario = [
   { text: '数値を一つずつ確認しながら、セレスティア号の姿勢制御スラスターを微調整する。' },
   { text: 'バラストタンクの水量も適正。酸素残量は残り50%。' },
   { text: '「……よし」',
-    speaker: 'ミナ'
+    speaker: 'ミナ',
+    action: () => {
+      changeCharacterImage('opening', 'mina', 'serious', false);
+    }
   },
   { text: '私は小さくつぶやいて、私は操縦桿を握り直した。' },
   { text: 'この狭い船内に響くのは、セレスティア号の落ち着いたエンジン音だけ。' },
   { text: '外の世界から完全に遮断された小さな鉄の箱の中で、私は一人、海の中を漂っている。' },
   { text: 'ふと覗き窓の外を見ると、発光するクラゲの群れが星屑のように流れていった。' },
   { text: '「……きれい」',
-    speaker: 'ミナ'
+    speaker: 'ミナ',
+    action: () => {
+      changeCharacterImage('opening', 'mina', 'nomal', false);
+    }
   },
   { text: '思わず漏れた呟きは、静かな船内に小さく響いて消えた。' },
   { text: 'けれどその優雅な光の舞踏の下には、かつて数十万の人々が暮らしていた街が、墓標のように沈んでいる。' },
@@ -47,7 +53,10 @@ export const openingScenario = [
   { text: '計器に異常はない。おそらく、どこかの瓦礫の欠片だろう。' },
   { text: '海の中でデブリが舞っていることも珍しくない。' },
   { text: '「……今日の成果は、これくらいかな」',
-    speaker: 'ミナ'
+    speaker: 'ミナ',
+    action: () => {
+      changeCharacterImage('opening', 'mina', 'serious', false);
+    }
   },
   { text: '私はバスケットの中の回収品の様子をモニターで確認する。' },
   { text: '中にあるのはありふれた金属片や電子部品。' },
@@ -56,7 +65,10 @@ export const openingScenario = [
   { text: '私はサルベージャー。' },
   { text: '研究者だったお父さんが遺してくれた、この小型潜水艇「セレスティア号」で、水没した遺跡から使えるものを引き揚げるのが仕事だ。' },
   { text: '（今日はある程度大きい遺物を回収できた。……でも、もう少しだけ潜れそう）',
-    speaker: 'ミナ'
+    speaker: 'ミナ',
+    action: () => {
+      changeCharacterImage('opening', 'mina', 'nomal', false);
+    }
   },
   { text: 'セレスティア号のバッテリー残量は、まだ十分残っている。' },
   { text: '酸素残量も低くはないし、安全限界まではもう少し余裕がありそうだった。' },
@@ -64,7 +76,12 @@ export const openingScenario = [
     text: 'このまま浮上して街に戻るか、それとももう少しだけ探索を続けるか……',
     choiceId: 'isContinueSalvage'
   },
-  { text: 'ギル爺さんの作業場には、張り詰めた空気が漂っていた。' },
+  { text: 'ギル爺さんの作業場には、張り詰めた空気が漂っていた。',
+    action: () => {
+      changeBackgroundImage('opening', 'koubou.jpg');
+      changeCharacterImage('opening', 'mina', 'nomal', false);
+    }
+  },
   { text: '「街に一大事が起きた」',
     speaker: 'ギル爺'
   },
@@ -83,7 +100,10 @@ export const openingScenario = [
   },
   { text: 'その声は油の匂いに溶けてしまいそうなほど、か細く、乾いていた。' },
   { text: '「この音……ひどくなってる」',
-    speaker: 'ミナ'
+    speaker: 'ミナ',
+    action: () => {
+      changeCharacterImage('opening', 'mina', 'surprised', false);
+    }
   },
   { text: '「ああ。浄水装置がもう限界なんじゃ。潤滑油を差そうが、部品を締め直そうが、もうどうにもならん。いつ止まってもおかしくない」',
     speaker: 'ギル爺'
@@ -129,16 +149,23 @@ export const openingChoices = {
       buttonText: 'サルベージを切り上げて、街へ戻る',
       branch: [
         { text: '（無理は禁物だよね）',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'close_open', false);
+          }
         },
-        { text: '私はバラストタンクの排水を開始し、セレスティア号を浮上モードに切り替えた。' },
+        { text: '私はバラストタンクの排水を開始し、セレスティア号を浮上モードに切り替えた。',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'nomal', false);
+          }
+        },
         { text: '深度計の数値がゆっくりと減っていく。' },
         { text: '150メートル、120メートル、90メートル……。' },
         { text: '深く暗い青から、光の差し込む明るい青へ。' },
         { text: 'ゆっくりと浮上していくこの時間は、何度経験しても少しだけ心が安らぐ。' },
         { text: 'ごぽごぽ、と気泡の弾ける音が大きく響き、ついにセレスティア号は海面にその姿を現した。',
           action: () => {
-            changeBackgroundImage('opening', 'horizon1.webp');
+            changeBackgroundImage('opening', 'city.avif');
           }
         },
         { text: '視界いっぱいに広がるのは、どこまでも続く水平線と太陽の光を反射してきらめく穏やかな海。' },
@@ -162,13 +189,26 @@ export const openingChoices = {
       buttonText: 'もう少しだけ、探索を続ける',
       branch: [
         { text: '（せっかくここまで潜ったんだ。もう少しだけ、探索しよう）',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'serious', false);
+          }
         },
         { text: '私は操舵席の横に並ぶバラスト制御レバーへ手を伸ばす。' },
-        { text: '「主バラスト、ベント開放。注水開始……。」' },
+        { text: '「主バラスト、ベント開放。注水開始……。」',
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'nomal', false);
+          }
+        },
         { text: '船体の外殻に備えられたタンクへと重い海水が流れ込む低いうなりが響く。' },
         { text: '船体の浮力がゆっくり失われ、計器の針が沈降を示す。' },
-        { text: '「トリムタンク、艦首下げ二度。」' },
+        { text: '「トリムタンク、艦首下げ二度。」',
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'serious', false);
+          }
+        },
         { text: '艦首が少しずつ沈み、姿勢が安定したセレスティア号は暗い海へと進んでいく。' },
         { text: 'ヘッドライトが照らす光の筋だけが、海の暗闇を切り裂いて進む。' },
         { text: 'ギシッ……と、セレスティア号の船体が水圧に軋む音が響く。' },
@@ -176,19 +216,43 @@ export const openingChoices = {
         { text: 'それでも、この音を聞くといつも、心臓が小さく跳ねるのを止められない。' },
         { text: '息を深く吸い、前方を見る' },
         { text: 'かつては地上の光を浴びていたはずのビル群の影が、今は巨大な海山のようにも見える。' },
-        { text: '（あそこなら、何か残っているかも……）' },
-        { text: '視線の先に、外壁が大きく崩落したビルが見えた。' },
+        { text: '（あそこなら、何か残っているかも……）',
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'close_open', false);
+          }
+        },
+        { text: '視線の先に、外壁が大きく崩落したビルが見えた。',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'nomal', false);
+          }
+        },
         { text: 'オフィスだったのだろうか、フロアの断面が暗い口を開けている。' },
         { text: '私は慎重に操縦桿を操作し、舞い上がる泥に気をつけながら、瓦礫の隙間を縫うようにして潜水艇を寄せた。' },
         { text: 'ヘッドライトの光が、ビルの中を照らし出す。' },
         { text: 'そこはまるで、時が止まったまま沈んだみたいだった。' },
         { text: '（お父さんがいたら、全然違うって言うのかな）',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'close_close', false);
+          }
         },
-        { text: '私は「蒼い沈黙」前の世界を知らない。' },
+        { text: '私は「蒼い沈黙」前の世界を知らない。',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'nomal', false);
+          }
+        },
         { text: 'お父さんが見ていたのは、こんな景色だったのだろうか。' },
-        { text: 'いいや、違う。' },
-        { text: 'お父さんが知っているのは、ここに光が満ち、人々が働き、笑い声が響いていた頃の姿だ。' },
+        { text: 'いいや、違う。',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'close_open', false);
+          }
+        },
+        { text: 'お父さんが知っているのは、ここに光が満ち、人々が働き、笑い声が響いていた頃の姿だ。',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'nomal', false);
+          }
+        },
         { text: '私が見ているのは、その全てが失われた後の、静かな骸。' },
         { text: 'ヘッドライトの光が、壁に掛けられたままの額縁を照らした。' },
         { text: '中の写真はとうに溶けてしまい、何が飾られていたのかを知る術はない。' },
@@ -208,18 +272,27 @@ export const openingChoices = {
       buttonText: 'デスクの上を調べる',
       branch: [
         { text: '（まずは手前のデスクから……何か手がかりになるようなものは残ってないかな）',
-          speaker: 'ミナ' 
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'serious', false);
+          }
         },
         { text: '私はセレスティア号のロボットアームを慎重に伸ばす。コンソールの光が、マニピュレーターの繊細な動きを照らし出した。' },
         { text: 'アームの指先が、降り積もった数世紀分の海の塵をそっと払いのける。' },
         { text: '舞い上がった泥の中に現れたのは、プラスチック製のカードホルダーや、海水に蝕まれ原形を留めない電子機器の残骸。どれも静かに朽ち果てていた。' },
         { text: '（やっぱり、こんなものかな……）',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'sad', false);
+          }
         },
         { text: '諦めきれずにアームで底のほうを探ると、指先に硬質な感触が伝わった。' },
         { text: '泥の中から姿を現したのは、防水ケースに守られた、旧時代のタブレット端末だった。' },
         { text: '（これは……！ データが残っていれば、大きな発見になるかも）',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'surprised', false);
+          }
         },
         { text: '心臓が小さく跳ねるのを感じながら、まるで宝物を扱うように、丁寧に回収バスケットへと移した。' },
         { text: 'その後も他のデスクをいくつか調べてみたが、これ以上の成果は期待できそうになかった。' },
@@ -228,14 +301,20 @@ export const openingChoices = {
           speaker: 'ギル'
         },
         { text: '「こちらミナ。……ギル爺さん、どうしたの？ 定時連絡にはまだ早い時間だけど」',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'serious', false);
+          }
         },
         { text: '「うむ。少し海流に変化の兆しが見られてな。大事を取って、今日のサルベージは切り上げた方がよさそうだ。そちらの状況は？」',
           speaker: 'ギル'
         },
         { text: '私はバスケットの中のタブレットに目をやり、操縦桿を握り直した。今日の成果は十分だ。' },
-        { text: '「了解。ちょうど探索を終えたところ。これから浮上して、街へ帰還します」',
-          speaker: 'ミナ'
+        { text: '「了解。ちょうど探索を終えたところ。これから浮上して、街へ帰るね」',
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'nomal', false);
+          }
         },
         { text: '「そうか。気をつけて戻ってこい。ドックで待っておる」',
           speaker: 'ギル'
@@ -249,7 +328,7 @@ export const openingChoices = {
         { text: 'ゆっくりと浮上していくこの時間は、何度経験しても少しだけ心が安らぐ。' },
         { text: 'ごぽごぽ、と気泡の弾ける音が大きく響き、ついにセレスティア号は海面にその姿を現した。',
           action: () => {
-            changeBackgroundImage('opening', 'horizon1.webp');
+            changeBackgroundImage('opening', 'city.avif');
           }
         },
         { text: '視界いっぱいに広がるのは、どこまでも続く水平線と太陽の光を反射してきらめく穏やかな海。' },
@@ -274,7 +353,10 @@ export const openingChoices = {
       buttonText: '下に続く階段を調べる',
       branch: [
         { text: '（この階段……さらに下のフロアに続いているみたい）',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'serious', false);
+          }
         },
         { text: '操縦桿を握る手に、無意識に力が入る。' },
         { text: 'セレスティア号のヘッドライトを階段の下へと向けると、光の束はどこまでも続く闇に吸い込まれ、その底を見せてはくれなかった。' },
@@ -287,16 +369,26 @@ export const openingChoices = {
         },
         { text: 'スピーカーがノイズを吐き出し、途切れ途切れになったギル爺さんの声が響いた。' },
         { text: '「ギル爺さん？　どうしたの、電波が悪いみたい。聞こえる？」',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'surprised', false);
+          }
         },
         { text: '『……海流……ザザッ……大事を……』',
           speaker: 'ギル'
         },
         { text: 'ブツッ、という音を最後に、通信は完全に沈黙した。この深度と、分厚い建造物の残骸が電波を阻害しているのだろう。' },
         { text: '（海流の変化って言ってたような……）',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'close_open', false);
+          }
         },
-        { text: '計器パネルに視線を走らせる。だが、計器の数字は静かだ。周囲の海流に異常は見られない。' },
+        { text: '計器パネルに視線を走らせる。だが、計器の数字は静かだ。周囲の海流に異常は見られない。',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'nomal', false);
+          }
+        },
         { text: 'けれど、ギル爺さんの切羽詰まった声が耳の奥で反響する。警告を無視して進むのか？' },
         { text: 'サルベージャーとしての本能と、生き残るための理性がせめぎ合う。' },
         { text: '……でも、目の前には未知の領域が広がっている。あと少しだけなら……。' },
@@ -311,9 +403,16 @@ export const openingChoices = {
       buttonText: '引き返す',
       branch: [
         { text: '（ここで無理をするべきじゃない。一度、通信ができる深度まで戻ろう）',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'close_open', false);
+          }
         },
-        { text: '私は後ろ髪を引かれる思いを断ち切り、操縦桿を引いた。未練がましく、もう一度だけ暗闇に目をやる。' },
+        { text: '私は後ろ髪を引かれる思いを断ち切り、操縦桿を引いた。未練がましく、もう一度だけ暗闇に目をやる。',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'nomal', false);
+          }
+        },
         { text: '「安全が一番」――ギル爺さんにも、いつも言われていることだ。' },
         { text: 'セレスティア号は静かに向きを変え、暗い深淵から離れていく。' },
         { text: '私はゆっくりと潜水艇を浮上させ、通信が回復する深度まで戻った。' },
@@ -321,23 +420,36 @@ export const openingChoices = {
           speaker: 'ギル爺'
         },
         { text: '「ギル爺さん！ 聞こえます。さっきの通信は何だったの？」',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'serious', false);
+          }
         },
         { text: '『海流の変化が予想以上に早く進んでおる。今すぐサルベージを切り上げて、街へ戻ってくれ』',
           speaker: 'ギル爺'
         },
         { text: '計器を確認すると、確かに水温と流速に微妙な変化が見られた。' },
         { text: '「はーい。これから浮上して帰るね。」',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'nomal', false);
+          }
         },
         { text: '「急がなくてよい。安全第一だ。ドックで待っておる」',
           speaker: 'ギル爺'
         },
         { text: '通信を終えると、私は名残惜しそうに沈んだビルを振り返った。' },
         { text: '（また今度、改めて探索しよう）',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'close_open', false);
+          }
         },
-        { text: '私はバラストタンクの排水を開始し、セレスティア号を浮上モードに切り替えた。' },
+        { text: '私はバラストタンクの排水を開始し、セレスティア号を浮上モードに切り替えた。' ,
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'nomal', false);
+          }
+        },
         { text: '深度計の数値がゆっくりと減っていく。' },
         { text: '150メートル、120メートル、90メートル……。' },
         { text: '深く暗い青から、光の差し込む明るい青へ。' },
@@ -369,11 +481,15 @@ export const openingChoices = {
       buttonText: '探索を続ける',
       branch: [
         { text: '（警告は気になる……でも、このチャンスを逃すわけにはいかない）',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'close_open', false);
+          }
         },
         { text: '私は固唾をのみ、光の届かない階段の先へとセレスティア号を向けた。',
           action: () => {
             addAchievement(18);
+            changeCharacterImage('opening', 'mina', 'nomal', false);
           }
         },
         { text: 'ヘッドライトの円が闇に食い込み、段々になったコンクリートの輪郭だけを浮かび上がらせる。' },
@@ -389,7 +505,10 @@ export const openingChoices = {
         { text: '計器盤に警報が鳴り響く。' },
         { text: 'ギル爺は警告していたのかもしれない。' },
         { text: '「くっ……！」',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'serious', false);
+          }
         },
         { text: 'セレスティア号を後退させ、階段の入り口へ向けて押し出すように進む。' },
         { text: '下層から押し寄せる流れに逆らうのは難しく、何度か小さな衝撃で方向を取られる。' },
@@ -400,6 +519,9 @@ export const openingChoices = {
         { text: '船体のモニターには、いくつかの軽微な損傷を示す警告が表示されている。' },
         { text: '（無茶をしちゃったな……）',
           speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'sad', false);
+          },
           choiceId: 'returnToDock'
         },
       ]
@@ -426,8 +548,16 @@ export const openingChoices = {
         { text: '決して裕福ではないけれど、人々が懸命に生きているのどかな港町だ。' },
         { text: '私は慣れた手つきでセレスティア号を誘導し、街のドックへと船を進めた。' },
         { text: 'セレスティア号を固定アームに接続し、エンジンを停止させる。' },
-        { text: '途端に静寂が訪れる。ふぅ、と長い息が漏れた。' },
-        { text: 'これで今日の仕事は終わりだ。' },
+        { text: '途端に静寂が訪れる。ふぅ、と長い息が漏れた。',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'close_open', false);
+          }
+        },
+        { text: 'これで今日の仕事は終わりだ。',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'nomal', false);
+          }
+        },
         { text: 'ハッチのロックを解除すると、ぷしゅー、という小気味良い音と共に、外の空気が流れ込んできた。' },
         { text: '湿った潮の匂いと、機械油の匂いが混じった、懐かしい街の空気。' },
         { text: '私が梯子を降りて硬い地面を踏みしめると、ドックの入り口から心配そうな顔をしたギル爺さんが駆け寄ってきた。' },
@@ -495,14 +625,20 @@ export const openingChoices = {
         { text: 'けれど、「汐凪の街」の機械の大部分を組み立て、修理しているのがギル爺さんであることも事実だ。' },
         { text: 'あまり詳しく聞いたことはないけど、どうやらこの何もない場所に街を作ったのもギル爺がかかわっているとか。' },
         { text: '「ただいま、ギル爺さん」',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'smile', false);
+          }
         },
         { text: '「おお、ミナか。」',
           speaker: 'ギル爺'
         },
         { text: '作業台の奥で、溶接マスクを上げたギル爺さんがしわくちゃの顔で笑った。' },
         { text: '「これが今日の成果ね。ありふれたものばかりだけど」',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'nomal', false);
+          }
         },
         { text: '私が回収バスケットの中身を作業台に広げると、ギル爺さんは目利きをするように一つ一つを手に取った。' },
         { text: '「ふむ……この基盤はまだ使えそうじゃな。こちらの金属片も溶かせばいい素材になる」',
@@ -529,7 +665,10 @@ export const openingChoices = {
       buttonText: '街の広場に行く',
       branch: [
         { text: '（まずは、みんなの顔でも見に行こうかな）',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'nomal', false);
+          }
         },
         { text: '私は体に太陽の光を浴びながら、慣れた足取りで街の広場へと向かった。' },
         { text: '子供たちのはしゃぐ声と、潮風に混じってどこかの家から漂ってくる美味しそうな匂いが鼻をくすぐる。' },
@@ -571,7 +710,10 @@ export const openingChoices = {
         { text: 'それ以来、この「汐凪の街」が私の故郷になった。' },
         { text: '写真の中の父は、まるで未来を知っていたかのように、少しだけ寂しそうな、でも誇らしげな目をしている。' },
         { text: '「お父さん……」',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'close_close', false);
+          }
         },
         { text: '写真の中の父に小さく語りかけた、その時だった。' },
         { text: '「おーい、ミナ！」',
@@ -579,7 +721,10 @@ export const openingChoices = {
         },
         { text: '家の外から自分を呼ぶのが聞こえた。聞きなれた声だ。' },
         { text: '「ギル爺、どうし……」',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'nomal', false);
+          }
         },
         { text: '言いかけた私の言葉は、ドアの向こうに立っていた彼の険しい表情を見て、途中で途切れた。' },
         { text: 'そこにいたのは、汐凪の街で一番の腕を持つ老技術者、ギル爺だった。' },
@@ -596,7 +741,10 @@ export const openingChoices = {
         { text: '海図には汐凪の街周辺の海域の詳細な水深や海流、そして重要なサルベージポイントが丁寧に記されている。' },
         { text: '青いインクで描かれた等深線の間には、小さな文字で「危険区域」「強い潮流あり」「良好な遺物発見地点」といった注意書きが散りばめられていた。' },
         { text: '「……この辺りは、まだ調査できていないな」',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'close_close', false);
+          }
         },
         { text: '指先で海図をなぞる。' },
         { text: 'セレスティア号なら到達できそうな距離だけれど、一人で行くには少し危険かもしれない。' },
@@ -606,7 +754,10 @@ export const openingChoices = {
         },
         { text: '家の外から自分を呼ぶのが聞こえた。聞きなれた声だ。' },
         { text: '「ギル爺、どうし……」',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'nomal', false);
+          }
         },
         { text: '言いかけた私の言葉は、ドアの向こうに立っていた彼の険しい表情を見て、途中で途切れた。' },
         { text: 'そこにいたのは、汐凪の街で一番の腕を持つ老技術者、ギル爺だった。' },
@@ -636,7 +787,10 @@ export const openingChoices = {
         },
         { text: 'ただ事ではない。ギル爺の低い声には、そんな響きがあった。' },
         { text: '「わかった。すぐ行く」',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'serious', false);
+          }
         },
         { text: '私は頷き、彼の後を追ってコンテナハウスを出た。' },
         { text: '太陽がさんさんと降り注ぐ昼の汐凪の街は、活気に満ちていた。' },
@@ -649,7 +803,11 @@ export const openingChoices = {
     {
       buttonText: '（少しだけ……）',
       branch: [
-        { text: '目を閉じると、意識がゆっくりと沈んでいく。' },
+        { text: '目を閉じると、意識がゆっくりと沈んでいく。',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'close_close', false);
+          }
+        },
         { text: '深い海の底にいたときの、あの独特な浮遊感が蘇るようだった。' },
         { text: '...' },
         { text: '...' },
@@ -658,14 +816,20 @@ export const openingChoices = {
         },
         { text: '遠くで誰かが私を呼ぶ声が聞こえた。' },
         { text: '「……ん…？」',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'close_open', false);
+          }
         },
         { text: 'まだ覚醒しきらない頭で、私はゆっくりと身を起こした。' },
         { text: '軋むベッドが私の動きに抗議の声を上げる。' },
         { text: '窓の外は、部屋の中にオレンジ色の光を投げかけていた。どうやら、随分と長い間眠ってしまっていたらしい。' },
         { text: '重い足取りでドアに向かい、ロックを外す。' },
         { text: '「ギル爺、どうし……」',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'nomal', false);
+          }
         },
         { text: '言いかけた私の言葉は、ドアの向こうに立っていた彼の険しい表情を見て、途中で途切れた。' },
         { text: '「おお、ミナ。すまん、寝ていたところを起こしちまったか」',
@@ -675,7 +839,10 @@ export const openingChoices = {
         { text: 'オイルの染みついた分厚い作業着も、白くなった髭も、いつもと変わらない。' },
         { text: 'けれど、その深い瞳に浮かぶ憂いの色は、普段の彼とは明らかに違っていた。' },
         { text: '「いや、大丈夫。何かあったの？」',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'sad', false);
+          }
         },
         { text: '「……ああ。すまんが、ちいと工房まで来てくれんか。お前に見せたいもんがある」',
           speaker: 'ギル爺'
@@ -701,7 +868,10 @@ export const openingChoices = {
       branch: [
         { text: '一度寝たとはいえ、まだ眠い。' },
         { text: '（だけどどうやら緊急事態みたいだから仕方がないな）',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'serious', false);
+          }
         },
         { text: '私は眠気を振り払うように首を左右に振ってから、彼の後を追ってコンテナハウスを出た。' },
         { text: '夕暮れの汐凪の街は、日中の喧騒が嘘のように静まり返っていた。' },
@@ -719,13 +889,19 @@ export const openingChoices = {
         { text: '真水が何よりも貴重なこの街で、この噴水は浄水装置が正常に稼働している証でもあった。' },
         { text: 'その水量が少ないということは、つまり――。' },
         { text: '（まさか、浄水装置に何か……？）',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'sad', false);
+          }
         },
         { text: '胸に不安が広がる。' },
         { text: '浄水装置は街の生命線だ。もし故障してしまったら、飲み水さえ手に入らなくなってしまう。' },
         { text: '私は踵を返し、噴水の異変を知っているであろう人物の元へと、足を速めた。' },
         { text: '「ギル爺さん！」',
-          speaker: 'ミナ'
+          speaker: 'ミナ',
+          action: () => {
+            changeCharacterImage('opening', 'mina', 'serious', false);
+          }
         },
         { text: '息を切らして駆け込んだ先は、機械油の匂いが染みついた古い作業場。' },
         { text: '街の機械という機械の面倒を見ているギル爺さんの工房だ。' },
