@@ -16,6 +16,8 @@ document.getElementById('modal-opening').addEventListener('click', () => {
   updateStory();
 });
 
+import { bgm } from './module/audio.js';
+
 function updateStory() {
   const isBranch = !!branchScenario;
   const currentScenario = isBranch ? branchScenario : Scenario;
@@ -29,6 +31,7 @@ function updateStory() {
       updateStory();
     } else {
       // 共通ルート -> ストーリー終了
+      bgm.fadeOut();
       initGame();
       changeModal('game');
     }

@@ -17,10 +17,10 @@ class BGMController {
     this.isPlaying = false;
   }
   // 背景音楽を再生
-  play(audioSrc, loop = true) {
+  async play(audioSrc, loop = true) {
     // 既存の音楽が再生中 -> 停止
     if (this.audio) {
-      this.fadeOut();
+      await this.fadeOut();
     }
     // 新しいAudio
     this.audio = new Audio(audioSrc);
