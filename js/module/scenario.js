@@ -83,11 +83,17 @@ export const openingScenario = [
     }
   },
   { text: '「街に一大事が起きた」',
-    speaker: 'ギル爺'
+    speaker: 'ギル爺',
+    action: () => {
+      changeCharacterImage('opening', 'gil', 'open', false);
+    }
   },
   { text: 'ゴクリと息をのむ私に、ギル爺さんは厳しい現実を告げる。' },
   { text: '「この街の生命線である、浄水装置が……もう限界なんじゃ」',
-    speaker: 'ギル爺'
+    speaker: 'ギル爺',
+    action: () => {
+      changeCharacterImage('opening', 'gil', 'close', false);
+    }
   },
   { text: 'ギル爺さんが、振り返らずに呟いた。' },
   { text: '「ガコン……ッ、……ガコン……ッ」',
@@ -96,7 +102,10 @@ export const openingScenario = [
   { text: '装置から響く鈍い打撃音は、この鉄と油の空間全体の心臓の鼓動のようであり、同時に断末魔の叫びのようにも聞こえる。' },
   { text: '装置の側面からは、本来あるべきではない箇所から白い蒸気が漏れ、配管の継ぎ目からはポツ、ポツと水が滴り落ち、床に黒い染みを作っていた。' },
   { text: '「……見ての通りじゃ」',
-    speaker: 'ギル爺'
+    speaker: 'ギル爺',
+    action: () => {
+      changeCharacterImage('opening', 'gil', 'open', false);
+    }
   },
   { text: 'その声は油の匂いに溶けてしまいそうなほど、か細く、乾いていた。' },
   { text: '「この音……ひどくなってる」',
@@ -106,30 +115,53 @@ export const openingScenario = [
     }
   },
   { text: '「ああ。浄水装置がもう限界なんじゃ。潤滑油を差そうが、部品を締め直そうが、もうどうにもならん。いつ止まってもおかしくない」',
-    speaker: 'ギル爺'
+    speaker: 'ギル爺',
+    action: () => {
+      changeCharacterImage('opening', 'gil', 'close', false);
+    }
   },
   { text: '彼はゆっくりと振り返り、その皺の刻まれた顔には、深い疲労と絶望の色が浮かんでいた。' },
   { text: '「この街にあるガラクタを全部かき集めても、代わりになる部品は作れんかった。……このままでは、街の真水が尽きる」',
-    speaker: 'ギル爺'
+    speaker: 'ギル爺',
+    action: () => {
+      changeCharacterImage('opening', 'gil', 'open', false);
+    }
   },
   { text: 'ギル爺さんは作業台の上に広げられた一枚の青焼きの設計図を指さした。' },
   { text: 'それは複雑な配管と歯車が描かれた、新しい浄水装置の図面だった。' },
-  { text: '「ワシの頭の中にある知識で、新しい装置を設計することはできる。じゃが、これを作るには『水晶原石』に『制御基盤』……とてもじゃないが、この街の設備と材料じゃ逆立ちしても作れん」' },
+  { text: '「ワシの頭の中にある知識で、新しい装置を設計することはできる。じゃが、これを作るには『水晶原石』に『制御基盤』……とてもじゃないが、この街の設備と材料じゃ逆立ちしても作れん」',
+    speaker: 'ギル爺',
+    action: () => {
+      changeCharacterImage('opening', 'gil', 'close', false);
+    }
+  },
   { text: '彼の言葉は、この閉ざされた水上の世界での、どうしようもない技術的な限界を示していた。' },
   { text: '「ミナ。お前にしか頼めん」',
-    speaker: 'ギル爺'
+    speaker: 'ギル爺',
+    action: () => {
+      changeCharacterImage('opening', 'gil', 'open', false);
+    }
   },
   { text: 'ギル爺さんは私の目をまっすぐに見た。その瞳には、懇願の光が宿っている。' },
   { text: '「お前のセレスティア号で、遥か遠くの深海遺跡まで潜ってほしい。もしかしたら……万に一つ、どこかの研究施設跡に、この装置そのものが無傷で残っているかもしれん。あるいは、この必要な素材が、手つかずのまま眠っているやもしれん」',
-    speaker: 'ギル爺'
+    speaker: 'ギル爺',
+    action: () => {
+      changeCharacterImage('opening', 'gil', 'close', false);
+    }
   },
   { text: '彼は壁に貼られた古びた海図に目をやった。私たちが暮らす「汐凪の街」の周辺海域は、何度も潜ったせいで書き込みでびっしりだ。しかし、その外側――海流が渦巻く危険な領域は、ほとんどが空白のままだった。' },
   { text: '「この装置が完全に沈黙するまで、もってひと月、30日もつかどうか……。それまでに、戻ってきてはくれまいか」',
-    speaker: 'ギル爺'
+    speaker: 'ギル爺',
+    action: () => {
+      changeCharacterImage('opening', 'gil', 'open', false);
+    }
   },
   { text: '30日。それは、この街の命の残り時間。' },
   { text: '「もちろん、無茶を言っておるのは百も承知じゃ。この街の近くを潜るときは、一度帰ってくるといい。食料の心配もいらんし、街の皆が心の支えにもなるだろう。じゃが、一度この海域を離れれば、そこは本当の孤独との戦いじゃ。先の見えない暗い海での一人の旅は、心をすり減らすからの。希望を失わんよう、決して無理だけはするんじゃないぞ」',
-    speaker: 'ギル爺'
+    speaker: 'ギル爺',
+    action: () => {
+      changeCharacterImage('opening', 'gil', 'close', false);
+    }
   },
   { text: '「ガコン……ッ、……ガコン……ッ」',
     speaker: '浄水装置'
@@ -563,6 +595,9 @@ export const openingChoices = {
         { text: '私が梯子を降りて硬い地面を踏みしめると、ドックの入り口から心配そうな顔をしたギル爺さんが駆け寄ってきた。' },
         { text: '「おお、ミナか！ 無事か！？」',
           speaker: 'ギル爺',
+          action: () => {
+            changeCharacterImage('opening', 'gil', 'open', false);
+          },
           choiceId: 'AreYouOK'
         },
       ]
@@ -573,11 +608,17 @@ export const openingChoices = {
       buttonText: ' 大丈夫だよ',
       branch: [
         { text: '「それは良かった」',
-          speaker: 'ギル爺'
+          speaker: 'ギル爺',
+          action: () => {
+            changeCharacterImage('opening', 'gil', 'close', false);
+          }
         },
         { text: 'その声には安堵の色が滲んでいたが、瞳の奥には拭いきれない憂いが宿っている。' },
         { text: '「……そうか。この異常な海流も、もしかしたら関係しているのかもしれんな」',
           speaker: 'ギル爺',
+          action: () => {
+            changeCharacterImage('opening', 'gil', 'open', false);
+          },
           choiceId: 'whatHappenedAfterContinueSalvage'
         },
       ]
@@ -586,11 +627,17 @@ export const openingChoices = {
       buttonText: 'なんとかね',
       branch: [
         { text: '「それは良かった」',
-          speaker: 'ギル爺'
+          speaker: 'ギル爺',
+          action: () => {
+            changeCharacterImage('opening', 'gil', 'close', false);
+          }
         },
         { text: 'その声には安堵の色が滲んでいたが、瞳の奥には拭いきれない憂いが宿っている。' },
         { text: '「……そうか。この異常な海流も、もしかしたら関係しているのかもしれんな」',
           speaker: 'ギル爺',
+          action: () => {
+            changeCharacterImage('opening', 'gil', 'open', false);
+          },
           choiceId: 'whatHappenedAfterContinueSalvage'
         },
       ]
@@ -601,7 +648,10 @@ export const openingChoices = {
       buttonText: ' 何かあったの？',
       branch: [
         { text: '「……ああ。すまんが、ちと工房まで来てくれんか。お前に見せたいもんがある」',
-          speaker: 'ギル爺'
+          speaker: 'ギル爺',
+          action: () => {
+            changeCharacterImage('opening', 'gil', 'close', false);
+          }
         },
         { text: 'ただ事ではない。ギル爺さんの低い声には、そんな響きがあった。' },
         { text: '私は頷き、彼の後を追ってドックを出た。' },
@@ -639,7 +689,10 @@ export const openingChoices = {
           }
         },
         { text: '「おお、ミナか。」',
-          speaker: 'ギル爺'
+          speaker: 'ギル爺',
+          action: () => {
+            changeCharacterImage('opening', 'gil', 'open', false);
+          }
         },
         { text: '作業台の奥で、溶接マスクを上げたギル爺さんがしわくちゃの顔で笑った。' },
         { text: '「これが今日の成果ね。ありふれたものばかりだけど」',
@@ -650,7 +703,10 @@ export const openingChoices = {
         },
         { text: '私が回収バスケットの中身を作業台に広げると、ギル爺さんは目利きをするように一つ一つを手に取った。' },
         { text: '「ふむ……この基盤はまだ使えそうじゃな。こちらの金属片も溶かせばいい素材になる」',
-          speaker: 'ギル爺'
+          speaker: 'ギル爺',
+          action: () => {
+            changeCharacterImage('opening', 'gil', 'close', false);
+          }
         },
         { text: 'いつも通りのやり取り。' },
         { text: 'けれど、今日のギル爺さんはどこか上の空で、その表情はすぐに曇っていった。',
@@ -706,7 +762,10 @@ export const openingChoices = {
       branch: [
         { text: '私の問いに、ギル爺さんはため息を一つついて、話し始めた。' },
         { text: '「……ミナ、お前にしか頼めないことがある」',
-          speaker: 'ギル爺'
+          speaker: 'ギル爺',
+          action: () => {
+            changeCharacterImage('opening', 'gil', 'open', false);
+          }
         },
         { text: '彼の真剣な眼差しに、私はゴクリと唾をのんだ。' },  
       ]
@@ -799,7 +858,10 @@ export const openingChoices = {
       buttonText: '何があったの？',
       branch: [
         { text: '「……ああ。すまんが、ちいと工房まで来てくれんか。お前に見せたいもんがある」',
-          speaker: 'ギル爺'
+          speaker: 'ギル爺',
+          action: () => {
+            changeCharacterImage('opening', 'gil', 'close', false);
+          }
         },
         { text: 'ただ事ではない。ギル爺の低い声には、そんな響きがあった。' },
         { text: '「わかった。すぐ行く」',
@@ -853,7 +915,10 @@ export const openingChoices = {
         },
         { text: '言いかけた私の言葉は、ドアの向こうに立っていた彼の険しい表情を見て、途中で途切れた。' },
         { text: '「おお、ミナ。すまん、寝ていたところを起こしちまったか」',
-          speaker: 'ギル爺'
+          speaker: 'ギル爺',
+          action: () => {
+            changeCharacterImage('opening', 'gil', 'open', false);
+          }
         },
         { text: 'そこにいたのはギル爺だった。' },
         { text: 'オイルの染みついた分厚い作業着も、白くなった髭も、いつもと変わらない。' },
@@ -865,7 +930,10 @@ export const openingChoices = {
           }
         },
         { text: '「……ああ。すまんが、ちいと工房まで来てくれんか。お前に見せたいもんがある」',
-          speaker: 'ギル爺'
+          speaker: 'ギル爺',
+          action: () => {
+            changeCharacterImage('opening', 'gil', 'close', false);
+          }
         },
         { text: 'ただ事ではない。ギル爺の低い声には、そんな響きがあった。',
           choiceId: 'goToWorkShopFromMyRoom'
