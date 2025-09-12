@@ -1,5 +1,5 @@
 // audio.js
-let musicVolume = 5;
+let musicVolume = 3;
 let soundVolume = 6;
 
 export function setVolume(audioType, volume) {

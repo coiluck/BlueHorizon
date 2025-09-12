@@ -1,10 +1,15 @@
 // scenario.js
 import { changeBackgroundImage, changeCharacterImage } from './scenarioAction.js';
 import { addAchievement } from './Addachieve.js';
+import { bgm } from './audio.js';
 
 export const openingScenario = [
-  { text: 'どこまでも続く海の中を、微かな駆動音と共に泳いでいく。' },
-  { text: '駆動音と私の息が、静かに響いている。' },
+  { text: 'どこまでも続く海の中を、微かな駆動音と共に泳いでいく。'},
+  { text: '駆動音と私の息が、静かに響いている。',
+    action: () => {
+      bgm.play('./assets/audio/startdash.mp3');
+    }
+  },
   { text: '小型潜水艇「セレスティア号」――' },
   { text: 'その暗い操縦席でほのかに光る計器の数字が、私の顔をほのかに照らし出していた。' },
   { text: '（……水深、180。海流、0.2ノット東向き。ソナー反応、なし）',
@@ -80,6 +85,7 @@ export const openingScenario = [
     action: () => {
       changeBackgroundImage('opening', 'koubou.jpg');
       changeCharacterImage('opening', 'mina', 'nomal', false);
+      bgm.play('./assets/audio/Soft-Sunlight.mp3');
     }
   },
   { text: '「街に一大事が起きた」',
@@ -671,10 +677,11 @@ export const openingChoices = {
     {
       buttonText: 'ギル爺さんの作業場へ行く',
       branch: [
-        { text: '今日の成果を早くギル爺さんに見てもらいたくて、私はドックから直接、ギル爺さんの作業場へと向かった。' },
+        { text: '今日の成果を早くギル爺さんに見てもらいたくて、私はドックから直接、ギル爺さんの作業場へと向かった。'},
         { text: '作業場の扉を開けると、オイルと鉄の焼ける匂いが鼻をつく。',
           action: () => {
             changeBackgroundImage('opening', 'koubou.jpg');
+            bgm.play('./assets/audio/Nigiwau_machi.mp3');
           }
         },
         { text: '壁一面に並べられたよくわからない工具と、床に山と積まれたガラクタ……もとい、いつか出番を待つ部品たち。' },
@@ -717,7 +724,11 @@ export const openingChoices = {
     {
       buttonText: '自分の部屋で少し休む',
       branch: [
-        { text: '湿った潮の匂いが混じる懐かしい故郷の空気を吸い込み、私はセレスティア号を降りた。' },
+        { text: '湿った潮の匂いが混じる懐かしい故郷の空気を吸い込み、私はセレスティア号を降りた。',
+          action: () => {
+            bgm.play('./assets/audio/Nigiwau_machi.mp3');
+          }
+        },
         { text: '今日のサルベージの疲労を癒やすため、まずは自室へと向かう。' },
         { text: '私の部屋は、住宅区画の隅にある小さなコンテナハウスだ。',
           action: () => {
@@ -736,6 +747,7 @@ export const openingChoices = {
           speaker: 'ミナ',
           action: () => {
             changeCharacterImage('opening', 'mina', 'nomal', false);
+            bgm.play('./assets/audio/Nigiwau_machi.mp3');
           }
         },
         { text: '私は体に太陽の光を浴びながら、慣れた足取りで街の広場へと向かった。',
@@ -888,6 +900,7 @@ export const openingChoices = {
         { text: '目を閉じると、意識がゆっくりと沈んでいく。',
           action: () => {
             changeCharacterImage('opening', 'mina', 'close_close', false);
+            bgm.fadeOut();
           }
         },
         { text: '深い海の底にいたときの、あの独特な浮遊感が蘇るようだった。' },
