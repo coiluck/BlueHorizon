@@ -160,7 +160,7 @@ export const endingList = [
     id: 6,
     title: "時は止まらず",
     description: "30日が経過し、街の浄水装置が壊れた",
-    image: "./assets/images/laying.avif",
+    image: "./assets/images/ending/sea2.avif",
   }
 ];
 function setUpEnding() {

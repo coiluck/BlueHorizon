@@ -21,7 +21,8 @@ const EndingData = {
   hometown: {
     name: '故郷への帰還',
     requirements: ['浄水装置を1つ以上所持',],
-    scenario: 3
+    scenario: 3,
+    firstImage: './assets/images/city.avif'
   },
   seek: {
     name: '飽くなき探求心',
@@ -42,7 +43,8 @@ const EndingData = {
   outOfTime: {
     name: '時は止まらず',
     requirements: ['30日が経過した'],
-    scenario: 6
+    scenario: 6,
+    firstImage: './assets/images/ending/sea2.avif'
   },
 };
 
