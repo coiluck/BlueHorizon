@@ -52,22 +52,6 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-#ending-text::before {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.7);
-  margin: 10px 0;
-}
-
-#ending-text {
-  font-family: serif;
-  font-size: .9rem;
-  color: white;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-}
-
 /* 条件表示用アニメーション */
 #ending-requirements-container {
   padding: 40px;
@@ -198,4 +182,27 @@
 }
 .ending-choice-button:hover::after {
   border: 1px solid rgba(0, 0, 0, 0.7);
+}
+
+
+#ending-character-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+#ending-text::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin: 10px 0;
+}
+#ending-text {
+  font-family: serif;
+  font-size: .9rem;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
