@@ -128,12 +128,14 @@ document.getElementById('opening-skip-window').addEventListener('click', (event)
 // skip-button
 document.getElementById('opening-skip-button').addEventListener('click', (event) => {
   event.stopPropagation();
+  playSoundEffect('click1');
   initGame();
   changeModal('game');
 });
 // skip-cancel
 document.getElementById('opening-skip-cancel').addEventListener('click', (event) => {
   event.stopPropagation();
+  playSoundEffect('disable');
   document.getElementById('opening-skip-window').classList.add('fade-out');
   setTimeout(() => {
     document.getElementById('opening-skip-window').style.display = 'none';
