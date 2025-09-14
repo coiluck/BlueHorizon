@@ -7,11 +7,11 @@ export function saveData(slotNumber) {
   const titleInput = document.getElementById('save-title-input');
   const title = titleInput.value.trim();
   if (title === '') {
-    message('info', 'セーブタイトルを入力してください', 3000);
-    return;
+    message('warning', 'セーブタイトルを入力してください', 3000);
+    return false;
   } else if (title.length > 8) {
-    message('info', 'セーブタイトルは8文字以内にしてください', 3000);
-    return;
+    message('warning', 'セーブタイトルは8文字以内にしてください', 3000);
+    return false;
   }
   // 保存するもの
   const dataToSave = {
@@ -26,6 +26,7 @@ export function saveData(slotNumber) {
   // 保存後にセーブタイトルの表示を更新
   loadSaveTitle('.save-slot');
   message('success', `データを保存しました。`, 2000);
+  return true;
 }
 
 export function loadSaveTitle(slotSelector) {

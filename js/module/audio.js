@@ -66,7 +66,7 @@ export { bgm };
 // 効果音
 export function playSoundEffect(sound) {
   // wavファイルのリスト
-  const wavFile = ["click1", "click2", "back", "clear"];
+  const wavFile = ["click1", "click2", "dive"];
   // 音楽を新規再生
   let se;
   if (wavFile.includes(sound)) {

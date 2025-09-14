@@ -1,5 +1,6 @@
 // save.js
 import { saveData, loadSaveTitle } from './module/save.js';
+import { playSoundEffect } from './module/audio.js';
 
 // セーブボタンを押したら表示
 /*
@@ -13,6 +14,7 @@ document.getElementById('game-parameter-save').addEventListener('click', () => {
 */
 // キャンセルボタンを押したら非表示
 document.getElementById('close-save-modal-button').addEventListener('click', () => {
+  playSoundEffect('click1');
   document.getElementById('save-modal').classList.remove('fade-in');
   document.getElementById('save-modal').classList.add('fade-out');
   setTimeout(() => {
@@ -22,13 +24,16 @@ document.getElementById('close-save-modal-button').addEventListener('click', () 
 // 保存ボタンを押したら保存
 document.querySelectorAll('.save-slot-button').forEach((button, index) => {
   button.addEventListener('click', () => {
+    playSoundEffect('click1');
     const slotNumber = index + 1;
-    saveData(slotNumber);
-    document.getElementById('save-modal').classList.remove('fade-in');
-    document.getElementById('save-modal').classList.add('fade-out');
-    setTimeout(() => {
-      document.getElementById('save-modal').style.display = 'none';
-    }, 500);
+    // 問題なく保存できた時のみモーダルを閉じる
+    if (saveData(slotNumber)) {
+      document.getElementById('save-modal').classList.remove('fade-in');
+      document.getElementById('save-modal').classList.add('fade-out');
+      setTimeout(() => {
+        document.getElementById('save-modal').style.display = 'none';
+      }, 500);
+    }
   });
 });
 
@@ -67,11 +72,13 @@ export async function initGame() {
       </div>
     `;
     document.getElementById('game-parameter-end').addEventListener('click', () => {
+      playSoundEffect('click1');
       checkEndingType();
     });
   }
   // 保存ボタンのイベントリスナを再設定
   document.getElementById('game-parameter-save').addEventListener('click', () => {
+    playSoundEffect('click1');
     document.getElementById('save-modal').style.display = 'flex';
     document.getElementById('save-modal').classList.remove('fade-out');
     document.getElementById('save-modal').classList.add('fade-in');
@@ -123,6 +130,7 @@ import { initUpgrade } from './upgrade.js';
 import { initItem } from './item.js';
 
 document.getElementById('game-main-upgrade').addEventListener('click', () => {
+  playSoundEffect('click1');
   changeModal('upgrade', '.game-upgrade-left-panel', 500, true);
   initUpgrade();
 });
@@ -134,19 +142,23 @@ document.getElementById('game-main-map').addEventListener('click', () => {
   }, 501);
 });
 document.getElementById('game-main-belongings').addEventListener('click', () => {
+  playSoundEffect('click1');
   changeModal('item', '.game-item-list-container');
   initItem();
 });
 
 // 各modalからのcloseボタン
 document.getElementById('game-upgrade-close-button').addEventListener('click', () => {
+  playSoundEffect('click1');
   changeModal('game');
   initGame();
 });
 document.getElementById('game-map-close-button').addEventListener('click', () => {
+  playSoundEffect('click1');
   changeModal('game');
 });
 document.getElementById('game-item-close-button').addEventListener('click', () => {
+  playSoundEffect('click1');
   changeModal('game');
   initGame();
 });

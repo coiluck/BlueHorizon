@@ -160,6 +160,9 @@ import { message } from "./module/message.js";
 // クラフトの量を変更するやつ
 window.changeValue = async function changeValue(button, change) {
   if (isProcessing) return;
+
+  playSoundEffect('click2');
+
   const recipeElement = button.closest('.game-item-craft-recipe');
   const input = recipeElement.querySelector('.game-item-craft-quantity-input');
   const currentValue = Number(input.textContent);
@@ -221,6 +224,7 @@ window.changeValue = async function changeValue(button, change) {
 
 let isProcessing = false;
 import { checkCraftAchievement } from './module/Addachieve.js';
+import { playSoundEffect } from './module/audio.js';
 
 // クラフトボタンを押したら
 async function craftExecute(event) {
@@ -232,6 +236,8 @@ async function craftExecute(event) {
     message('caution', 'アイテムが不足しています。', 3000);
     return;
   }
+
+  playSoundEffect('click1');
 
   const recipeElement = button.closest('.game-item-craft-recipe');
   const quantity = Number(recipeElement.querySelector('.game-item-craft-quantity-input').textContent);
@@ -289,6 +295,8 @@ async function eatItem(item) {
     message('caution', `${item.name}を持っていません。`, 3000);
     return;
   }
+
+  playSoundEffect('eat');
 
   // アイテムを1つ減らす
   globalGameState.gameState.items[item.id]--;

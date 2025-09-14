@@ -1,8 +1,10 @@
 // achievement.js
 import { changeModal } from './module/changeModal.js';
+import { playSoundEffect } from './module/audio.js';
 
 document.getElementById('achievement-close-button').addEventListener('click', () => {
   changeModal('top');
+  playSoundEffect('click1');
 });
 document.getElementById('top-icon-achievement').addEventListener('click', () => {
   setUpAchievement();

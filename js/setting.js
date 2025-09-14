@@ -1,7 +1,9 @@
 // setting.js
 import { changeModal } from './module/changeModal.js';
+import { playSoundEffect } from './module/audio.js';
 
 document.getElementById('setting-close-button').addEventListener('click', () => {
+  playSoundEffect('click1');
   changeModal('top');
 });
 
@@ -38,12 +40,13 @@ document.getElementById('sfx-volume').addEventListener('input', function() {
 
 // デフォルトにもどす
 document.getElementById('setting-reset-button').addEventListener('click', () => {
+  playSoundEffect('click1');
   document.getElementById('font-size').value = 3;
-  document.getElementById('bgm-volume').value = 5;
+  document.getElementById('bgm-volume').value = 3;
   document.getElementById('sfx-volume').value = 6;
   document.getElementById('voice-volume').value = 6;
   document.querySelector('output[for="font-size"]').textContent = 3;
-  document.querySelector('output[for="bgm-volume"]').textContent = 5;
+  document.querySelector('output[for="bgm-volume"]').textContent = 3;
   document.querySelector('output[for="sfx-volume"]').textContent = 6;
   document.querySelector('output[for="voice-volume"]').textContent = 6;
   document.documentElement.style.fontSize = `${16 + (3 - 3) * 2}px`;

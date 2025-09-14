@@ -109,6 +109,7 @@ export async function initUpgrade() {
     }
     // クリックのイベントリスナを設定
     item.addEventListener('click', () => {
+      playSoundEffect('click1');
       // 選択状態の処理
       upgradeItems.forEach(i => i.classList.remove('selected'));
       item.classList.add('selected');
@@ -223,12 +224,17 @@ async function setUpUpgradeDetail(upgradeType) {
 
 import { message } from './module/message.js';
 import { checkUpgradeAchievement } from './module/Addachieve.js';
+import { playSoundEffect } from './module/audio.js';
 
 // アップグレード処理
 async function upgradeExecute() {
   const selectedItem = document.querySelector('.game-upgrade-list-item.selected');
-  if (!selectedItem) return;
+  if (!selectedItem) {
+    playSoundEffect('disable');
+    return;
+  }
 
+  playSoundEffect('click1');
   message('success', 'アップグレード完了！');
 
   const upgradeType = selectedItem.dataset.upgrade;
@@ -264,7 +270,3 @@ async function upgradeExecute() {
     }
   }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  // 3Dモデルの設定
-});

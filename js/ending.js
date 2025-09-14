@@ -250,6 +250,8 @@ function updateStory() {
   }
 }
 
+import { playSoundEffect } from './module/audio.js';
+
 function displayChoices(choiceId) {
   isDisplayingSelection = true;
 
@@ -269,6 +271,9 @@ function displayChoices(choiceId) {
     button.textContent = choice.buttonText;
     button.addEventListener('click', (event) => {
       event.stopPropagation();
+      
+      playSoundEffect('click1');
+      
       isDisplayingSelection = false;
       document.getElementById('ending-choices-container').innerHTML = '';
       // 選択された分岐ストーリーをセット

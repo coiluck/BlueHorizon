@@ -35,6 +35,7 @@ const pathUpgradeRequirements = {
 import { globalGameState } from './module/gameState.js';
 import { addTooltipEvents } from './module/addToolTip.js';
 import { explore } from './explore.js';
+import { playSoundEffect } from './module/audio.js';
 
 // <object>要素が読み込まれたら処理を開始
 document.getElementById('map-object').addEventListener('load', () => {
@@ -61,6 +62,8 @@ document.getElementById('map-object').addEventListener('load', () => {
     if (path) {
       // クリックイベントの設定
       path.addEventListener('click', () => {
+        playSoundEffect('dive');
+
         const playerLevel = globalGameState.gameState.CelestiaUpgrade.engine + globalGameState.gameState.CelestiaUpgrade.fuel;
         const requiredLevel = pathUpgradeRequirements[pathId];
         if (playerLevel >= requiredLevel) {

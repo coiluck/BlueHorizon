@@ -69,6 +69,8 @@ function updateStory() {
   }
 }
 
+import { playSoundEffect } from './module/audio.js';
+
 function displayChoices(choiceId) {
   isDisplayingSelection = true;
 
@@ -87,6 +89,8 @@ function displayChoices(choiceId) {
     button.classList.add('opening-choice-button');
     button.textContent = choice.buttonText;
     button.addEventListener('click', (event) => {
+      playSoundEffect('click1');
+
       event.stopPropagation();
       isDisplayingSelection = false;
       document.getElementById('opening-choices-container').innerHTML = '';

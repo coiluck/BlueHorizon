@@ -16,9 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.top-save-data-button').forEach((button, index) => {
     const slotNumber = index + 1; // スロット番号は1から始める
     button.addEventListener('click', () => {
+      playSoundEffect('start');
       // 対応する番号のデータをロード
       if (loadGame(slotNumber)) {
-        changeModal('game');
+        changeModal('game', undefined, 1500);
         initGame();
       }
     });
@@ -41,6 +42,7 @@ window.addEventListener('resize', () => {
 import { changeModal } from './module/changeModal.js';
 
 document.getElementById('top-icon-achievement').addEventListener('click', () => {
+  playSoundEffect('click1');
   if (window.innerWidth < 768) {
     deleteMessage();
     message('error', 'このゲームはPCのみでプレイできます', 'infinity');
@@ -50,6 +52,7 @@ document.getElementById('top-icon-achievement').addEventListener('click', () => 
 });
 
 document.getElementById('top-icon-setting').addEventListener('click', () => {
+  playSoundEffect('click1');
   if (window.innerWidth < 768) {
     deleteMessage();
     message('error', 'このゲームはPCのみでプレイできます', 'infinity');
@@ -73,6 +76,7 @@ document.getElementById('top-button-start').addEventListener('click', () => {
 });
 
 document.getElementById('top-button-continue').addEventListener('click', () => {
+  playSoundEffect('click1');
   if (window.innerWidth < 768) {
     deleteMessage();
     message('error', 'このゲームはPCのみでプレイできます', 'infinity');
@@ -83,6 +87,7 @@ document.getElementById('top-button-continue').addEventListener('click', () => {
 });
 
 document.getElementById('top-back').addEventListener('click', () => {
+  playSoundEffect('click1');
   if (window.innerWidth < 768) {
     deleteMessage();
     message('error', 'このゲームはPCのみでプレイできます', 'infinity');
