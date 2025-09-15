@@ -72,17 +72,20 @@ export function loadSaveTitle(slotSelector) {
 }
 
 import { setGlobalGameState } from './gameState.js';
+import { playSoundEffect } from './audio.js';
 
 export function loadGame(slotNumber) {
   const key = `saveSlot_${slotNumber}`;
   const savedDataString = localStorage.getItem(key);
 
   if (savedDataString) {
+    playSoundEffect('start');
     const savedData = JSON.parse(savedDataString);
     setGlobalGameState(savedData.data);
     message('success', `データをロードしました。`, 3000);
     return true;
   } else {
+    playSoundEffect('disable');
     message('warning', 'セーブデータがありません。', 3000);
     return false;
   }

@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.top-save-data-button').forEach((button, index) => {
     const slotNumber = index + 1; // スロット番号は1から始める
     button.addEventListener('click', () => {
-      playSoundEffect('start');
       // 対応する番号のデータをロード
       if (loadGame(slotNumber)) {
         changeModal('game', undefined, 1500);
