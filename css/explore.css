@@ -118,3 +118,21 @@
 .explore-choice-button:hover::after {
   border: 1px solid rgba(0, 0, 0, 0.7);
 }
+
+/* 釣りが解禁されていない場合 */
+.explore-choice-button.disabled {
+  cursor: not-allowed;
+  background: rgba(186, 220, 238, 0.1);
+  color: #777;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  text-decoration: line-through solid 1px rgba(0, 0, 0, 0.5);
+}
+.explore-choice-button.disabled::after {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+/* ホバーエフェクトを無効化 */
+.explore-choice-button.disabled:hover,
+.explore-choice-button.disabled:hover::after {
+  background: rgba(186, 220, 238, 0.1);
+  border: 1px solid rgba(150, 150, 150, 0.7);
+}

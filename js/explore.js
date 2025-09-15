@@ -499,6 +499,7 @@ async function getItemsData() {
 let currentExploreListener = null;
 
 import { addAchievement } from './module/Addachieve.js';
+import { addTooltipEvents } from './module/addToolTip.js';
 
 export async function explore(path) {
   // 実績用の探索場所カウント
@@ -543,7 +544,7 @@ export async function explore(path) {
   let memoryPieceId = null;
   let isExiting = false;
 
-  // 現在のストーリーと選択肢を表示する関数
+// 現在のストーリーと選択肢を表示する関数
   const displayStep = () => {
     const currentStep = placeData.story[exploreIndex];
     storyContainer.textContent = currentStep.text;
@@ -556,17 +557,25 @@ export async function explore(path) {
         button.classList.add('explore-choice-button');
         button.classList.add('blur');
         button.textContent = choice.text;
-        button.addEventListener('click', (event) => {
-          // 親要素のモーダルクリックイベントを発火させないようにする
-          event.stopPropagation();
-          if (choice.action === 'nomal') {
-            exploreIndex++;
-            displayStep(); // 通常ストーリーを次に進める
-          } else if (choice.action === 'fishing') {
-            isFishing = true;
-            displayFishingStep(); // 釣りストーリーを開始
-          }
-        });
+
+        // fishingで、かつ釣具を所持していない場合
+        if (choice.action === 'fishing' && globalGameState.gameState.items.fishing_gear <= 0) {
+          button.classList.add('disabled');
+          addTooltipEvents(button, null, '釣具を所持することで解禁されます。', true);
+        } else {
+          // それ以外（nomal、または釣り具を所持）
+          button.addEventListener('click', (event) => {
+            // 親要素のモーダルクリックイベントを発火させないようにする
+            event.stopPropagation();
+            if (choice.action === 'nomal') {
+              exploreIndex++;
+              displayStep(); // 通常ストーリーを次に進める
+            } else if (choice.action === 'fishing') {
+              isFishing = true;
+              displayFishingStep(); // 釣りストーリーを開始
+            }
+          });
+        }
         choiceContainer.appendChild(button);
       });
     }
