@@ -890,8 +890,9 @@ export function updateDay(path = null) {
       return true;
     }
   } else {
-    // 汐凪の街の場合は空腹が回復
+    // 汐凪の街の場合は空腹と希望が回復
     globalGameState.gameState.hunger = 100;
+    globalGameState.gameState.hope = 100;
   }
   // 実績用のフラグを更新
   if (globalGameState.gameState.hope <= 80) {
