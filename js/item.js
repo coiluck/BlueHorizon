@@ -292,6 +292,7 @@ async function craftExecute(event) {
 async function eatItem(item) {
   // アイテムの所持数をチェック
   if ((globalGameState.gameState.items[item.id] || 0) <= 0) {
+    playSoundEffect('disable');
     message('caution', `${item.name}を持っていません。`, 3000);
     return;
   }
