@@ -133,6 +133,27 @@
             background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 119, 182, 0.75), rgba(0, 0, 0, 0));
             margin: 40px 0;
         }
+
+        /* Added Styles for Table of Contents */
+        #location-toc-container {
+            background-color: rgba(255, 255, 255, 0.4);
+            border: 1px solid #ade8f4;
+            border-radius: 5px;
+            padding: 5px 25px 15px;
+            margin-bottom: 30px;
+        }
+
+        #location-toc {
+            list-style-type: none;
+            padding-left: 0;
+            columns: 2;
+            -webkit-columns: 2;
+            -moz-columns: 2;
+        }
+
+        #location-toc li {
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 <body>
@@ -179,11 +200,18 @@
         <li>全部で10種類あり、手に入れると専用のストーリーが解放される。</li>
         <li>既に手に入れた記憶の欠片は再び手に入れることが出来ない。</li>
         <li>探索場所ごとにドロップする記憶の欠片の種類と獲得率が設定されている。</li>
+        <li>汐凪の町、それ以外のセレスティア号のエンジン + 燃料の合計レベルがLv2までで探索できる場所、Lv3までで探索できる場所、Lv4までで探索できる場所で獲得可能な記憶の欠片が異なる。</li>
     </ul>
 
     <hr>
 
     <h2>探索場所とドロップ率</h2>
+
+    <div id="location-toc-container">
+        <h4>場所一覧</h4>
+        <ul id="location-toc"></ul>
+    </div>
+
     <div id="explore-data-container"></div>
 
 </div>
@@ -427,8 +455,6 @@ const explorePlacesData = {
       base: 1, // 最低保証
       rate: 3, // 20%の確率で増加するのをこの回数分繰り返す
     },
-    memoryPiece: [5], // 記憶の欠片のID
-    memoryPieceRate: 0.5, // 記憶の欠片の出現確率
   },
   path11: {
     name: '青の諸島',
@@ -529,6 +555,7 @@ const itemData = [
 
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('explore-data-container');
+    const tocContainer = document.getElementById('location-toc'); // Get TOC list
     const itemNameMap = itemData.reduce((map, item) => {
         map[item.id] = item.name;
         return map;
@@ -538,8 +565,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (key === 'path2') continue; // Skip the invisible path
         
         const place = explorePlacesData[key];
+        
+        // --- Create and append TOC entry ---
+        const tocLi = document.createElement('li');
+        const tocLink = document.createElement('a');
+        tocLink.href = '#' + key; // Link to the section's future ID
+        tocLink.textContent = place.name;
+        tocLi.appendChild(tocLink);
+        tocContainer.appendChild(tocLi);
+
+        // --- Create the location section ---
         const section = document.createElement('div');
         section.className = 'location-section';
+        section.id = key; // Add an ID for the anchor link to target
         
         // --- Basic Info ---
         let contentHTML = `<h3>${place.name}</h3>`;
