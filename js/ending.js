@@ -5,18 +5,21 @@ const EndingData = {
     requirements: [
       '記憶の欠片を10個すべて集める',
       '希望が70以上',
-      'セレスティア号の性能が最大'
+      'セレスティア号の性能が最大',
+      '浄水装置を1つ以上所持'
     ],
-    scenario: 1
+    scenario: 1,
+    firstImage: './assets/images/horizon2.webp'
   },
   lastingDays: {
     name: '続く日常',
     requirements: [
-      '記憶の欠片を5個以上集める',
+      '記憶の欠片を7個以上集める',
       '希望が50以上',
       '浄水装置を1つ以上所持'
     ],
-    scenario: 2
+    scenario: 2,
+    firstImage: './assets/images/city.avif'
   },
   hometown: {
     name: '故郷への帰還',
@@ -30,7 +33,8 @@ const EndingData = {
       '浄水装置を所持していない',
       '記憶の欠片を7個以上集める'
     ],
-    scenario: 4
+    scenario: 4,
+    firstImage: './assets/images/undersea.avif'
   },
   blueDespair: {
     name: '蒼い絶望',
@@ -65,10 +69,11 @@ export function checkEndingType() {
     globalGameState.gameState.CelestiaUpgrade.sonar >= 2 &&
     globalGameState.gameState.CelestiaUpgrade.arm >= 2 &&
     globalGameState.gameState.CelestiaUpgrade.fuel >= 2 &&
-    globalGameState.gameState.CelestiaUpgrade.living >= 2) {
+    globalGameState.gameState.CelestiaUpgrade.living >= 2 &&
+    globalGameState.gameState.items['water_purifier'] >= 1) {
     // 真実への道標
     EndingType = 'loadToTruth';
-  } else if (globalGameState.gameState.memoryPieceArray.length >= 5 &&
+  } else if (globalGameState.gameState.memoryPieceArray.length >= 7 &&
     globalGameState.gameState.hope >= 50 &&
     globalGameState.gameState.items['water_purifier'] >= 1) {
     // 続く日常
