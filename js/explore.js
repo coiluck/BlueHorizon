@@ -899,8 +899,16 @@ export function updateDay(path = null) {
   }
   if (path !== 'path10') {
     // 汐凪の街以外なら減る
+    const beforeHunger = globalGameState.gameState.hunger; 
     globalGameState.gameState.hunger -= 10;
-    globalGameState.gameState.hope -= (100 - globalGameState.gameState.hunger) / (2 + globalGameState.gameState.CelestiaUpgrade.living);
+    // 希望
+    if (beforeHunger === 100) {
+      globalGameState.gameState.hope += 10;
+    } else {
+      const updatedHunger = globalGameState.gameState.hunger;
+      const livingLevel = globalGameState.gameState.CelestiaUpgrade.living;
+      globalGameState.gameState.hope -= (100 - updatedHunger) / (2 + livingLevel);
+    }
     if (globalGameState.gameState.hunger <= 0) {
       console.log('hungerが0を下回ったため、ゲームを終了します');
       checkEndingType();
@@ -912,9 +920,9 @@ export function updateDay(path = null) {
       return true;
     }
   } else {
-    // 汐凪の街の場合は空腹と希望が回復
+    // 汐凪の街の場合は空腹~~と希望~~が回復
     globalGameState.gameState.hunger = 100;
-    globalGameState.gameState.hope = 100;
+    // globalGameState.gameState.hope = 100;
   }
   // 実績用のフラグを更新
   if (globalGameState.gameState.hope <= 80) {
