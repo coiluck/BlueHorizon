@@ -130,27 +130,27 @@ function setUpAchievement() {
 export const endingList = [
   {
     id: 1,
-    title: "浮島へ",
-    description: "説明です",
-    image: "./assets/images/title_watercolor.avif",
+    title: "真実への道標",
+    description: "世界の真実を解き明かした",
+    image: "./assets/images/light.avif",
   },
   {
     id: 2,
-    title: "浮島へ",
-    description: "説明です",
-    image: "./assets/images/title_watercolor.avif",
+    title: "続く日常",
+    description: "世界の真実に迫った",
+    image: "./assets/images/city.avif",
   },
   {
     id: 3,
-    title: "浮島へ",
-    description: "説明です",
+    title: "故郷への帰還",
+    description: "浄水装置を持って帰り、街を救った",
     image: "./assets/images/title_watercolor.avif",
   },
   {
     id: 4,
-    title: "浮島へ",
-    description: "説明です",
-    image: "./assets/images/title_watercolor.avif",
+    title: "飽くなき探求心",
+    description: "街よりも大事なものを見つけた",
+    image: "./assets/images/seabed.avif",
   },
   {
     id: 5,
