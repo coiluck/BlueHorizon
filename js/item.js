@@ -223,7 +223,7 @@ window.changeValue = async function changeValue(button, change) {
 }
 
 let isProcessing = false;
-import { checkCraftAchievement } from './module/Addachieve.js';
+import { checkCraftAchievement } from './module/addAchieve.js';
 import { playSoundEffect } from './module/audio.js';
 
 // クラフトボタンを押したら

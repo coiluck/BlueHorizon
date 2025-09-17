@@ -1,6 +1,6 @@
 // scenario.js
 import { changeBackgroundImage, changeCharacterImage } from './scenarioAction.js';
-import { addAchievement } from './Addachieve.js';
+import { addAchievement } from './addAchieve.js';
 import { bgm, playSoundEffect } from './audio.js';
 
 export const openingScenario = [

@@ -520,7 +520,7 @@ async function getItemsData() {
 // イベントリスナーを管理するための変数
 let currentExploreListener = null;
 
-import { addAchievement } from './module/Addachieve.js';
+import { addAchievement } from './module/addAchieve.js';
 import { addTooltipEvents } from './module/addToolTip.js';
 
 export async function explore(path) {

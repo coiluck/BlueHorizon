@@ -223,7 +223,7 @@ async function setUpUpgradeDetail(upgradeType) {
 }
 
 import { message } from './module/message.js';
-import { checkUpgradeAchievement } from './module/Addachieve.js';
+import { checkUpgradeAchievement } from './module/addAchieve.js';
 import { playSoundEffect } from './module/audio.js';
 
 // アップグレード処理

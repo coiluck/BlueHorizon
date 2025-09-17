@@ -53,7 +53,7 @@ const EndingData = {
 };
 
 import { globalGameState } from './module/gameState.js';
-import { checkEndingAchievement } from './module/Addachieve.js';
+import { checkEndingAchievement } from './module/addAchieve.js';
 
 export function checkEndingType() {
   let EndingType = null;

@@ -137,7 +137,7 @@ const memoryPiecesData = {
 };
 
 import { globalGameState } from './gameState.js';
-import { checkMemoryPieceAchievement } from './Addachieve.js';
+import { checkMemoryPieceAchievement } from './addAchieve.js';
 
 export function getMemoryPieces(array, rate) {
   if (Math.random() < rate) {
