@@ -566,7 +566,7 @@ export async function explore(path) {
   let memoryPieceId = null;
   let isExiting = false;
 
-// 現在のストーリーと選択肢を表示する関数
+  // 現在のストーリーと選択肢を表示する関数
   const displayStep = () => {
     const currentStep = placeData.story[exploreIndex];
     storyContainer.textContent = currentStep.text;
@@ -704,7 +704,7 @@ export async function explore(path) {
           return;
         }
         // 記憶の欠片がない場合
-        const isGameOver = updateDay();
+        const isGameOver = updateDay(path);
         if (isGameOver) {
           return; // ゲームオーバー
         }
@@ -898,13 +898,19 @@ export function updateDay(path = null) {
     return true;
   }
   if (path !== 'path10') {
+    console.log('汐凪の街以外');
     // 汐凪の街以外なら減る
     const beforeHunger = globalGameState.gameState.hunger; 
     globalGameState.gameState.hunger -= 10;
     // 希望
     if (beforeHunger === 100) {
+      console.log('Hungerが100なので、希望を10回復');
       globalGameState.gameState.hope += 10;
+      if (globalGameState.gameState.hope > 100) {
+        globalGameState.gameState.hope = 100;
+      }
     } else {
+      console.log('Hungerが100ではないので、希望を減らす');
       const updatedHunger = globalGameState.gameState.hunger;
       const livingLevel = globalGameState.gameState.CelestiaUpgrade.living;
       globalGameState.gameState.hope -= (100 - updatedHunger) / (2 + livingLevel);
@@ -921,7 +927,16 @@ export function updateDay(path = null) {
     }
   } else {
     // 汐凪の街の場合は空腹~~と希望~~が回復
+    console.log('汐凪の街の場合は空腹~~と希望~~が回復');
+    const beforeHunger = globalGameState.gameState.hunger; 
     globalGameState.gameState.hunger = 100;
+    if (beforeHunger === 100) {
+      console.log('Hungerが100なので、希望を10回復');
+      globalGameState.gameState.hope += 10;
+      if (globalGameState.gameState.hope > 100) {
+        globalGameState.gameState.hope = 100;
+      }
+    }
     // globalGameState.gameState.hope = 100;
   }
   // 実績用のフラグを更新

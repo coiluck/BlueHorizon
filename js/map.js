@@ -62,18 +62,17 @@ document.getElementById('map-object').addEventListener('load', () => {
     if (path) {
       // クリックイベントの設定
       path.addEventListener('click', () => {
-        playSoundEffect('dive');
 
         const playerLevel = globalGameState.gameState.CelestiaUpgrade.engine + globalGameState.gameState.CelestiaUpgrade.fuel;
         const requiredLevel = pathUpgradeRequirements[pathId];
         if (playerLevel >= requiredLevel) {
-          // 解禁されている場合：コンソールにログを出す
+          // 解禁されている場合
+          playSoundEffect('dive');
           console.log(`Clicked on path: ${pathId} (${locationNames[pathId]})`);
           // 背景を設定してmodalを表示
           explore(pathId);
         } else {
-          // ロックされている場合
-          // この場所へ行くには、移動機械のアップグレードが必要です。(要求レベル: ${requiredLevel})`);
+          playSoundEffect('disable');
         }
       });
 

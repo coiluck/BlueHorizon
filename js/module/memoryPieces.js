@@ -199,7 +199,7 @@ function updateText(id) {
       currentMemoryPieceListener = null; // 後処理として変数をクリア
     }
     initGame();
-    if (id === 5) {
+    if (id === 1) {
       updateDay('path10');
     } else {
       updateDay();

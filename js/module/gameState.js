@@ -14,7 +14,7 @@ const initialState = {
     hunger: 100,
     day: 1,
     CelestiaUpgrade: {
-      engine: 2,
+      engine: 0,
       sonar: 0,
       arm: 0,
       fuel: 0,
