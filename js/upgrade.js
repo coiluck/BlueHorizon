@@ -13,7 +13,7 @@ const upgradeCost = {
   engine: {
     1: [
       { "itemId": "scrap_iron", "quantity": 3 },
-      { "itemId": "copper_wire_cable", "quantity": 2 }
+      { "itemId": "wood", "quantity": 1 }
     ],
     2: [
       { "itemId": "titanium_alloy_plate", "quantity": 3 },
