@@ -827,7 +827,7 @@ function getItems(placeData) {
   }
   // armのアップグレードボーナス
   if (globalGameState.gameState.CelestiaUpgrade.arm > 0) {
-    const BonusProbability = 15 + (globalGameState.gameState.CelestiaUpgrade.arm - 1) * 15; // 15%か30%
+    const BonusProbability = 30 + (globalGameState.gameState.CelestiaUpgrade.arm - 1) * 20; // 30%か50%
     if (Math.random() * 100 < BonusProbability) {
       isBonusActivated = true;
       const originalItems = [...itemsList];
@@ -873,7 +873,7 @@ async function getItemsInFishing(placeData) {
   }
   // sonarのアップグレードボーナス
   if (globalGameState.gameState.CelestiaUpgrade.sonar > 0) {
-    const BonusProbability = 20 + (globalGameState.gameState.CelestiaUpgrade.sonar - 1) * 30; // 20%か50%
+    const BonusProbability = 50 + (globalGameState.gameState.CelestiaUpgrade.sonar - 1) * 20; // 50%か70%
     if (Math.random() * 100 < BonusProbability) {
       isBonusActivated = true;
       const originalItems = [...itemsList];
