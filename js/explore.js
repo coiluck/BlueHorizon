@@ -45,8 +45,8 @@ const explorePlacesData = {
       base: 5,
       rate: 5,
     },
-    memoryPiece: [8, 9, 10],
-    memoryPieceRate: 0.6,
+    memoryPiece: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    memoryPieceRate: 1,
   },
   path2: {
     name: 'これは見えないはず', // これはデータこれ以上書かない
@@ -91,7 +91,7 @@ const explorePlacesData = {
       rate: 3,
     },
     memoryPiece: [6, 7],
-    memoryPieceRate: 0.6,
+    memoryPieceRate: 0.8,
   },
   path4: {
     name: '静寂の浅瀬',
@@ -139,7 +139,7 @@ const explorePlacesData = {
       rate: 3,
     },
     memoryPiece: [2, 3, 4, 5],
-    memoryPieceRate: 0.7,
+    memoryPieceRate: 0.8,
   },
   path5: {
     name: '霧の湿地帯',
@@ -183,7 +183,7 @@ const explorePlacesData = {
       rate: 4,
     },
     memoryPiece: [2, 3, 4, 5],
-    memoryPieceRate: 0.7,
+    memoryPieceRate: 0.8,
   },
   path6: {
     name: '忘れられた遺跡',
@@ -227,7 +227,7 @@ const explorePlacesData = {
       rate: 5,
     },
     memoryPiece: [8, 9, 10],
-    memoryPieceRate: 0.6,
+    memoryPieceRate: 0.8,
   },
   path7: {
     name: '大陸周辺部',
@@ -252,7 +252,7 @@ const explorePlacesData = {
       rate: 3,
     },
     memoryPiece: [6, 7],
-    memoryPieceRate: 0.6,
+    memoryPieceRate: 0.8,
   },
   path8: {
     name: '海の孤島',
@@ -293,7 +293,7 @@ const explorePlacesData = {
       rate: 3,
     },
     memoryPiece: [2, 3, 4, 5],
-    memoryPieceRate: 0.7,
+    memoryPieceRate: 0.8,
   },
   path9: {
     name: '遥かなる大洋',
@@ -333,7 +333,7 @@ const explorePlacesData = {
       rate: 3,
     },
     memoryPiece: [6, 7],
-    memoryPieceRate: 0.6,
+    memoryPieceRate: 0.8,
   },
   path10: {
     name: '「汐凪の街」周辺',
@@ -384,7 +384,7 @@ const explorePlacesData = {
       rate: 4, // 20%の確率で増加するのをこの回数分繰り返す
     },
     memoryPiece: [1], // 記憶の欠片のID
-    memoryPieceRate: 0.5, // 記憶の欠片の出現確率
+    memoryPieceRate: 0.8, // 記憶の欠片の出現確率
   },
   path11: {
     name: '青の諸島',
@@ -422,7 +422,7 @@ const explorePlacesData = {
       rate: 5,
     },
     memoryPiece: [8, 9, 10],
-    memoryPieceRate: 0.6,
+    memoryPieceRate: 0.8,
   },
   path12: {
     name: '「天を突く山」周辺',
@@ -449,7 +449,7 @@ const explorePlacesData = {
       rate: 4,
     },
     memoryPiece: [2, 3, 4, 5],
-    memoryPieceRate: 0.7,
+    memoryPieceRate: 0.8,
   },
   path13: {
     name: '水晶の洞窟',
@@ -492,7 +492,7 @@ const explorePlacesData = {
       rate: 4,
     },
     memoryPiece: [2, 3, 4, 5],
-    memoryPieceRate: 0.7,
+    memoryPieceRate: 0.8,
   }
 }
 
