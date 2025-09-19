@@ -199,10 +199,41 @@
     <ul>
         <li>全部で10種類あり、手に入れると専用のストーリーが解放される。</li>
         <li>既に手に入れた記憶の欠片は再び手に入れることが出来ない。</li>
+        <li>どの記憶の欠片を手に入れたかはゲーム中には確認できない。</li>
         <li>探索場所ごとにドロップする記憶の欠片の種類と獲得率が設定されている。</li>
-        <li>汐凪の町、それ以外のセレスティア号のエンジン + 燃料の合計レベルがLv2までで探索できる場所、Lv3までで探索できる場所、Lv4までで探索できる場所で獲得可能な記憶の欠片が異なる。</li>
+        <li>汐凪の町、それ以外のセレスティア号のエンジン + 燃料の合計レベルがLv2までで探索できる場所、Lv3以上で探索できる場所で獲得可能な記憶の欠片が異なる。</li>
     </ul>
-
+    <table>
+        <thead>
+            <tr>
+                <th>探索場所</th>
+                <th>入手できる記憶の欠片のid</th>
+                <th>ドロップ率</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>汐凪の町</td>
+                <td>1</td>
+                <td>80%</td>
+            </tr>
+            <tr>
+                <td>Lv2までで探索できる場所</td>
+                <td>2, 3, 4, 5</td>
+                <td>80%</td>
+            </tr>
+            <tr>
+                <td>Lv3以上で探索できる場所</td>
+                <td>6, 7, 8, 9, 10</td>
+                <td>80%</td>
+            </tr>
+            <tr>
+                <td>最果ての島</td>
+                <td>すべて</td>
+                <td>100%</td>
+            </tr>
+        </tbody>
+    </table>
     <hr>
 
     <h2>探索場所とドロップ率</h2>
@@ -366,10 +397,10 @@ const explorePlacesData = {
     name: '大陸周辺部',
     fishable: false,
     itemsWeight: { // 32
-      scrap_iron: 7,
+      scrap_iron: 10,
       wood: 2,
       fiber_rope: 3,
-      copper_wire_cable: 7,
+      copper_wire_cable: 4,
       titanium_alloy_plate: 7,
       activated_carbon: 2,
       circuit_board: 4,
@@ -483,10 +514,10 @@ const explorePlacesData = {
     name: '「天を突く山」周辺',
     fishable: false,
     itemsWeight: { // 32
-      scrap_iron: 7,
+      scrap_iron: 10,
       wood: 5,
       fiber_rope: 2,
-      copper_wire_cable: 7,
+      copper_wire_cable: 4,
       titanium_alloy_plate: 7,
       activated_carbon: 2,
       circuit_board: 2,

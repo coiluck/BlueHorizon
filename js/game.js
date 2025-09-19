@@ -155,6 +155,7 @@ document.getElementById('game-upgrade-close-button').addEventListener('click', (
 });
 document.getElementById('game-map-close-button').addEventListener('click', () => {
   playSoundEffect('click1');
+  initGame();
   changeModal('game');
 });
 document.getElementById('game-item-close-button').addEventListener('click', () => {

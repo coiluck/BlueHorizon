@@ -90,7 +90,7 @@ const explorePlacesData = {
       base: 4,
       rate: 3,
     },
-    memoryPiece: [6, 7],
+    memoryPiece: [6, 7, 8, 9, 10],
     memoryPieceRate: 0.8,
   },
   path4: {
@@ -226,7 +226,7 @@ const explorePlacesData = {
       base: 4,
       rate: 5,
     },
-    memoryPiece: [8, 9, 10],
+    memoryPiece: [6, 7, 8, 9, 10],
     memoryPieceRate: 0.8,
   },
   path7: {
@@ -239,10 +239,10 @@ const explorePlacesData = {
       { text: '道端に積もった土砂の隙間に、何かが見える。' },
     ],      
     itemsWeight: { // 32
-      scrap_iron: 7,
+      scrap_iron: 10,
       wood: 2,
       fiber_rope: 3,
-      copper_wire_cable: 7,
+      copper_wire_cable: 4,
       titanium_alloy_plate: 7,
       activated_carbon: 2,
       circuit_board: 4,
@@ -251,7 +251,7 @@ const explorePlacesData = {
       base: 4,
       rate: 3,
     },
-    memoryPiece: [6, 7],
+    memoryPiece: [6, 7, 8, 9, 10],
     memoryPieceRate: 0.8,
   },
   path8: {
@@ -332,7 +332,7 @@ const explorePlacesData = {
       base: 4,
       rate: 3,
     },
-    memoryPiece: [6, 7],
+    memoryPiece: [6, 7, 8, 9, 10],
     memoryPieceRate: 0.8,
   },
   path10: {
@@ -421,7 +421,7 @@ const explorePlacesData = {
       base: 4,
       rate: 5,
     },
-    memoryPiece: [8, 9, 10],
+    memoryPiece: [6, 7, 8, 9, 10],
     memoryPieceRate: 0.8,
   },
   path12: {
@@ -436,10 +436,10 @@ const explorePlacesData = {
       { text: 'しばらく歩くと、横の山肌から何かが見えた。' },
     ],
     itemsWeight: { // 32
-      scrap_iron: 7,
+      scrap_iron: 10,
       wood: 5,
       fiber_rope: 2,
-      copper_wire_cable: 7,
+      copper_wire_cable: 4,
       titanium_alloy_plate: 7,
       activated_carbon: 2,
       circuit_board: 2,

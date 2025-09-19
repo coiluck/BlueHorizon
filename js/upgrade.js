@@ -15,9 +15,8 @@ const upgradeCost = {
       { "itemId": "wood", "quantity": 1 }
     ],
     2: [
-      { "itemId": "titanium_alloy_plate", "quantity": 2 },
-      { "itemId": "control_board", "quantity": 1 },
-      { "itemId": "pipe_parts", "quantity": 2 }
+      { "itemId": "emergency_repair_kit", "quantity": 1 },
+      { "itemId": "pipe_parts", "quantity": 1 }
     ]
   },
   sonar: {
@@ -34,7 +33,8 @@ const upgradeCost = {
   },
   arm: {
     1: [
-      { "itemId": "scrap_iron", "quantity": 3 },
+      { "itemId": "scrap_iron", "quantity": 2 },
+      { "itemId": "wood", "quantity": 1 },
       { "itemId": "fiber_rope", "quantity": 2 }
     ],
     2: [
@@ -110,6 +110,8 @@ export async function initUpgrade() {
 
   // 右パネルをリセット
   setUpUpgradeDetail('engine');
+  document.querySelectorAll('.game-upgrade-list-item').forEach(i => i.classList.remove('selected'));
+  document.querySelector(`.game-upgrade-list-item[data-upgrade="engine"]`).classList.add('selected');
 
   // 所持アイテムを取得
   const itemsData = await getItemsData();

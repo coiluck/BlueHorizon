@@ -198,12 +198,15 @@ function updateText(id) {
       document.getElementById('modal-memory-piece').removeEventListener('click', currentMemoryPieceListener);
       currentMemoryPieceListener = null; // 後処理として変数をクリア
     }
-    initGame();
+    let isGameOver;
     if (id === 1) {
-      updateDay('path10');
+      isGameOver = updateDay('path10');
     } else {
-      updateDay();
+      isGameOver = updateDay();
     }
-    changeModal('game');
+    if (!isGameOver) { // falseの場合はゲームオーバーではない
+      initGame();
+      changeModal('game');
+    }
   }
 }
