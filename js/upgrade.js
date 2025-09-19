@@ -3,7 +3,6 @@ import { globalGameState } from './module/gameState.js';
 const upgradeText = {
   engine: "推進システムの効率を改善し、より長距離の移動が可能になります。マップから選択できる探索先が広がります。",
   sonar: "パッシブソナーを強化し、より遠くの信号を探知できるようになります。釣りの時に20%・50%の確率で魚とイカの獲得量が2倍になります。",
-  // body: "潜水艇の外殻を強化し、水圧や障害物からの保護性能を最大限まで向上させています。", <- なくした（移動モジュール以外の判定が面倒なので）
   arm: "操作アームを強化し、より大きな荷物を運ぶことができます。通常の探索の時に15%・30%の確率で資源の獲得量が2倍になります。",
   fuel: "燃料タンクを強化し、より多くの燃料の搭載が可能になります。マップから選択できる探索先が広がります。",
   living: "居住区画を強化し、より快適な生活環境を提供します。「希望」のパラメータの低下を抑えることができます。",
@@ -12,62 +11,53 @@ const upgradeText = {
 const upgradeCost = {
   engine: {
     1: [
-      { "itemId": "scrap_iron", "quantity": 3 },
+      { "itemId": "scrap_iron", "quantity": 2 },
       { "itemId": "wood", "quantity": 1 }
     ],
     2: [
-      { "itemId": "titanium_alloy_plate", "quantity": 3 },
+      { "itemId": "titanium_alloy_plate", "quantity": 2 },
       { "itemId": "control_board", "quantity": 1 },
       { "itemId": "pipe_parts", "quantity": 2 }
     ]
   },
   sonar: {
     1: [
-      { "itemId": "circuit_board", "quantity": 2 },
-      { "itemId": "copper_wire_cable", "quantity": 4 },
-      { "itemId": "scrap_iron", "quantity": 3 }
+      { "itemId": "circuit_board", "quantity": 1 },
+      { "itemId": "copper_wire_cable", "quantity": 2 },
+      { "itemId": "scrap_iron", "quantity": 2 }
     ],
     2: [
       { "itemId": "decryption_tool", "quantity": 1 },
-      { "itemId": "crystal_ore", "quantity": 2 },
-      { "itemId": "control_board", "quantity": 2 }
+      { "itemId": "crystal_ore", "quantity": 1 },
+      { "itemId": "control_board", "quantity": 1 }
     ]
   },
-  /*body: {
-    1: [
-      { "itemId": "scrap_iron", "quantity": 8 },
-      { "itemId": "fiber_rope", "quantity": 4 }
-    ],
-    2: [
-      { "itemId": "titanium_alloy_plate", "quantity": 5 },
-      { "itemId": "emergency_repair_kit", "quantity": 1 }
-    ]
-  },*/
   arm: {
     1: [
-      { "itemId": "scrap_iron", "quantity": 4 },
+      { "itemId": "scrap_iron", "quantity": 3 },
       { "itemId": "fiber_rope", "quantity": 2 }
     ],
     2: [
-      { "itemId": "titanium_alloy_plate", "quantity": 3 },
+      { "itemId": "titanium_alloy_plate", "quantity": 2 },
       { "itemId": "cutting_tool", "quantity": 1 },
       { "itemId": "control_board", "quantity": 1 }
     ]
   },
   fuel: {
     1: [
-      { "itemId": "titanium_alloy_plate", "quantity": 2 },
+      { "itemId": "titanium_alloy_plate", "quantity": 1 },
+      { "itemId": "activated_carbon", "quantity": 1 },
       { "itemId": "scrap_iron", "quantity": 2 }
     ],
     2: [
-      { "itemId": "titanium_alloy_plate", "quantity": 4 },
+      { "itemId": "titanium_alloy_plate", "quantity": 2 },
       { "itemId": "pipe_parts", "quantity": 2 }
     ]
   },
   living: {
     1: [
       { "itemId": "paper_and_pen", "quantity": 1 },
-      { "itemId": "wood", "quantity": 5 }
+      { "itemId": "wood", "quantity": 4 }
     ],
     2: [
       { "itemId": "simple_communicator", "quantity": 1 },
