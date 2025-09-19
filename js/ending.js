@@ -4,8 +4,7 @@ const EndingData = {
     name: '真実への道標',
     requirements: [
       '記憶の欠片を10個すべて集める',
-      '希望が70以上',
-      'セレスティア号の性能が最大',
+      'セレスティア号の性能がすべて1以上',
       '浄水装置を1つ以上所持'
     ],
     scenario: 1,
@@ -64,12 +63,11 @@ export function checkEndingType() {
     // 青い絶望
     EndingType = 'blueDespair';
   } else if (globalGameState.gameState.memoryPieceArray.length >= 10 &&
-    globalGameState.gameState.hope >= 70 &&
-    globalGameState.gameState.CelestiaUpgrade.engine >= 2 &&
-    globalGameState.gameState.CelestiaUpgrade.sonar >= 2 &&
-    globalGameState.gameState.CelestiaUpgrade.arm >= 2 &&
-    globalGameState.gameState.CelestiaUpgrade.fuel >= 2 &&
-    globalGameState.gameState.CelestiaUpgrade.living >= 2 &&
+    globalGameState.gameState.CelestiaUpgrade.engine >= 1 &&
+    globalGameState.gameState.CelestiaUpgrade.sonar >= 1 &&
+    globalGameState.gameState.CelestiaUpgrade.arm >= 1 &&
+    globalGameState.gameState.CelestiaUpgrade.fuel >= 1 &&
+    globalGameState.gameState.CelestiaUpgrade.living >= 1 &&
     globalGameState.gameState.items['water_purifier'] >= 1) {
     // 真実への道標
     EndingType = 'loadToTruth';

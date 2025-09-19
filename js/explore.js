@@ -42,8 +42,8 @@ const explorePlacesData = {
       squid: 4,
     },
     itemsRoll: {
-      base: 4,
-      rate: 4,
+      base: 5,
+      rate: 5,
     },
     memoryPiece: [8, 9, 10],
     memoryPieceRate: 0.6,
@@ -87,8 +87,8 @@ const explorePlacesData = {
       squid: 10,
     },
     itemsRoll: {
-      base: 3,
-      rate: 2,
+      base: 4,
+      rate: 3,
     },
     memoryPiece: [6, 7],
     memoryPieceRate: 0.6,
@@ -135,8 +135,8 @@ const explorePlacesData = {
       squid: 5,
     },
     itemsRoll: {
-      base: 2,
-      rate: 2,
+      base: 3,
+      rate: 3,
     },
     memoryPiece: [2, 3, 4, 5],
     memoryPieceRate: 0.7,
@@ -179,8 +179,8 @@ const explorePlacesData = {
       squid: 7,
     },
     itemsRoll: {
-      base: 2,
-      rate: 3,
+      base: 3,
+      rate: 4,
     },
     memoryPiece: [2, 3, 4, 5],
     memoryPieceRate: 0.7,
@@ -223,8 +223,8 @@ const explorePlacesData = {
       squid: 20,
     },
     itemsRoll: {
-      base: 3,
-      rate: 4,
+      base: 4,
+      rate: 5,
     },
     memoryPiece: [8, 9, 10],
     memoryPieceRate: 0.6,
@@ -248,8 +248,8 @@ const explorePlacesData = {
       circuit_board: 4,
     },
     itemsRoll: {
-      base: 3,
-      rate: 2,
+      base: 4,
+      rate: 3,
     },
     memoryPiece: [6, 7],
     memoryPieceRate: 0.6,
@@ -289,8 +289,8 @@ const explorePlacesData = {
       squid: 1,
     },
     itemsRoll: {
-      base: 2,
-      rate: 2,
+      base: 3,
+      rate: 3,
     },
     memoryPiece: [2, 3, 4, 5],
     memoryPieceRate: 0.7,
@@ -329,8 +329,8 @@ const explorePlacesData = {
       squid: 8,
     },
     itemsRoll: {
-      base: 3,
-      rate: 2,
+      base: 4,
+      rate: 3,
     },
     memoryPiece: [6, 7],
     memoryPieceRate: 0.6,
@@ -380,8 +380,8 @@ const explorePlacesData = {
       squid: 7,
     },
     itemsRoll: {
-      base: 1, // 最低保証
-      rate: 3, // 20%の確率で増加するのをこの回数分繰り返す
+      base: 2, // 最低保証
+      rate: 4, // 20%の確率で増加するのをこの回数分繰り返す
     },
     memoryPiece: [1], // 記憶の欠片のID
     memoryPieceRate: 0.5, // 記憶の欠片の出現確率
@@ -418,8 +418,8 @@ const explorePlacesData = {
       squid: 5,
     },
     itemsRoll: {
-      base: 3,
-      rate: 4,
+      base: 4,
+      rate: 5,
     },
     memoryPiece: [8, 9, 10],
     memoryPieceRate: 0.6,
@@ -438,15 +438,15 @@ const explorePlacesData = {
     itemsWeight: { // 32
       scrap_iron: 7,
       wood: 5,
-      fiber_rope: 3,
+      fiber_rope: 2,
       copper_wire_cable: 7,
       titanium_alloy_plate: 7,
       activated_carbon: 2,
-      circuit_board: 1,
+      circuit_board: 2,
     },
     itemsRoll: {
-      base: 2,
-      rate: 3,
+      base: 3,
+      rate: 4,
     },
     memoryPiece: [2, 3, 4, 5],
     memoryPieceRate: 0.7,
@@ -470,26 +470,26 @@ const explorePlacesData = {
     ],
     itemsWeight: { // 25
       scrap_iron: 4,
-      fiber_rope: 3,
+      fiber_rope: 2,
       copper_wire_cable: 2,
-      titanium_alloy_plate: 3,
-      crystal_ore: 12,
-      circuit_board: 1,
+      titanium_alloy_plate: 4,
+      crystal_ore: 10,
+      circuit_board: 4,
     },
     itemsWeightInFishing: {
       scrap_iron: 4,
       fiber_rope: 3,
       copper_wire_cable: 2,
       titanium_alloy_plate: 3,
-      crystal_ore: 12,
-      circuit_board: 1,
+      crystal_ore: 10,
+      circuit_board: 4,
       fish_1: 10,
       fish_2: 8,
-      squid: 7,
+      squid: 8,
     },
     itemsRoll: {
-      base: 2,
-      rate: 3,
+      base: 3,
+      rate: 4,
     },
     memoryPiece: [2, 3, 4, 5],
     memoryPieceRate: 0.7,
