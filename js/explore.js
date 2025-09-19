@@ -914,6 +914,8 @@ export function updateDay(path = null) {
       const updatedHunger = globalGameState.gameState.hunger;
       const livingLevel = globalGameState.gameState.CelestiaUpgrade.living;
       globalGameState.gameState.hope -= (100 - updatedHunger) / (2 + livingLevel);
+      // 整数にする
+      globalGameState.gameState.hope = Math.floor(globalGameState.gameState.hope);
     }
     if (globalGameState.gameState.hunger <= 0) {
       console.log('hungerが0を下回ったため、ゲームを終了します');
